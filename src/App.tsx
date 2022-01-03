@@ -1,11 +1,11 @@
 import React from 'react';
-import { Todolist, todoListPropsType } from "./components/Todolist";
+import {Todolist, todolistPropsType} from "./components/Todolist/Todolist";
 
-const dataTodolist: Array<todoListPropsType> = [
+const dataTodolist: Array<todolistPropsType> = [
    {
       id: 0,
       isDown: true,
-      label: "Html",
+      label: "Html-Css",
    },
 
    {
@@ -17,14 +17,15 @@ const dataTodolist: Array<todoListPropsType> = [
    {
       id: 2,
       isDown: false,
-      label: "Css",
+      label: "ReactJs",
    },
 ]
 
 const App = () => {
    return (
        <>
-          <Todolist data={dataTodolist}/>
+          <Todolist data={dataTodolist} title1={"Todolist-1"}/>
+          <Todolist data={dataTodolist} title2={"Todolist-2"}/>
        </>
    );
 }

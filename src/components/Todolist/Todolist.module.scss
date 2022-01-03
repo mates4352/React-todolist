@@ -1,0 +1,93 @@
+.todolist {
+   max-width: 450px;
+   margin: 0 auto;
+   padding: 24px;
+
+   text-align: center;
+
+   border-radius: 12px;
+   border: 1px solid tomato;
+
+   .title {
+      margin-bottom: 24px;
+      font-size: 48px;
+   }
+
+   .input_wrap {
+      --input_size: 40px;
+      position: relative;
+      margin-bottom: 16px;
+   }
+
+   .button {
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      width: var(--input_size);
+      height: var(--input_size);
+
+      font-size: 24px;
+      color: black;
+
+      background-color: antiquewhite;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+   }
+
+   .input {
+      width: 100%;
+      height: var(--input_size);
+      padding: 0 32px 0 12px;
+      border: 1px solid tomato;
+      border-radius: 4px;
+      outline: none;
+
+      &:focus {
+      }
+   }
+
+   .list {
+      display: grid;
+      row-gap: 12px;
+      margin-bottom: 24px;
+   }
+
+   .item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+
+      border: 1px solid tomato;
+      border-radius: 8px;
+   }
+
+   .sublist {
+      display: inline-grid;
+      grid-auto-flow: column;
+      column-gap: 8px;
+   }
+
+   .subitem {
+
+   }
+
+   .subitem_button {
+      padding: 6px 12px;
+
+
+      font-size: 12px;
+      color: black;
+
+      background-color: antiquewhite;
+      border: none;
+      cursor: pointer;
+   }
+}
+
+
+
+
+
