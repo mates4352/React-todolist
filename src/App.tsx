@@ -13,23 +13,22 @@ const App = () => {
 
    let [filter, setFilter] = useState<changeFilterType>("All");
 
-   function removeTask(id: number) {
-      let filterTasks = tasks.filter(item => item.id !== id)
-      setState(filterTasks)
-   }
-
-   function changeFilter(value: changeFilterType) {
-      setFilter(value)
+   const removeTask = (id: number) => {
+      setState(tasks.filter(item => item.id !== id))
    }
 
    let tasksForTodoList = tasks;
 
+   const changeFilter = (value: changeFilterType) => {
+      setFilter(value)
+   }
+
    if (filter === "Active") {
-      tasksForTodoList = tasks.filter(item => item.isDown === true);
+      tasksForTodoList = tasks.filter(item => item.isDown);
    }
 
    if (filter === "Completed") {
-      tasksForTodoList = tasks.filter(item => item.isDown === false);
+      tasksForTodoList = tasks.filter(item => !item.isDown);
    }
 
    return (

@@ -7,6 +7,7 @@
     <list default="true" id="1febea20-0532-4614-9f45-e3af03569712" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Todolist/Todolist.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Todolist/Todolist.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Todolist/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Todolist/Todolist.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,7 +85,8 @@
       <workItem from="1641402315292" duration="383000" />
       <workItem from="1641725265358" duration="576000" />
       <workItem from="1641755302477" duration="9000" />
-      <workItem from="1641773452398" duration="5328000" />
+      <workItem from="1641773452398" duration="5954000" />
+      <workItem from="1641827202964" duration="7129000" />
     </task>
     <servers />
   </component>

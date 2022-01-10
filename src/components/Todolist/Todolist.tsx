@@ -1,5 +1,7 @@
 import s from './Todolist.module.scss'
 
+export type changeFilterType = "All" | "Active" | "Completed";
+
 export type todolistPropsType = {
    id: number,
    label: string,
@@ -13,9 +15,6 @@ type dataPropsType = {
    removeTask: (id: number) => void,
    changeFilter: (value: changeFilterType) => void;
 }
-
-export type changeFilterType = "All" | "Active" | "Completed";
-
 
 export const Todolist = (props: dataPropsType) => {
    const title = props.title1 || props.title2 || "Todolist";
@@ -31,7 +30,7 @@ export const Todolist = (props: dataPropsType) => {
 
           <ul className={s.list}>
              {props.tasks.map((item) =>
-                 <li className={s.item}>
+                 <li className={s.item} key={item.id}>
                     <input type="checkbox" checked={item.isDown}/>
                     <label>{item.label}</label>
                     <button className={s.close} onClick={ () => { props.removeTask(item.id) } }>X</button>
