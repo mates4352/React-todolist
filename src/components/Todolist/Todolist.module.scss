@@ -64,6 +64,17 @@
       border-radius: 8px;
    }
 
+   .close {
+      width: 30px;
+      height: 30px;
+      padding: 3px;
+
+      background-color: antiquewhite;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+   }
+
    .sublist {
       display: inline-grid;
       grid-auto-flow: column;

@@ -10,6 +10,7 @@ type dataPropsType = {
    data: Array<todolistPropsType>,
    title1?: string,
    title2?: string,
+   removeTask: Function,
 }
 
 export const Todolist = (props: dataPropsType) => {
@@ -29,6 +30,7 @@ export const Todolist = (props: dataPropsType) => {
                  <li className={s.item}>
                     <input type="checkbox" checked={item.isDown}/>
                     <label>{item.label}</label>
+                    <button className={s.close} onClick={ () => { props.removeTask(item.id) } }>X</button>
                  </li>
              )}
           </ul>
