@@ -7,11 +7,15 @@ export type todolistPropsType = {
 }
 
 type dataPropsType = {
-   data: Array<todolistPropsType>,
+   tasks: Array<todolistPropsType>,
    title1?: string,
    title2?: string,
-   removeTask: Function,
+   removeTask: (id: number) => void,
+   changeFilter: (value: changeFilterType) => void;
 }
+
+export type changeFilterType = "All" | "Active" | "Completed";
+
 
 export const Todolist = (props: dataPropsType) => {
    const title = props.title1 || props.title2 || "Todolist";
@@ -26,7 +30,7 @@ export const Todolist = (props: dataPropsType) => {
           </div>
 
           <ul className={s.list}>
-             {props.data.map((item) =>
+             {props.tasks.map((item) =>
                  <li className={s.item}>
                     <input type="checkbox" checked={item.isDown}/>
                     <label>{item.label}</label>
@@ -37,15 +41,15 @@ export const Todolist = (props: dataPropsType) => {
 
           <ul className={s.sublist}>
              <li className={s.subitem}>
-                <button className={s.subitem_button} type={"button"}>All</button>
+                <button className={s.subitem_button} onClick={ () => {props.changeFilter("All")} }>All</button>
              </li>
 
              <li>
-                <button className={s.subitem_button} type={"button"}>Active</button>
+                <button className={s.subitem_button} onClick={ () => {props.changeFilter("Active")} }>Active</button>
              </li>
 
              <li>
-                <button className={s.subitem_button} type={"button"}>Completed</button>
+                <button className={s.subitem_button} onClick={ () => {props.changeFilter("Completed")} }>Completed</button>
              </li>
           </ul>
        </div>
