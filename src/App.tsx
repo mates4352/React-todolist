@@ -36,12 +36,18 @@ const App = () => {
    }
    const tasksForTodoList = getTasks();
 
+   const getValue = (value: string) => {
+      const task = {id: v1(), isDown: true, label: value};
+      setState( [...tasks, task])
+   }
+
    return (
        <Todolist
            tasks={tasksForTodoList}
            title={"Todolist"}
            removeTask={removeTask}
-           changeFilter={changeFilter}/>
+           changeFilter={changeFilter}
+           getValue = {getValue}/>
    );
 }
 

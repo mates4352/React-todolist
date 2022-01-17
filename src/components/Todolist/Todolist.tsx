@@ -1,5 +1,5 @@
 import s from './Todolist.module.scss'
-import React from "react";
+import React, {ChangeEvent, useState} from "react";
 
 export type dataTodolistType = {
    id: string
@@ -9,9 +9,10 @@ export type dataTodolistType = {
 
 type todolistType = {
    title: string
-   tasks: Array<dataTodolistType>,
-   removeTask: (id: string) => void,
+   tasks: Array<dataTodolistType>
+   removeTask: (id: string) => void;
    changeFilter: (value: changeFilterType) => void;
+   getValue: (value: string) => void;
 }
 
 export type changeFilterType = "All" | "Active" | "Completed";
@@ -21,14 +22,37 @@ export const Todolist: React.FC<todolistType> = ({
                                                     tasks,
                                                     removeTask,
                                                     changeFilter,
+                                                    getValue
                                                  }) => {
+   const [inputValue, setInputValue] = useState('');
+   const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
+      setInputValue(e.currentTarget.value)
+   }
+   const onKeyUpInput = (e: React.KeyboardEvent<HTMLInputElement>) => {
+      if (e.key === "Enter") {
+         getValue(inputValue)
+         setInputValue('')
+      }
+   }
+   const onClinkButton = () => {
+         getValue(inputValue)
+         setInputValue('')
+   }
+
    return (
        <div className={s.todolist}>
           <h1 className={s.title}>{title}</h1>
 
           <div className={s.input_wrap}>
-             <input className={s.input} type="text"/>
-             <button className={s.button} type={"button"}>+</button>
+             <input className={s.input} type="text" value={inputValue} onChange={e => {
+                onChangeInput(e)
+             }} onKeyUp={(e) => {
+                onKeyUpInput(e)
+             }}/>
+             <button className={s.button} type={"button"} onClick={() => {
+                onClinkButton()
+             }}>+
+             </button>
           </div>
 
           <ul className={s.list}>
