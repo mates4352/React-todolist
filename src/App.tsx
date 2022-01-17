@@ -1,19 +1,20 @@
 import React, {useState} from 'react';
 import {Todolist, dataTodolistType, changeFilterType} from "./components/Todolist/Todolist";
+import {v1} from "uuid";
 
 const App = () => {
 
    let [tasks, setState] = useState<Array<dataTodolistType>>(
        [
-          {id: 0, isDown: true, label: "Html-Css"},
-          {id: 1, isDown: true, label: "Js"},
-          {id: 2, isDown: false, label: "ReactJs"},
+          {id: v1(), isDown: true, label: "Html-Css"},
+          {id: v1(), isDown: true, label: "Js"},
+          {id: v1(), isDown: false, label: "ReactJs"},
        ]
    );
 
    let [filter, setFilter] = useState<changeFilterType>("All");
 
-   const removeTask = (id: number) => {
+   const removeTask = (id: string) => {
       setState(tasks.filter(item => item.id !== id))
    }
 

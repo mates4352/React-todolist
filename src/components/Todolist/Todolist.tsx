@@ -2,7 +2,7 @@ import s from './Todolist.module.scss'
 import React from "react";
 
 export type dataTodolistType = {
-   id: number
+   id: string
    label: string
    isDown: boolean
 }
@@ -10,7 +10,7 @@ export type dataTodolistType = {
 type todolistType = {
    title: string
    tasks: Array<dataTodolistType>,
-   removeTask: (id: number) => void,
+   removeTask: (id: string) => void,
    changeFilter: (value: changeFilterType) => void;
 }
 
