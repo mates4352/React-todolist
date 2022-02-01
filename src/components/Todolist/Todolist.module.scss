@@ -48,6 +48,15 @@
       }
    }
 
+   .error {
+      display: block;
+      margin-bottom: 16px;
+
+      font-size: 16px;
+      text-align: left;
+      color: red;
+   }
+
    .list {
       display: grid;
       row-gap: 12px;
@@ -62,6 +71,10 @@
 
       border: 1px solid tomato;
       border-radius: 8px;
+   }
+
+   .item_opacity {
+      opacity: 0.3;
    }
 
    .close {
@@ -95,6 +108,10 @@
       background-color: antiquewhite;
       border: none;
       cursor: pointer;
+   }
+
+   .subitem_button_active {
+      background-color: tomato;
    }
 }
 

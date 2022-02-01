@@ -40,8 +40,8 @@ const App = () => {
   const tasksForTodoList = getTasks();
 
   const getValue = (value: string) => {
-    const task = {id: v1(), isDown: true, text: value};
-    setTasks([...tasks, task])
+    const newTask = {id: v1(), isDown: true, text: value};
+    setTasks([...tasks, newTask])
   }
 
   return (
@@ -50,6 +50,7 @@ const App = () => {
       title={"Todolist"}
       removeTask={removeTask}
       changeFilter={changeFilter}
+      filter={filter}
       getValue={getValue}
       changeFilterTasks={changeFilterTasks}/>
   );
