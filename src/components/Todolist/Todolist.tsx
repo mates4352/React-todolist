@@ -8,26 +8,29 @@ export type dataTodolistType = {
 }
 
 type todolistType = {
+  id: string
   title: string
   tasks: Array<dataTodolistType>
   filter: string
-  getValue: (value: string) => void
-  removeTask: (id: string) => void
-  changeFilter: (value: changeFilterType) => void
-  changeFilterTasks: (taskId: string) => void
+  addTask: (value: string, todolistId: string) => void
+  removeTask: (id: string, todolistId: string) => void
+  changeFilter: (value: changeFilterType, todolistId: string) => void
+  changeCheckedTask: (taskId: string, todolistId: string) => void
 }
 
-export type changeFilterType = "All" | "Active" | "Completed";
+export type changeFilterType = "ALL" | "ACTIVE" | "COMPLETED";
 
-export const Todolist: React.FC<todolistType> = ({
-                                                   title,
-                                                   tasks,
-                                                   filter,
-                                                   getValue,
-                                                   removeTask,
-                                                   changeFilter,
-                                                   changeFilterTasks
-                                                 }) => {
+export const Todolist: React.FC<todolistType> = (
+  {
+    id,
+    title,
+    tasks,
+    filter,
+    addTask,
+    removeTask,
+    changeFilter,
+    changeCheckedTask
+  }) => {
 
   const [inputValue, setInputValue] = useState('');
   const [error, setError] = useState<string>('');
@@ -41,7 +44,7 @@ export const Todolist: React.FC<todolistType> = ({
 
   const onKeyUpInput = (key: React.KeyboardEvent<HTMLInputElement>) => {
     if (key.key === "Enter" && key.currentTarget.value !== "") {
-      getValue(inputValue)
+      addTask(inputValue, id)
       setError('')
       setInputValue('')
     } else if (key.key === "Enter" && key.currentTarget.value === "") {
@@ -50,7 +53,7 @@ export const Todolist: React.FC<todolistType> = ({
   }
   const onClinkButton = () => {
     if (inputValue.trim() !== "") {
-      getValue(inputValue)
+      addTask(inputValue, id)
       setError('')
       setInputValue('')
     } else {
@@ -88,12 +91,12 @@ export const Todolist: React.FC<todolistType> = ({
             <input type="checkbox"
                    id={task.id}
                    checked={task.isDown}
-                   onClick={() => changeFilterTasks(task.id)}
-                   onKeyUp={key => key.key === "Enter" && changeFilterTasks(task.id)}/>
+                   onClick={() => changeCheckedTask(task.id, id)}
+                   onKeyUp={key => key.key === "Enter" && changeCheckedTask(task.id, id)}/>
 
             <label htmlFor={task.id}>{task.text}</label>
 
-            <button className={s.close} onClick={() => removeTask(task.id)}>
+            <button className={s.close} onClick={() => removeTask(task.id, id)}>
               X
             </button>
           </li>
@@ -102,22 +105,22 @@ export const Todolist: React.FC<todolistType> = ({
 
       <ul className={s.sublist}>
         <li className={s.subitem}>
-          <button className={isClassActiveButton("All")}
-                  onClick={() => changeFilter("All")}>
+          <button className={isClassActiveButton("ALL")}
+                  onClick={() => changeFilter("ALL", id)}>
             All
           </button>
         </li>
 
         <li>
-          <button className={isClassActiveButton("Active")}
-                  onClick={() => changeFilter("Active")}>
+          <button className={isClassActiveButton("ACTIVE")}
+                  onClick={() => changeFilter("ACTIVE", id)}>
             Active
           </button>
         </li>
 
         <li>
-          <button className={isClassActiveButton("Completed")}
-                  onClick={() => changeFilter("Completed")}>
+          <button className={isClassActiveButton("COMPLETED")}
+                  onClick={() => changeFilter("COMPLETED", id)}>
             Completed
           </button>
         </li>
