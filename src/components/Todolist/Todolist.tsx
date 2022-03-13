@@ -14,6 +14,7 @@ type todolistType = {
   filter: string
   addTask: (value: string, todolistId: string) => void
   removeTask: (id: string, todolistId: string) => void
+  removeTodolist: (todolistId: string) => void
   changeFilter: (value: changeFilterType, todolistId: string) => void
   changeCheckedTask: (taskId: string, todolistId: string) => void
 }
@@ -28,6 +29,7 @@ export const Todolist: React.FC<todolistType> = (
     filter,
     addTask,
     removeTask,
+    removeTodolist,
     changeFilter,
     changeCheckedTask
   }) => {
@@ -63,6 +65,7 @@ export const Todolist: React.FC<todolistType> = (
 
   return (
     <div className={s.todolist}>
+      <button className={s.buttonDelete} onClick={()=> removeTodolist(id)}>X</button>
       <h1 className={s.title}>{title}</h1>
 
       <div className={s.input_wrap}>

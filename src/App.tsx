@@ -39,7 +39,11 @@ const App = () => {
   const removeTask = (id: string, todolistId: string) => {
     tasks[todolistId] = tasks[todolistId].filter(item => item.id !== id)
     setTasks({...tasks})
-    console.log(tasks)
+  }
+
+  const removeTodolist = (todolistId: string) => {
+    delete tasks[todolistId]
+    setTodolist(todolist.filter(todo => todo.id !== todolistId))
   }
 
   const changeFilter = (value: changeFilterType, todolistId: string) => {
@@ -78,6 +82,7 @@ const App = () => {
             tasks={getFitlerTasks()}
             title={todo.title}
             removeTask={removeTask}
+            removeTodolist={removeTodolist}
             changeFilter={changeFilter}
             filter={todo.filter}
             addTask={addTask}
