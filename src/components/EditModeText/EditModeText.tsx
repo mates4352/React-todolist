@@ -10,8 +10,9 @@ type EditModeTextType = {
 
 export const EditModeText: React.FC<EditModeTextType> = ({text, changeValue}) => {
   const [isTextMode, setIsTextMode] = useState<boolean>(true)
-  const editText = () => setIsTextMode(!isTextMode)
-  const changeText = (e: ChangeEvent<HTMLInputElement>) => {
+
+  const editText = ():void => setIsTextMode(!isTextMode)
+  const changeText = (e: ChangeEvent<HTMLInputElement>):void => {
     changeValue(e.currentTarget.value);
   }
 

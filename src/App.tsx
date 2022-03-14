@@ -37,34 +37,34 @@ const App = () => {
     }
   );
 
-  const removeTask = (id: string, todolistId: string) => {
+  const removeTask = (id: string, todolistId: string):void => {
     tasks[todolistId] = tasks[todolistId].filter(item => item.id !== id)
     setTasks({...tasks})
   }
 
-  const removeTodolist = (todolistId: string) => {
+  const removeTodolist = (todolistId: string):void => {
     delete tasks[todolistId]
     setTodolist(todolist.filter(todo => todo.id !== todolistId))
   }
 
-  const addTodolist = (value: string) => {
+  const addTodolist = (value: string):void => {
     const newTodolist = {id: v1(), title: value, filter: "ALL"};
     setTodolist([...todolist, newTodolist]);
     setTasks({...tasks, [newTodolist.id]: []})
   }
 
-  const addTask = (value: string, todolistId: string) => {
+  const addTask = (value: string, todolistId: string):void => {
     const newTask = {id: v1(), isDown: true, text: value};
     tasks[todolistId] = [...tasks[todolistId], newTask]
     setTasks({...tasks})
   }
 
-  const changeCheckedTask = (taskId: string, todolistId: string) => {
+  const changeCheckedTask = (taskId: string, todolistId: string):void => {
     tasks[todolistId] = tasks[todolistId].map(task => task.id === taskId ? {...task, isDown: !task.isDown} : task)
     setTasks({...tasks})
   }
 
-  const changeFilter = (value: changeFilterType, todolistId: string) => {
+  const changeFilter = (value: changeFilterType, todolistId: string):void => {
     const todo = todolist.find(item => item.id === todolistId)
     if (todo) {
       todo.filter = value
@@ -73,7 +73,7 @@ const App = () => {
   }
 
 
-  const changeTitle = (title: string, todolistId: string) => {
+  const changeTitle = (title: string, todolistId: string):void => {
     const todo = todolist.find(el => el.id === todolistId);
     if(todo) {
       todo.title = title;
@@ -81,7 +81,7 @@ const App = () => {
     }
   }
 
-  const changeValue = (value: string, taskId: string, todolistId: string) => {
+  const changeValue = (value: string, taskId: string, todolistId: string):void => {
     const todo = tasks[todolistId].find(item => item.id === taskId)
     if (todo) {
       todo.text = value
@@ -89,7 +89,7 @@ const App = () => {
     }
   }
 
-  const getFitlerTasks = (todo: todolist) => {
+  const getFitlerTasks = (todo: todolist):Array<dataTodolistType> => {
     switch (todo.filter) {
       case "ACTIVE":
         return tasks[todo.id].filter((task => task.isDown));

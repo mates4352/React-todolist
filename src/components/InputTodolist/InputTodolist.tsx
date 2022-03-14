@@ -10,11 +10,11 @@ type inputTodolist = {
 export const InputTodolist: React.FC<inputTodolist> = ({addTask, className}) => {
   const [inputValue, setInputValue] = useState('');
   const [error, setError] = useState<string>('');
-  const onChangeInput = (element: ChangeEvent<HTMLInputElement>) => {
+  const onChangeInput = (element: ChangeEvent<HTMLInputElement>):void => {
     setInputValue(element.currentTarget.value)
   }
 
-  const onKeyUpInput = (key: React.KeyboardEvent<HTMLInputElement>) => {
+  const onKeyUpInput = (key: React.KeyboardEvent<HTMLInputElement>):void => {
     if (key.key === "Enter" && key.currentTarget.value !== "") {
       addTask(inputValue)
       setError('')
@@ -23,7 +23,7 @@ export const InputTodolist: React.FC<inputTodolist> = ({addTask, className}) => 
       setError('Title is required')
     }
   }
-  const onClinkButton = () => {
+  const onClinkButton = ():void => {
     if (inputValue.trim() !== "") {
       addTask(inputValue)
       setError('')

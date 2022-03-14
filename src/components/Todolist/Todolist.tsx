@@ -1,5 +1,5 @@
 import s from './Todolist.module.scss'
-import React, {ChangeEvent} from "react";
+import React from "react";
 import {InputTodolist} from "../InputTodolist/InputTodolist";
 import {EditModeText} from "../EditModeText/EditModeText";
 
@@ -44,11 +44,11 @@ export const Todolist: React.FC<todolistType> = (
     ? `${s.subitem_button} ${s.subitem_button_active}`
     : s.subitem_button;
 
-  const addTaskTodolist = (value: string) => {
+  const addTaskTodolist = (value: string):void => {
     addTask(value, id);
   }
 
-  const changeTodolistTitle = (value: string) => {
+  const changeTodolistTitle = (value: string):void => {
     changeTitle(value, id)
   }
 
