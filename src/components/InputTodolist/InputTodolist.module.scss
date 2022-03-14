@@ -1,0 +1,45 @@
+.inputTodolist {
+   --input_size: 40px;
+   position: relative;
+   margin-bottom: 16px;
+
+   .input {
+      width: 100%;
+      height: var(--input_size);
+      padding: 0 50px 0 12px;
+      border: 1px solid tomato;
+      border-radius: 4px;
+      outline: none;
+   }
+
+   .error {
+      display: block;
+      margin-bottom: 16px;
+
+      font-size: 16px;
+      text-align: left;
+      color: red;
+   }
+
+   .button {
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      width: var(--input_size);
+      height: var(--input_size);
+
+      font-size: 24px;
+      color: black;
+
+      background-color: antiquewhite;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+   }
+}
+
+
+
+
+

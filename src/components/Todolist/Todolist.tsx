@@ -1,5 +1,6 @@
 import s from './Todolist.module.scss'
-import React, {ChangeEvent, useState} from "react";
+import React from "react";
+import {InputTodolist} from "../InputTodolist/InputTodolist";
 
 export type dataTodolistType = {
   id: string
@@ -34,59 +35,20 @@ export const Todolist: React.FC<todolistType> = (
     changeCheckedTask
   }) => {
 
-  const [inputValue, setInputValue] = useState('');
-  const [error, setError] = useState<string>('');
   const isClassActiveButton = (value: string) => filter === value
     ? `${s.subitem_button} ${s.subitem_button_active}`
     : s.subitem_button;
 
-  const onChangeInput = (element: ChangeEvent<HTMLInputElement>) => {
-    setInputValue(element.currentTarget.value)
-  }
-
-  const onKeyUpInput = (key: React.KeyboardEvent<HTMLInputElement>) => {
-    if (key.key === "Enter" && key.currentTarget.value !== "") {
-      addTask(inputValue, id)
-      setError('')
-      setInputValue('')
-    } else if (key.key === "Enter" && key.currentTarget.value === "") {
-      setError('Title is required')
-    }
-  }
-  const onClinkButton = () => {
-    if (inputValue.trim() !== "") {
-      addTask(inputValue, id)
-      setError('')
-      setInputValue('')
-    } else {
-      setError('Title is required')
-    }
+  const addTaskTodolist = (value: string) => {
+    addTask(value, id);
   }
 
   return (
     <div className={s.todolist}>
-      <button className={s.buttonDelete} onClick={()=> removeTodolist(id)}>X</button>
+      <button className={s.buttonDelete} onClick={() => removeTodolist(id)}>X</button>
       <h1 className={s.title}>{title}</h1>
 
-      <div className={s.input_wrap}>
-        <input
-          className={s.input}
-          type="text"
-          value={inputValue}
-          onChange={element => onChangeInput(element)}
-          onKeyUp={key => onKeyUpInput(key)}/>
-
-        <button className={s.button}
-                type={"button"}
-                onClick={onClinkButton}>
-          +
-        </button>
-      </div>
-
-      {error &&
-          <small className={s.error}>{error}</small>
-      }
-
+      <InputTodolist addTask={addTaskTodolist}/>
 
       <ul className={s.list}>
         {tasks.map((task) =>

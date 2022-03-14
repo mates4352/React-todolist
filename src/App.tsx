@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
-import {Todolist, dataTodolistType, changeFilterType} from "./components/Todolist/Todolist";
+import {Todolist, changeFilterType} from "./components/Todolist/Todolist";
 import {v1} from "uuid";
+import {InputTodolist} from "./components/InputTodolist/InputTodolist";
+import s from './App.module.scss';
 
 type todolist = {
   id: string
@@ -31,11 +33,6 @@ const App = () => {
     }
   );
 
-  const changeCheckedTask = (taskId: string, todolistId: string) => {
-    tasks[todolistId] = tasks[todolistId].map(task => task.id === taskId ? {...task, isDown: !task.isDown} : task)
-    setTasks({...tasks})
-  }
-
   const removeTask = (id: string, todolistId: string) => {
     tasks[todolistId] = tasks[todolistId].filter(item => item.id !== id)
     setTasks({...tasks})
@@ -46,12 +43,10 @@ const App = () => {
     setTodolist(todolist.filter(todo => todo.id !== todolistId))
   }
 
-  const changeFilter = (value: changeFilterType, todolistId: string) => {
-    const todo = todolist.find(item => item.id === todolistId)
-    if (todo) {
-      todo.filter = value
-      setTodolist([...todolist])
-    }
+  const addTodolist = (value: string) => {
+    const newTodolist = {id: v1(), title: value, filter: "ALL"};
+    setTodolist([...todolist, newTodolist]);
+    setTasks({...tasks, [newTodolist.id]: []})
   }
 
   const addTask = (value: string, todolistId: string) => {
@@ -60,36 +55,54 @@ const App = () => {
     setTasks({...tasks})
   }
 
+  const changeCheckedTask = (taskId: string, todolistId: string) => {
+    tasks[todolistId] = tasks[todolistId].map(task => task.id === taskId ? {...task, isDown: !task.isDown} : task)
+    setTasks({...tasks})
+  }
+
+  const changeFilter = (value: changeFilterType, todolistId: string) => {
+    const todo = todolist.find(item => item.id === todolistId)
+    if (todo) {
+      todo.filter = value
+      setTodolist([...todolist])
+    }
+  }
+
+  const getFitlerTasks = (todo: todolist) => {
+    switch (todo.filter) {
+      case "ACTIVE":
+        return tasks[todo.id].filter((task => task.isDown));
+
+      case "COMPLETED":
+        return tasks[todo.id].filter((task => !task.isDown));
+
+      default:
+        return tasks[todo.id];
+    }
+  }
+
   return (
-    <>
-      {todolist.map(todo => {
-        const getFitlerTasks = () => {
-          switch (todo.filter) {
-            case "ACTIVE":
-              return tasks[todo.id].filter((task => task.isDown));
-
-            case "COMPLETED":
-              return tasks[todo.id].filter((task => !task.isDown));
-
-            default:
-              return tasks[todo.id];
-          }
-        }
-        return (
-          <Todolist
-            key={todo.id}
-            id={todo.id}
-            tasks={getFitlerTasks()}
-            title={todo.title}
-            removeTask={removeTask}
-            removeTodolist={removeTodolist}
-            changeFilter={changeFilter}
-            filter={todo.filter}
-            addTask={addTask}
-            changeCheckedTask={changeCheckedTask}/>
-        )
-      })}
-    </>
+    <div className={s.app}>
+      <InputTodolist addTask={addTodolist} className={s.inputTodolist__size}/>
+      <div className={s.app_todolists}>
+        {todolist.map(todo => {
+          const [id, tasks, title, filter] = [todo.id, getFitlerTasks(todo), todo.title, todo.filter]
+          return (
+            <Todolist
+              key={id}
+              id={id}
+              tasks={tasks}
+              title={title}
+              removeTask={removeTask}
+              removeTodolist={removeTodolist}
+              changeFilter={changeFilter}
+              filter={filter}
+              addTask={addTask}
+              changeCheckedTask={changeCheckedTask}/>
+          )
+        })}
+      </div>
+    </div>
   );
 }
 
