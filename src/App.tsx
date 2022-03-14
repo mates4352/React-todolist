@@ -72,6 +72,23 @@ const App = () => {
     }
   }
 
+
+  const changeTitle = (title: string, todolistId: string) => {
+    const todo = todolist.find(el => el.id === todolistId);
+    if(todo) {
+      todo.title = title;
+      setTodolist([...todolist])
+    }
+  }
+
+  const changeValue = (value: string, taskId: string, todolistId: string) => {
+    const todo = tasks[todolistId].find(item => item.id === taskId)
+    if (todo) {
+      todo.text = value
+      setTasks({...tasks})
+    }
+  }
+
   const getFitlerTasks = (todo: todolist) => {
     switch (todo.filter) {
       case "ACTIVE":
@@ -100,6 +117,8 @@ const App = () => {
               removeTask={removeTask}
               removeTodolist={removeTodolist}
               changeFilter={changeFilter}
+              changeTitle={changeTitle}
+              changeValue={changeValue}
               filter={filter}
               addTask={addTask}
               changeCheckedTask={changeCheckedTask}/>

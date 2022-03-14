@@ -1,6 +1,7 @@
 import s from './Todolist.module.scss'
-import React from "react";
+import React, {ChangeEvent} from "react";
 import {InputTodolist} from "../InputTodolist/InputTodolist";
+import {EditModeText} from "../EditModeText/EditModeText";
 
 export type dataTodolistType = {
   id: string
@@ -17,6 +18,8 @@ type todolistType = {
   removeTask: (id: string, todolistId: string) => void
   removeTodolist: (todolistId: string) => void
   changeFilter: (value: changeFilterType, todolistId: string) => void
+  changeTitle: (title: string, todolistId: string) => void
+  changeValue: (value: string, taskId: string, todolistId: string) => void
   changeCheckedTask: (taskId: string, todolistId: string) => void
 }
 
@@ -32,6 +35,8 @@ export const Todolist: React.FC<todolistType> = (
     removeTask,
     removeTodolist,
     changeFilter,
+    changeTitle,
+    changeValue,
     changeCheckedTask
   }) => {
 
@@ -43,28 +48,37 @@ export const Todolist: React.FC<todolistType> = (
     addTask(value, id);
   }
 
+  const changeTodolistTitle = (value: string) => {
+    changeTitle(value, id)
+  }
+
   return (
     <div className={s.todolist}>
       <button className={s.buttonDelete} onClick={() => removeTodolist(id)}>X</button>
-      <h1 className={s.title}>{title}</h1>
+      <h1 className={s.title}><EditModeText text={title} changeValue={changeTodolistTitle}/></h1>
 
       <InputTodolist addTask={addTaskTodolist}/>
 
       <ul className={s.list}>
-        {tasks.map((task) =>
-          <li className={!task.isDown ? `${s.item_opacity} ${s.item}` : s.item} key={task.id}>
-            <input type="checkbox"
-                   id={task.id}
-                   checked={task.isDown}
-                   onClick={() => changeCheckedTask(task.id, id)}
-                   onKeyUp={key => key.key === "Enter" && changeCheckedTask(task.id, id)}/>
+        {tasks.map((task) => {
+            const changeTodolistTaskValue = (value: string) => {
+              changeValue(value, task.id, id)
+            }
+            return (
+              <li className={!task.isDown ? `${s.item_opacity} ${s.item}` : s.item} key={task.id}>
+                <input type="checkbox"
+                       checked={task.isDown}
+                       onClick={() => changeCheckedTask(task.id, id)}
+                       onKeyUp={key => key.key === "Enter" && changeCheckedTask(task.id, id)}/>
 
-            <label htmlFor={task.id}>{task.text}</label>
+                <EditModeText text={task.text} changeValue={changeTodolistTaskValue}/>
 
-            <button className={s.close} onClick={() => removeTask(task.id, id)}>
-              X
-            </button>
-          </li>
+                <button className={s.close} onClick={() => removeTask(task.id, id)}>
+                  X
+                </button>
+              </li>
+            )
+          }
         )}
       </ul>
 
