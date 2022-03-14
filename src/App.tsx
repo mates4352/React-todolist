@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Todolist, changeFilterType} from "./components/Todolist/Todolist";
+import {Todolist, changeFilterType, dataTodolistType} from "./components/Todolist/Todolist";
 import {v1} from "uuid";
 import {InputTodolist} from "./components/InputTodolist/InputTodolist";
 import s from './App.module.scss';
@@ -8,6 +8,10 @@ type todolist = {
   id: string
   title: string
   filter: string
+}
+
+type tasks = {
+  [todolistId: string]: Array<dataTodolistType>
 }
 
 const App = () => {
@@ -19,7 +23,7 @@ const App = () => {
     {id: todolistId2, title: 'Todolist2', filter: 'COMPLETED'},
   ])
 
-  let [tasks, setTasks] = useState({
+  let [tasks, setTasks] = useState<tasks>({
       [todolistId1]: [
         {id: v1(), isDown: true, text: "Html-Css"},
         {id: v1(), isDown: true, text: "Js"},
