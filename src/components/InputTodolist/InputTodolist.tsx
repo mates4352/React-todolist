@@ -40,8 +40,8 @@ export const InputTodolist: React.FC<inputTodolist> = ({addTask, className}) => 
           className={s.input}
           type="text"
           value={inputValue}
-          onChange={element => onChangeInput(element)}
-          onKeyUp={key => onKeyUpInput(key)}/>
+          onChange={onChangeInput}
+          onKeyUp={onKeyUpInput}/>
 
         <button className={s.button}
                 type={"button"}
