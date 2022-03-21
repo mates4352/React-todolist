@@ -72,7 +72,6 @@ const App = () => {
     }
   }
 
-
   const changeTitle = (title: string, todolistId: string):void => {
     const todo = todolist.find(el => el.id === todolistId);
     if(todo) {
@@ -107,7 +106,7 @@ const App = () => {
       <InputTodolist addTask={addTodolist} className={s.inputTodolist__size}/>
       <div className={s.app_todolists}>
         {todolist.map(todo => {
-          const [id, tasks, title, filter] = [todo.id, getFitlerTasks(todo), todo.title, todo.filter]
+          const [id, title, filter, tasks] = [todo.id, todo.title, todo.filter, getFitlerTasks(todo)]
           return (
             <Todolist
               key={id}

@@ -2,6 +2,21 @@ import s from './Todolist.module.scss'
 import React from "react";
 import {InputTodolist} from "../InputTodolist/InputTodolist";
 import {EditModeText} from "../EditModeText/EditModeText";
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from "@material-ui/icons/Delete";
+import {Button, createStyles, makeStyles, Theme} from '@material-ui/core';
+import Checkbox from '@material-ui/core/Checkbox';
+import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      '& > button': {
+        borderRadius: '6px',
+      },
+    },
+  }),
+);
 
 export type dataTodolistType = {
   id: string
@@ -39,22 +54,27 @@ export const Todolist: React.FC<todolistType> = (
     changeValue,
     changeCheckedTask
   }) => {
+  const classes = useStyles();
 
   const isClassActiveButton = (value: string) => filter === value
-    ? `${s.subitem_button} ${s.subitem_button_active}`
-    : s.subitem_button;
+    ? `${s.subitem_button_active}`
+    : '';
 
-  const addTaskTodolist = (value: string):void => {
+  const addTaskTodolist = (value: string): void => {
     addTask(value, id);
   }
 
-  const changeTodolistTitle = (value: string):void => {
+  const changeTodolistTitle = (value: string): void => {
     changeTitle(value, id)
   }
 
   return (
     <div className={s.todolist}>
-      <button className={s.buttonDelete} onClick={() => removeTodolist(id)}>X</button>
+
+      <Button className={s.buttonDelete} aria-label="Button delete" onClick={() => removeTodolist(id)}>
+        <DeleteOutlineIcon fontSize="large" />
+      </Button>
+
       <h1 className={s.title}><EditModeText text={title} changeValue={changeTodolistTitle}/></h1>
 
       <InputTodolist addTask={addTaskTodolist}/>
@@ -66,16 +86,20 @@ export const Todolist: React.FC<todolistType> = (
             }
             return (
               <li className={!task.isDown ? `${s.item_opacity} ${s.item}` : s.item} key={task.id}>
-                <input type="checkbox"
-                       checked={task.isDown}
-                       onClick={() => changeCheckedTask(task.id, id)}
-                       onKeyUp={key => key.key === "Enter" && changeCheckedTask(task.id, id)}/>
+                <Checkbox
+                  checked={task.isDown}
+                  onClick={() => changeCheckedTask(task.id, id)}
+                  onKeyUp={key => key.key === "Enter" && changeCheckedTask(task.id, id)}
+                  defaultChecked
+                  color="primary"
+                  inputProps={{ 'aria-label': 'secondary checkbox' }}
+                />
 
                 <EditModeText text={task.text} changeValue={changeTodolistTaskValue}/>
 
-                <button className={s.close} onClick={() => removeTask(task.id, id)}>
-                  X
-                </button>
+                <IconButton aria-label="Button delete" onClick={() => removeTask(task.id, id)}>
+                  <DeleteIcon/>
+                </IconButton>
               </li>
             )
           }
@@ -84,24 +108,26 @@ export const Todolist: React.FC<todolistType> = (
 
       <ul className={s.sublist}>
         <li className={s.subitem}>
-          <button className={isClassActiveButton("ALL")}
-                  onClick={() => changeFilter("ALL", id)}>
+          <Button className={isClassActiveButton("ALL")}
+                  onClick={() => changeFilter("ALL", id)}
+                  color="primary">
             All
-          </button>
+          </Button>
         </li>
 
         <li>
-          <button className={isClassActiveButton("ACTIVE")}
-                  onClick={() => changeFilter("ACTIVE", id)}>
+          <Button className={isClassActiveButton("ACTIVE")}
+                  onClick={() => changeFilter("ACTIVE", id)}
+                  color="secondary" >
             Active
-          </button>
+          </Button >
         </li>
 
         <li>
-          <button className={isClassActiveButton("COMPLETED")}
+          <Button className={isClassActiveButton("COMPLETED")}
                   onClick={() => changeFilter("COMPLETED", id)}>
             Completed
-          </button>
+          </Button>
         </li>
       </ul>
     </div>

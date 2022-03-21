@@ -1,6 +1,8 @@
-import * as React from 'react';
+import {Button, TextField} from '@material-ui/core';
+import  React, {KeyboardEvent} from 'react';
 import {ChangeEvent, useState} from "react";
 import s from './InputTodolist.module.scss';
+import ControlPointIcon from '@material-ui/icons/ControlPoint';
 
 type inputTodolist = {
   addTask: (value: string) => void
@@ -14,13 +16,13 @@ export const InputTodolist: React.FC<inputTodolist> = ({addTask, className}) => 
     setInputValue(element.currentTarget.value)
   }
 
-  const onKeyUpInput = (key: React.KeyboardEvent<HTMLInputElement>):void => {
+  const onKeyUpInput = (key: KeyboardEvent<HTMLInputElement>):void => {
     if (key.key === "Enter" && key.currentTarget.value !== "") {
       addTask(inputValue)
       setError('')
       setInputValue('')
     } else if (key.key === "Enter" && key.currentTarget.value === "") {
-      setError('Title is required')
+      setError('Value is required')
     }
   }
   const onClinkButton = ():void => {
@@ -29,28 +31,24 @@ export const InputTodolist: React.FC<inputTodolist> = ({addTask, className}) => 
       setError('')
       setInputValue('')
     } else {
-      setError('Title is required')
+      setError('Value is required')
     }
   }
 
   return (
-    <>
-      <div className={`${s.inputTodolist} ${className}`}>
-        <input
-          className={s.input}
-          type="text"
+    <div className={className}>
+      <div className={`${s.inputTodolist}`}>
+        <TextField
+          id="outlined-basic"
+          label="Set task"
+          variant="outlined"
           value={inputValue}
           onChange={onChangeInput}
           onKeyUp={onKeyUpInput}/>
 
-        <button className={s.button}
-                type={"button"}
-                onClick={onClinkButton}>
-          +
-        </button>
-
-        <small className={s.error}>{error}</small>
+        <Button className={s.button} variant="contained" color="secondary" onClick={onClinkButton}><ControlPointIcon/></Button>
       </div>
-    </>
+      <small className={s.error}>{error}</small>
+    </div>
   )
 }

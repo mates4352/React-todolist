@@ -2,6 +2,7 @@
 import * as React from 'react';
 import s from './EditModeText.module.scss';
 import {ChangeEvent, useState} from "react";
+import TextField from '@material-ui/core/TextField';
 
 type EditModeTextType = {
   text: string
@@ -19,11 +20,16 @@ export const EditModeText: React.FC<EditModeTextType> = ({text, changeValue}) =>
   return (
     <>
       {!isTextMode &&
-          <input type="text"
-                 value={text}
-                 onBlur={editText}
-                 onChange={changeText}
-                 autoFocus/>
+          <TextField
+              id="outlined-textarea"
+              placeholder="value"
+              value={text}
+              autoFocus
+              multiline
+              variant="outlined"
+              onBlur={editText}
+              onChange={changeText}
+          />
       }
       {isTextMode &&
           <span

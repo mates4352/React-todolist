@@ -7,27 +7,21 @@
    text-align: center;
 
    border-radius: 12px;
-   border: 1px solid tomato;
+   border: 3px solid #88add0;
 
    .buttonDelete {
       position: absolute;
-      top: 12px;
-      right: 12px;
-
-      padding: 6px;
-
-      background-color: antiquewhite;
-      border: 2px solid darkred;
-      cursor: pointer;
-
-      &:active {
-         border: 1px solid darkred;
-      }
+      top: 0;
+      right: 0;
+      padding: 10px 0;
+      border-radius: 12px;
    }
 
    .title {
       margin-bottom: 24px;
-      font-size: 48px;
+      font-size: 40px;
+      color: #000065;
+      cursor: pointer;
    }
 
    .button {
@@ -54,13 +48,16 @@
    }
 
    .item {
-      display: flex;
+      display: grid;
+      grid-auto-flow: column;
       align-items: center;
       justify-content: space-between;
+      gap: 15px;
       padding: 8px 12px;
 
-      border: 1px solid tomato;
       border-radius: 8px;
+      background-color: #d6f1ff;
+      transition: opacity 300ms ease;
    }
 
    .item_opacity {
@@ -97,7 +94,7 @@
    }
 
    .subitem_button_active {
-      background-color: tomato;
+      background-color: #cde3ff;
    }
 }
 
