@@ -1,16 +1,16 @@
 import React, {useState} from 'react';
-import {Todolist, changeFilterType, dataTodolistType} from "./components/Todolist/Todolist";
+import {Todolist, FilterValueType, dataTodolistType} from "./components/Todolist/Todolist";
 import {v1} from "uuid";
 import {InputTodolist} from "./components/InputTodolist/InputTodolist";
 import s from './App.module.scss';
 
-type todolist = {
+export type todolist = {
   id: string
   title: string
   filter: string
 }
 
-type tasks = {
+export type tasks = {
   [todolistId: string]: Array<dataTodolistType>
 }
 
@@ -37,9 +37,9 @@ const App = () => {
     }
   );
 
-  const removeTask = (id: string, todolistId: string):void => {
-    tasks[todolistId] = tasks[todolistId].filter(item => item.id !== id)
-    setTasks({...tasks})
+  const changeTodolistFilter = (filter: FilterValueType, todolistId: string):void => {
+    const todo = todolist.map(item => item.id === todolistId ? {...item, filter: filter} : item)
+    setTodolist([...todo])
   }
 
   const removeTodolist = (todolistId: string):void => {
@@ -53,9 +53,21 @@ const App = () => {
     setTasks({...tasks, [newTodolist.id]: []})
   }
 
+  const changeTodolistTitle = (title: string, todolistId: string):void => {
+    const todo = todolist.map(item => item.id === todolistId ? {...item, title: title} : item)
+    setTodolist([...todo])
+  }
+
+
+
   const addTask = (value: string, todolistId: string):void => {
     const newTask = {id: v1(), isDown: true, text: value};
     tasks[todolistId] = [...tasks[todolistId], newTask]
+    setTasks({...tasks})
+  }
+
+  const removeTask = (id: string, todolistId: string):void => {
+    tasks[todolistId] = tasks[todolistId].filter(item => item.id !== id)
     setTasks({...tasks})
   }
 
@@ -64,28 +76,9 @@ const App = () => {
     setTasks({...tasks})
   }
 
-  const changeFilter = (value: changeFilterType, todolistId: string):void => {
-    const todo = todolist.find(item => item.id === todolistId)
-    if (todo) {
-      todo.filter = value
-      setTodolist([...todolist])
-    }
-  }
-
-  const changeTitle = (title: string, todolistId: string):void => {
-    const todo = todolist.find(el => el.id === todolistId);
-    if(todo) {
-      todo.title = title;
-      setTodolist([...todolist])
-    }
-  }
-
-  const changeValue = (value: string, taskId: string, todolistId: string):void => {
-    const todo = tasks[todolistId].find(item => item.id === taskId)
-    if (todo) {
-      todo.text = value
-      setTasks({...tasks})
-    }
+  const changeValueTask = (value: string, taskId: string, todolistId: string):void => {
+    tasks[todolistId] = tasks[todolistId].map(item => item.id === taskId ? {...item, text: value} : item)
+    setTasks({...tasks})
   }
 
   const getFitlerTasks = (todo: todolist):Array<dataTodolistType> => {
@@ -115,9 +108,9 @@ const App = () => {
               title={title}
               removeTask={removeTask}
               removeTodolist={removeTodolist}
-              changeFilter={changeFilter}
-              changeTitle={changeTitle}
-              changeValue={changeValue}
+              changeTodolistFilter={changeTodolistFilter}
+              changeTodolistTitle={changeTodolistTitle}
+              changeValueTask={changeValueTask}
               filter={filter}
               addTask={addTask}
               changeCheckedTask={changeCheckedTask}/>

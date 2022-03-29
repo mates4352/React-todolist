@@ -4,19 +4,9 @@ import {InputTodolist} from "../InputTodolist/InputTodolist";
 import {EditModeText} from "../EditModeText/EditModeText";
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from "@material-ui/icons/Delete";
-import {Button, createStyles, makeStyles, Theme} from '@material-ui/core';
+import {Button} from '@material-ui/core';
 import Checkbox from '@material-ui/core/Checkbox';
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      '& > button': {
-        borderRadius: '6px',
-      },
-    },
-  }),
-);
 
 export type dataTodolistType = {
   id: string
@@ -32,13 +22,13 @@ type todolistType = {
   addTask: (value: string, todolistId: string) => void
   removeTask: (id: string, todolistId: string) => void
   removeTodolist: (todolistId: string) => void
-  changeFilter: (value: changeFilterType, todolistId: string) => void
-  changeTitle: (title: string, todolistId: string) => void
-  changeValue: (value: string, taskId: string, todolistId: string) => void
+  changeTodolistFilter: (value: FilterValueType, todolistId: string) => void
+  changeTodolistTitle: (title: string, todolistId: string) => void
+  changeValueTask: (value: string, taskId: string, todolistId: string) => void
   changeCheckedTask: (taskId: string, todolistId: string) => void
 }
 
-export type changeFilterType = "ALL" | "ACTIVE" | "COMPLETED";
+export type FilterValueType = "ALL" | "ACTIVE" | "COMPLETED";
 
 export const Todolist: React.FC<todolistType> = (
   {
@@ -49,12 +39,11 @@ export const Todolist: React.FC<todolistType> = (
     addTask,
     removeTask,
     removeTodolist,
-    changeFilter,
-    changeTitle,
-    changeValue,
+    changeTodolistFilter,
+    changeTodolistTitle,
+    changeValueTask,
     changeCheckedTask
   }) => {
-  const classes = useStyles();
 
   const isClassActiveButton = (value: string) => filter === value
     ? `${s.subitem_button_active}`
@@ -64,8 +53,8 @@ export const Todolist: React.FC<todolistType> = (
     addTask(value, id);
   }
 
-  const changeTodolistTitle = (value: string): void => {
-    changeTitle(value, id)
+  const changeTitle = (value: string): void => {
+    changeTodolistTitle(value, id)
   }
 
   return (
@@ -75,14 +64,14 @@ export const Todolist: React.FC<todolistType> = (
         <DeleteOutlineIcon fontSize="large" />
       </Button>
 
-      <h1 className={s.title}><EditModeText text={title} changeValue={changeTodolistTitle}/></h1>
+      <h1 className={s.title}><EditModeText text={title} changeValue={changeTitle}/></h1>
 
       <InputTodolist addTask={addTaskTodolist}/>
 
       <ul className={s.list}>
         {tasks.map((task) => {
             const changeTodolistTaskValue = (value: string) => {
-              changeValue(value, task.id, id)
+              changeValueTask(value, task.id, id)
             }
             return (
               <li className={!task.isDown ? `${s.item_opacity} ${s.item}` : s.item} key={task.id}>
@@ -109,7 +98,7 @@ export const Todolist: React.FC<todolistType> = (
       <ul className={s.sublist}>
         <li className={s.subitem}>
           <Button className={isClassActiveButton("ALL")}
-                  onClick={() => changeFilter("ALL", id)}
+                  onClick={() => changeTodolistFilter("ALL", id)}
                   color="primary">
             All
           </Button>
@@ -117,7 +106,7 @@ export const Todolist: React.FC<todolistType> = (
 
         <li>
           <Button className={isClassActiveButton("ACTIVE")}
-                  onClick={() => changeFilter("ACTIVE", id)}
+                  onClick={() => changeTodolistFilter("ACTIVE", id)}
                   color="secondary" >
             Active
           </Button >
@@ -125,7 +114,7 @@ export const Todolist: React.FC<todolistType> = (
 
         <li>
           <Button className={isClassActiveButton("COMPLETED")}
-                  onClick={() => changeFilter("COMPLETED", id)}>
+                  onClick={() => changeTodolistFilter("COMPLETED", id)}>
             Completed
           </Button>
         </li>
