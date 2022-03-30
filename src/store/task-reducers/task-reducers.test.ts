@@ -3,63 +3,158 @@
 import {useState} from "react";
 import {v1} from "uuid";
 import {tasks} from "../../App";
-import {removeTaskCreateAction, sendTaskCreateAction, tasksReduser} from "./tasks-reducer";
+import {
+  changeTaskStatusCreateAction, changeTextStatusCreateAction,
+  removeTaskCreateAction,
+  sendTaskCreateAction,
+  tasksReduser
+} from "./tasks-reducer";
+import {AddTodolistTActionCreate} from "../todolist-reducers/todolist-reducer";
 
 test('Should change state object-tasks', () => {
-  const todolistId1 = v1()
-  const todolistId2= v1()
 
   const state: tasks = {
-    [todolistId1]: [
-      {id: v1(), isDown: true, text: "Html-Css"},
-      {id: v1(), isDown: true, text: "Js"},
-      {id: v1(), isDown: false, text: "ReactJs"},
+    'todolistId1': [
+      {id: '1', isDown: true, text: "Html-Css"},
+      {id: '2', isDown: true, text: "Js"},
+      {id: '3', isDown: false, text: "ReactJs"},
     ],
 
-    [todolistId2]: [
-      {id: v1(), isDown: true, text: "Html-Css"},
-      {id: v1(), isDown: true, text: "Js"},
-      {id: v1(), isDown: false, text: "ReactJs"},
+    'todolistId2': [
+      {id: '1', isDown: true, text: "Html-Css"},
+      {id: '2', isDown: true, text: "Js"},
+      {id: '3', isDown: false, text: "ReactJs"},
     ]
   }
 
-  const action = sendTaskCreateAction(todolistId1, 'React')
+  const action = sendTaskCreateAction('todolistId1', 'React')
   const newState = tasksReduser(state, action)
-  const keys = Object.keys(state)
 
-  expect(keys.length).toBe(2)
-  expect(state[todolistId1].length).toBe(3)
-  expect(state[todolistId2].length).toBe(3)
-  expect(state).not.toBe(newState)
-  expect(newState[todolistId1].length).toBe(4)
-  expect(newState[todolistId1][3].text).toBe('React')
+  expect(state).toEqual({
+    'todolistId1': [
+      {id: '1', isDown: true, text: "Html-Css"},
+      {id: '2', isDown: true, text: "Js"},
+      {id: '3', isDown: false, text: "ReactJs"},
+    ],
+
+    'todolistId2': [
+      {id: '1', isDown: true, text: "Html-Css"},
+      {id: '2', isDown: true, text: "Js"},
+      {id: '3', isDown: false, text: "ReactJs"},
+    ]
+  });
+  expect(newState['todolistId1'].length).toBe(4)
+  expect(newState['todolistId1'][3].text).toBe('React')
 })
 
 test('Should change state object-tasks', () => {
-  const todolistId1 = v1()
-  const todolistId2= v1()
 
   const state: tasks = {
-    [todolistId1]: [
-      {id: v1(), isDown: true, text: "Html-Css"},
-      {id: v1(), isDown: true, text: "Js"},
-      {id: v1(), isDown: false, text: "ReactJs"},
+    'todolistId1': [
+      {id: '1', isDown: true, text: "Html-Css"},
+      {id: '2', isDown: true, text: "Js"},
+      {id: '3', isDown: false, text: "ReactJs"},
     ],
 
-    [todolistId2]: [
-      {id: v1(), isDown: true, text: "Html-Css"},
-      {id: v1(), isDown: true, text: "Js"},
-      {id: v1(), isDown: false, text: "ReactJs"},
+    'todolistId2': [
+      {id: '1', isDown: true, text: "Html-Css"},
+      {id: '2', isDown: true, text: "Js"},
+      {id: '3', isDown: false, text: "ReactJs"},
     ]
   }
 
-  const action = removeTaskCreateAction(todolistId1, state[todolistId1][0].id)
+  const action = removeTaskCreateAction('todolistId1', '1')
   const newState = tasksReduser(state, action)
-  const keys = Object.keys(state)
 
-  expect(keys.length).toBe(2)
-  expect(state).not.toBe(newState)
-  expect(state[todolistId1].length).toBe(3)
-  expect(newState[todolistId1].length).toBe(2)
+  expect(state).toEqual({
+    'todolistId1': [
+      {id: '1', isDown: true, text: "Html-Css"},
+      {id: '2', isDown: true, text: "Js"},
+      {id: '3', isDown: false, text: "ReactJs"},
+    ],
+
+    'todolistId2': [
+      {id: '1', isDown: true, text: "Html-Css"},
+      {id: '2', isDown: true, text: "Js"},
+      {id: '3', isDown: false, text: "ReactJs"},
+    ]
+  });
+
+  expect(newState['todolistId1'].length).toBe(2)
+  expect(newState['todolistId2'].length).toBe(3)
+  expect(newState['todolistId1'][0]).toBeDefined()
+  expect(newState['todolistId1'][0].text).toBe('Js')
+  expect(newState['todolistId1'][0].isDown).toBeTruthy()
 })
 
+test('status of specified task should be changed', () => {
+  const state: tasks = {
+    'todolistId1': [
+      {id: '1', isDown: true, text: "Html-Css"},
+      {id: '2', isDown: true, text: "Js"},
+      {id: '3', isDown: false, text: "ReactJs"},
+    ],
+
+    'todolistId2': [
+      {id: '1', isDown: true, text: "Html-Css"},
+      {id: '2', isDown: true, text: "Js"},
+      {id: '3', isDown: false, text: "ReactJs"},
+    ]
+  }
+
+  const action = changeTaskStatusCreateAction('todolistId1', '1', false)
+  const newState = tasksReduser(state, action)
+
+  expect(state).toEqual({
+    'todolistId1': [
+      {id: '1', isDown: true, text: "Html-Css"},
+      {id: '2', isDown: true, text: "Js"},
+      {id: '3', isDown: false, text: "ReactJs"},
+    ],
+
+    'todolistId2': [
+      {id: '1', isDown: true, text: "Html-Css"},
+      {id: '2', isDown: true, text: "Js"},
+      {id: '3', isDown: false, text: "ReactJs"},
+    ]
+  });
+
+  expect(newState['todolistId1'][0].isDown).toBeFalsy();
+  expect(newState['todolistId2'][0].isDown).toBeTruthy();
+});
+
+test('text of specified task should be changed', () => {
+  const state: tasks = {
+    'todolistId1': [
+      {id: '1', isDown: true, text: "Html-Css"},
+      {id: '2', isDown: true, text: "Js"},
+      {id: '3', isDown: false, text: "ReactJs"},
+    ],
+
+    'todolistId2': [
+      {id: '1', isDown: true, text: "Html-Css"},
+      {id: '2', isDown: true, text: "Js"},
+      {id: '3', isDown: false, text: "ReactJs"},
+    ]
+  }
+
+  const action = changeTextStatusCreateAction('todolistId1', '1', 'React')
+  const newState = tasksReduser(state, action)
+
+  expect(state).toEqual({
+    'todolistId1': [
+      {id: '1', isDown: true, text: "Html-Css"},
+      {id: '2', isDown: true, text: "Js"},
+      {id: '3', isDown: false, text: "ReactJs"},
+    ],
+
+    'todolistId2': [
+      {id: '1', isDown: true, text: "Html-Css"},
+      {id: '2', isDown: true, text: "Js"},
+      {id: '3', isDown: false, text: "ReactJs"},
+    ]
+  });
+
+  expect(newState['todolistId1'][0].text).toBe('React')
+  expect(newState['todolistId2'][0].text).toBe('Html-Css')
+});

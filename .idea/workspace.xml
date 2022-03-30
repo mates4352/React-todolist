@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1febea20-0532-4614-9f45-e3af03569712" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/store/task-reducers/task-reducers.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/task-reducers/tasks-reducer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/todolist-reducers/todolist-reducer.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/todolist-reducers/todolist-reducer.ts" afterDir="false" />
+    <list default="true" id="1febea20-0532-4614-9f45-e3af03569712" name="Changes" comment="Add two test for task-reducers">
+      <change afterPath="$PROJECT_DIR$/src/store/tasks-todolist.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.test.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Todolist/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Todolist/Todolist.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/task-reducers/task-reducers.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/task-reducers/task-reducers.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/task-reducers/tasks-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/task-reducers/tasks-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/todolist-reducers/todolist-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/todolist-reducers/todolist-reducer.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +71,7 @@
       <recent name="C:\frontend-project\React-todolist\src\components\Todolist" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Jest.Should change state object-tasks">
     <configuration name="Should change state array" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -88,8 +85,22 @@
       </test-names>
       <method v="2" />
     </configuration>
+    <configuration name="Should change state object-tasks" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/store/task-reducers/task-reducers.test.ts" />
+      <test-names>
+        <test-name value="Should change state object-tasks" />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.Should change state object-tasks" />
         <item itemvalue="Jest.Should change state array" />
       </list>
     </recent_temporary>
@@ -135,8 +146,17 @@
       <workItem from="1647861382226" duration="700000" />
       <workItem from="1647961171489" duration="12497000" />
       <workItem from="1648066679424" duration="1200000" />
-      <workItem from="1648577257336" duration="4565000" />
+      <workItem from="1648577257336" duration="4818000" />
+      <workItem from="1648652985015" duration="8924000" />
     </task>
+    <task id="LOCAL-00001" summary="Add two test for task-reducers">
+      <created>1648586513073</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1648586513073</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,5 +189,7 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/my-app" />
     </ignored-roots>
+    <MESSAGE value="Add two test for task-reducers" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add two test for task-reducers" />
   </component>
 </project>
