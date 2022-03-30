@@ -39,6 +39,8 @@ test('ids should be equals', () => {
   expect(idFromTodolists).toBe(action.todolistId);
   expect(stateTodolist.length).toBe(2)
   expect(keys.length).toBe(3)
+  expect(endTasksState[action.todolistId]).toBeDefined()
+  expect(endTodolistsState.length).toBe(3)
 });
 
 test('property with todolistId should be deleted', () => {

@@ -58,8 +58,6 @@ const App = () => {
     setTodolist([...todo])
   }
 
-
-
   const addTask = (value: string, todolistId: string):void => {
     const newTask = {id: v1(), isDown: true, text: value};
     tasks[todolistId] = [...tasks[todolistId], newTask]
