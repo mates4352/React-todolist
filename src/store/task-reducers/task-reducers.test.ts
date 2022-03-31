@@ -1,15 +1,10 @@
-// @ts-ignore
-
-import {useState} from "react";
-import {v1} from "uuid";
 import {tasks} from "../../App";
 import {
   changeTaskStatusCreateAction, changeTextStatusCreateAction,
   removeTaskCreateAction,
-  sendTaskCreateAction,
-  tasksReduser
+  addTaskCreateAction,
+  tasksReducer
 } from "./tasks-reducer";
-import {AddTodolistTActionCreate} from "../todolist-reducers/todolist-reducer";
 
 test('Should change state object-tasks', () => {
 
@@ -27,8 +22,8 @@ test('Should change state object-tasks', () => {
     ]
   }
 
-  const action = sendTaskCreateAction('todolistId1', 'React')
-  const newState = tasksReduser(state, action)
+  const action = addTaskCreateAction('todolistId1', 'React')
+  const newState = tasksReducer(state, action)
 
   expect(state).toEqual({
     'todolistId1': [
@@ -64,7 +59,7 @@ test('Should change state object-tasks', () => {
   }
 
   const action = removeTaskCreateAction('todolistId1', '1')
-  const newState = tasksReduser(state, action)
+  const newState = tasksReducer(state, action)
 
   expect(state).toEqual({
     'todolistId1': [
@@ -103,7 +98,7 @@ test('status of specified task should be changed', () => {
   }
 
   const action = changeTaskStatusCreateAction('todolistId1', '1', false)
-  const newState = tasksReduser(state, action)
+  const newState = tasksReducer(state, action)
 
   expect(state).toEqual({
     'todolistId1': [
@@ -139,7 +134,7 @@ test('text of specified task should be changed', () => {
   }
 
   const action = changeTextStatusCreateAction('todolistId1', '1', 'React')
-  const newState = tasksReduser(state, action)
+  const newState = tasksReducer(state, action)
 
   expect(state).toEqual({
     'todolistId1': [

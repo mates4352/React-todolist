@@ -4,7 +4,7 @@ import {
   RemoveTodolistActionCreate,
   todolistReducer
 } from "./todolist-reducers/todolist-reducer";
-import {tasksReduser} from "./task-reducers/tasks-reducer";
+import {tasksReducer} from "./task-reducers/tasks-reducer";
 
 test('ids should be equals', () => {
   const stateTasks: tasks = {
@@ -28,7 +28,7 @@ test('ids should be equals', () => {
 
   const action = AddTodolistTActionCreate("new todolist");
 
-  const endTasksState = tasksReduser(stateTasks, action)
+  const endTasksState = tasksReducer(stateTasks, action)
   const endTodolistsState = todolistReducer(stateTodolist, action)
 
   const keys = Object.keys(endTasksState);
@@ -60,7 +60,7 @@ test('property with todolistId should be deleted', () => {
 
   const action = RemoveTodolistActionCreate("todolistId2");
 
-  const endState = tasksReduser(stateTasks, action)
+  const endState = tasksReducer(stateTasks, action)
 
   const keys = Object.keys(endState);
 
