@@ -1,9 +1,9 @@
 import {tasks} from "../../App";
 import {
-  changeTaskStatusCreateAction, changeTextStatusCreateAction,
+  changeTaskStatusCreateAction,
   removeTaskCreateAction,
   addTaskCreateAction,
-  tasksReducer
+  tasksReducer, changeTaskTextCreateAction
 } from "./tasks-reducer";
 
 test('Should change state object-tasks', () => {
@@ -97,7 +97,7 @@ test('status of specified task should be changed', () => {
     ]
   }
 
-  const action = changeTaskStatusCreateAction('todolistId1', '1', false)
+  const action = changeTaskStatusCreateAction('todolistId1', '1')
   const newState = tasksReducer(state, action)
 
   expect(state).toEqual({
@@ -133,7 +133,7 @@ test('text of specified task should be changed', () => {
     ]
   }
 
-  const action = changeTextStatusCreateAction('todolistId1', '1', 'React')
+  const action = changeTaskTextCreateAction('todolistId1', '1', 'React')
   const newState = tasksReducer(state, action)
 
   expect(state).toEqual({

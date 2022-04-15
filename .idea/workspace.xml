@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1febea20-0532-4614-9f45-e3af03569712" name="Changes" comment="Change tests">
+    <list default="true" id="1febea20-0532-4614-9f45-e3af03569712" name="Changes" comment="Fix type in tasks, todolist">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/task-reducers/task-reducers.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/task-reducers/task-reducers.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/task-reducers/tasks-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/task-reducers/tasks-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/tasks-todolist-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/tasks-todolist-reducer.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/todolist-reducers/todolist-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/todolist-reducers/todolist-reducer.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -148,7 +148,10 @@
       <workItem from="1648066679424" duration="1200000" />
       <workItem from="1648577257336" duration="4818000" />
       <workItem from="1648652985015" duration="10894000" />
-      <workItem from="1648731728190" duration="1742000" />
+      <workItem from="1648731728190" duration="2743000" />
+      <workItem from="1649191020783" duration="442000" />
+      <workItem from="1649952202452" duration="4888000" />
+      <workItem from="1650036209411" duration="6138000" />
     </task>
     <task id="LOCAL-00001" summary="Add two test for task-reducers">
       <created>1648586513073</created>
@@ -171,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648672254394</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Fix type in tasks, todolist">
+      <created>1648734624287</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1648734624287</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,6 +217,7 @@
     <MESSAGE value="Add two test for task-reducers" />
     <MESSAGE value="Add task-reducers.test, task-todolist-reducer.test" />
     <MESSAGE value="Change tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change tests" />
+    <MESSAGE value="Fix type in tasks, todolist" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix type in tasks, todolist" />
   </component>
 </project>
