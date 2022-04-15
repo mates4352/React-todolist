@@ -1,89 +1,59 @@
-import React, {Reducer, useReducer} from 'react';
-import {Todolist, FilterValueType, dataTodolistType} from "./components/Todolist/Todolist";
-import {v1} from "uuid";
+import React from 'react';
+import {Todolist} from "./components/Todolist/Todolist";
 import {InputTodolist} from "./components/InputTodolist/InputTodolist";
 import s from './App.module.scss';
 import {
-  todolistActionType, AddTodolistTActionCreate,
+  AddTodolistTActionCreate,
   ChangeFilterActionCreate, ChangeTitleTActionCreate,
-  RemoveTodolistActionCreate,
-  todolistReducer
+  RemoveTodolistActionCreate, todolistType,FilterValueType
 } from "./store/todolist-reducers/todolist-reducer";
 import {
   addTaskCreateAction, changeTaskStatusCreateAction, changeTaskTextCreateAction,
-  removeTaskCreateAction,
-  tasksActionType,
-  tasksReducer
+  removeTaskCreateAction, tasks, taskType
 } from "./store/task-reducers/tasks-reducer";
+import {state} from "./store/store";
+import {Dispatch} from "redux";
 
-export type todolist = {
-  id: string
-  title: string
-  filter: string
+type AppType = {
+  state: state,
+  dispatch: Dispatch
 }
 
-export type tasks = {
-  [todolistId: string]: Array<dataTodolistType>
-}
-
-const App = () => {
-  console.log('h')
-  const [todolistId1, todolistId2] = [v1(), v1()]
-
-  let [todolist, setTodolist] = useReducer<Reducer<Array<todolist>, todolistActionType>>( todolistReducer , [
-    {id: todolistId1, title: 'Todolist1', filter: 'ACTIVE'},
-    {id: todolistId2, title: 'Todolist2', filter: 'COMPLETED'},
-  ])
-
-  let [tasks, setTasks] = useReducer<Reducer<tasks, tasksActionType>>( tasksReducer,{
-      [todolistId1]: [
-        {id: v1(), isDown: true, text: "Html-Css"},
-        {id: v1(), isDown: true, text: "Js"},
-        {id: v1(), isDown: false, text: "ReactJs"},
-      ],
-      [todolistId2]: [
-        {id: v1(), isDown: true, text: "Html-Css"},
-        {id: v1(), isDown: true, text: "Js"},
-        {id: v1(), isDown: false, text: "ReactJs"},
-      ]
-    }
-  );
+const App:React.FC<AppType> = ({state, dispatch}) => {
 
   const changeTodolistFilter = (filter: FilterValueType, todolistId: string):void => {
-    setTodolist(ChangeFilterActionCreate(todolistId, filter))
+    dispatch(ChangeFilterActionCreate(todolistId, filter))
   }
 
   const removeTodolist = (todolistId: string):void => {
-    setTodolist(RemoveTodolistActionCreate(todolistId))
+    dispatch(RemoveTodolistActionCreate(todolistId))
   }
 
   const addTodolist = (value: string):void => {
-    const action = AddTodolistTActionCreate(value);
-    setTodolist(action);
-    setTasks(action);
+    dispatch(AddTodolistTActionCreate(value));
   }
 
   const changeTodolistTitle = (title: string, todolistId: string):void => {
-    setTodolist(ChangeTitleTActionCreate(todolistId, title))
+    dispatch(ChangeTitleTActionCreate(todolistId, title))
   }
 
   const addTask = (value: string, todolistId: string):void => {
-    setTasks(addTaskCreateAction(todolistId, value))
+    dispatch(addTaskCreateAction(todolistId, value))
   }
 
   const removeTask = (id: string, todolistId: string):void => {
-    setTasks(removeTaskCreateAction(todolistId, id))
+    dispatch(removeTaskCreateAction(todolistId, id))
   }
 
   const changeCheckedTask = (taskId: string, todolistId: string):void => {
-    setTasks(changeTaskStatusCreateAction(todolistId, taskId))
+    dispatch(changeTaskStatusCreateAction(todolistId, taskId))
   }
 
   const changeValueTask = (value: string, taskId: string, todolistId: string):void => {
-    setTasks(changeTaskTextCreateAction(todolistId, taskId, value))
+    dispatch(changeTaskTextCreateAction(todolistId, taskId, value))
   }
 
-  const getFitlerTasks = (todo: todolist):Array<dataTodolistType> => {
+  const getFitlerTasks = (tasks: tasks, todo: todolistType): Array<taskType> => {
     switch (todo.filter) {
       case "ACTIVE":
         return tasks[todo.id].filter(((task: any) => task.isDown));
@@ -100,8 +70,8 @@ const App = () => {
     <div className={s.app}>
       <InputTodolist addTask={addTodolist} className={s.inputTodolist__size}/>
       <div className={s.app_todolists}>
-        {todolist.map(todo => {
-          const [id, title, filter, tasks] = [todo.id, todo.title, todo.filter, getFitlerTasks(todo)]
+        {state.todolist.map(todo => {
+          const [id, title, filter, tasks] = [todo.id, todo.title, todo.filter, getFitlerTasks(state.tasks, todo)]
           return (
             <Todolist
               key={id}

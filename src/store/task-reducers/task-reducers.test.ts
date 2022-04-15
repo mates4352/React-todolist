@@ -1,9 +1,8 @@
-import {tasks} from "../../App";
 import {
   changeTaskStatusCreateAction,
   removeTaskCreateAction,
   addTaskCreateAction,
-  tasksReducer, changeTaskTextCreateAction
+  tasksReducer, changeTaskTextCreateAction, tasks
 } from "./tasks-reducer";
 
 test('Should change state object-tasks', () => {

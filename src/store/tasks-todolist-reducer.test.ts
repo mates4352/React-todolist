@@ -1,10 +1,9 @@
-import {tasks, todolist} from "../App";
 import {
   AddTodolistTActionCreate,
   RemoveTodolistActionCreate,
-  todolistReducer
+  todolistReducer, todolistType
 } from "./todolist-reducers/todolist-reducer";
-import {tasksReducer} from "./task-reducers/tasks-reducer";
+import {tasks, tasksReducer} from "./task-reducers/tasks-reducer";
 
 test('ids should be equals', () => {
   const stateTasks: tasks = {
@@ -21,7 +20,7 @@ test('ids should be equals', () => {
     ]
   }
 
-  const stateTodolist: Array<todolist> = [
+  const stateTodolist: Array<todolistType> = [
     {id: 'todolistId1', title: "What to learn", filter: "all"},
     {id: 'todolistId2', title: "What to buy", filter: "all"}
   ]

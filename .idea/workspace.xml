@@ -4,12 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1febea20-0532-4614-9f45-e3af03569712" name="Changes" comment="Fix type in tasks, todolist">
+    <list default="true" id="1febea20-0532-4614-9f45-e3af03569712" name="Changes" comment="Add useReducer">
+      <change afterPath="$PROJECT_DIR$/src/store/store.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Todolist/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Todolist/Todolist.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/task-reducers/task-reducers.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/task-reducers/task-reducers.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/task-reducers/tasks-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/task-reducers/tasks-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/tasks-todolist-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/tasks-todolist-reducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/todolist-reducers/todolist-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/todolist-reducers/todolist-reducer.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/todolist-reducers/todolist-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/todolist-reducers/todolist-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +158,7 @@
       <workItem from="1648731728190" duration="2743000" />
       <workItem from="1649191020783" duration="442000" />
       <workItem from="1649952202452" duration="4888000" />
-      <workItem from="1650036209411" duration="6138000" />
+      <workItem from="1650036209411" duration="11206000" />
     </task>
     <task id="LOCAL-00001" summary="Add two test for task-reducers">
       <created>1648586513073</created>
@@ -181,7 +188,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648734624287</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add useReducer">
+      <created>1650049811819</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1650049811819</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,6 +232,7 @@
     <MESSAGE value="Add task-reducers.test, task-todolist-reducer.test" />
     <MESSAGE value="Change tests" />
     <MESSAGE value="Fix type in tasks, todolist" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix type in tasks, todolist" />
+    <MESSAGE value="Add useReducer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add useReducer" />
   </component>
 </project>

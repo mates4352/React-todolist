@@ -1,6 +1,18 @@
-import {tasks} from "../../App";
 import {v1} from "uuid";
-import {AddTodolistTActionType, RemoveTodolistTActionType} from "../todolist-reducers/todolist-reducer";
+import {
+  AddTodolistTActionType,
+  RemoveTodolistTActionType, todolistId1, todolistId2, todolistType
+} from "../todolist-reducers/todolist-reducer";
+
+export type tasks = {
+  [todolistId: string]: Array<taskType>
+}
+
+export type taskType = {
+  id: string
+  isDown: boolean
+  text: string
+}
 
 type AddTaskActionType = ReturnType<typeof addTaskCreateAction>
 type removeTaskActionType = ReturnType<typeof removeTaskCreateAction>
@@ -14,7 +26,20 @@ export type tasksActionType =
   | AddTodolistTActionType
   | RemoveTodolistTActionType
 
-export const tasksReducer = (state: tasks, action: tasksActionType): tasks => {
+let stateTasks: tasks = {
+  [todolistId1]: [
+    {id: v1(), isDown: true, text: "Html-Css"},
+    {id: v1(), isDown: true, text: "Js"},
+    {id: v1(), isDown: false, text: "ReactJs"},
+  ],
+  [todolistId2]: [
+    {id: v1(), isDown: true, text: "Html-Css"},
+    {id: v1(), isDown: true, text: "Js"},
+    {id: v1(), isDown: false, text: "ReactJs"},
+  ]
+}
+
+export const tasksReducer = (state: tasks = stateTasks, action: tasksActionType): tasks => {
   switch (action.type) {
     case 'ADD-TASK':
       const newTask = {id: v1(), text: action.value, isDown: true}
