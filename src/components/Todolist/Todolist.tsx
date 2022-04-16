@@ -7,13 +7,13 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import {Button} from '@material-ui/core';
 import Checkbox from '@material-ui/core/Checkbox';
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
-import {taskType} from "../../store/task-reducers/tasks-reducer";
+import {tasks} from "../../store/task-reducers/tasks-reducer";
 import {FilterValueType} from "../../store/todolist-reducers/todolist-reducer";
 
 type todolistType = {
   id: string
   title: string
-  tasks: Array<taskType>
+  tasks: tasks
   filter: string
   addTask: (value: string, todolistId: string) => void
   removeTask: (id: string, todolistId: string) => void
@@ -64,7 +64,7 @@ export const Todolist: React.FC<todolistType> = (
       <InputTodolist addTask={addTaskTodolist}/>
 
       <ul className={s.list}>
-        {tasks.map((task) => {
+        {tasks[id].map((task) => {
             const changeTodolistTaskValue = (value: string) => {
               changeValueTask(value, task.id, id)
             }
