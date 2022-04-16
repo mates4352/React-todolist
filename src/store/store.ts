@@ -4,7 +4,7 @@ import {tasksReducer} from "./task-reducers/tasks-reducer";
 
 export type state = ReturnType<typeof rootReducer>
 
-const rootReducer = combineReducers({
+export const rootReducer = combineReducers({
   todolist: todolistReducer,
   tasks: tasksReducer,
 })

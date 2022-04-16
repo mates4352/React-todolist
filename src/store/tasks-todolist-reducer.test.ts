@@ -3,10 +3,10 @@ import {
   RemoveTodolistActionCreate,
   todolistReducer, todolistType
 } from "./todolist-reducers/todolist-reducer";
-import {tasks, tasksReducer} from "./task-reducers/tasks-reducer";
+import {tasksType, tasksReducer} from "./task-reducers/tasks-reducer";
 
 test('ids should be equals', () => {
-  const stateTasks: tasks = {
+  const stateTasks: tasksType = {
     'todolistId1': [
       {id: '1', isDown: true, text: "Html-Css"},
       {id: '2', isDown: true, text: "Js"},
@@ -43,7 +43,7 @@ test('ids should be equals', () => {
 });
 
 test('property with todolistId should be deleted', () => {
-  const stateTasks: tasks = {
+  const stateTasks: tasksType = {
     'todolistId1': [
       {id: '1', isDown: true, text: "Html-Css"},
       {id: '2', isDown: true, text: "Js"},

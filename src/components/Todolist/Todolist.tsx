@@ -7,13 +7,13 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import {Button} from '@material-ui/core';
 import Checkbox from '@material-ui/core/Checkbox';
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
-import {tasks} from "../../store/task-reducers/tasks-reducer";
+import {tasksType} from "../../store/task-reducers/tasks-reducer";
 import {FilterValueType} from "../../store/todolist-reducers/todolist-reducer";
 
 type todolistType = {
   id: string
   title: string
-  tasks: tasks
+  tasks: tasksType
   filter: string
   addTask: (value: string, todolistId: string) => void
   removeTask: (id: string, todolistId: string) => void

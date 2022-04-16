@@ -2,12 +2,12 @@ import {
   changeTaskStatusCreateAction,
   removeTaskCreateAction,
   addTaskCreateAction,
-  tasksReducer, changeTaskTextCreateAction, tasks, changeFilterTasksCreateAction
+  tasksReducer, changeTaskTextCreateAction, tasksType, changeFilterTasksCreateAction
 } from "./tasks-reducer";
 import {todolistId1} from "../todolist-reducers/todolist-reducer";
 
 test('Should change state object-tasks', () => {
-  const state: tasks = {
+  const state: tasksType = {
     'todolistId1': [
       {id: '1', isDown: true, text: "Html-Css"},
       {id: '2', isDown: true, text: "Js"},
@@ -43,7 +43,7 @@ test('Should change state object-tasks', () => {
 
 test('Should change state object-tasks', () => {
 
-  const state: tasks = {
+  const state: tasksType = {
     'todolistId1': [
       {id: '1', isDown: true, text: "Html-Css"},
       {id: '2', isDown: true, text: "Js"},
@@ -82,7 +82,7 @@ test('Should change state object-tasks', () => {
 })
 
 test('status of specified task should be changed', () => {
-  const state: tasks = {
+  const state: tasksType = {
     'todolistId1': [
       {id: '1', isDown: true, text: "Html-Css"},
       {id: '2', isDown: true, text: "Js"},
@@ -118,7 +118,7 @@ test('status of specified task should be changed', () => {
 });
 
 test('text of specified task should be changed', () => {
-  const state: tasks = {
+  const state: tasksType = {
     'todolistId1': [
       {id: '1', isDown: true, text: "Html-Css"},
       {id: '2', isDown: true, text: "Js"},
@@ -154,7 +154,7 @@ test('text of specified task should be changed', () => {
 });
 
 test('change filter tasks to test action FILTER-TASKS', () => {
-  const state: tasks = {
+  const state: tasksType = {
     'todolistId1': [
       {id: '1', isDown: true, text: "Html-Css"},
       {id: '2', isDown: true, text: "Js"},

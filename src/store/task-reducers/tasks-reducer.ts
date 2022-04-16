@@ -4,7 +4,7 @@ import {
   RemoveTodolistTActionType, todolistId1, todolistId2, todolistType
 } from "../todolist-reducers/todolist-reducer";
 
-export type tasks = {
+export type tasksType = {
   [todolistId: string]: Array<taskType>
 }
 export type taskType = {
@@ -26,7 +26,7 @@ export type tasksActionType =
   | AddTodolistTActionType
   | RemoveTodolistTActionType
 
-let stateTasks: tasks = {
+let stateTasks: tasksType = {
   [todolistId1]: [
     {id: v1(), isDown: true, text: "Html-Css"},
     {id: v1(), isDown: true, text: "Js"},
@@ -39,7 +39,7 @@ let stateTasks: tasks = {
   ]
 }
 
-export const tasksReducer = (state: tasks = stateTasks, action: tasksActionType): tasks => {
+export const tasksReducer = (state: tasksType = stateTasks, action: tasksActionType): tasksType => {
   switch (action.type) {
     case 'ADD-TASK':
       const newTask = {id: v1(), text: action.value, isDown: true}
