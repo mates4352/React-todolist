@@ -168,7 +168,7 @@ test('change filter tasks to test action FILTER-TASKS', () => {
     ]
   }
 
-  const actionActive = changeFilterTasksCreateAction({id: 'todolistId1', title: 'Todolist1', filter: 'ACTIVE'})
+  const actionActive = changeFilterTasksCreateAction('todolistId1','ACTIVE')
   const newStateActive = tasksReducer(state, actionActive)
 
   expect(state).toEqual({
@@ -193,7 +193,7 @@ test('change filter tasks to test action FILTER-TASKS', () => {
   expect(newStateActive['todolistId2'].length).toBe(3)
   expect(newStateActive['todolistId2'][3]).toBeFalsy()
 
-  const actionCompleted = changeFilterTasksCreateAction({id: 'todolistId2', title: 'Todolist2', filter: 'COMPLETED'})
+  const actionCompleted = changeFilterTasksCreateAction('todolistId2','COMPLETED')
   const newStateCompleted = tasksReducer(state, actionCompleted)
 
   expect(state).toEqual({

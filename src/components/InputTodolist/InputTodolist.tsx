@@ -3,13 +3,15 @@ import  React, {KeyboardEvent} from 'react';
 import {ChangeEvent, useState} from "react";
 import s from './InputTodolist.module.scss';
 import ControlPointIcon from '@material-ui/icons/ControlPoint';
+import {AddTodolistTActionCreate} from "../../store/todolist-reducers/todolist-reducer";
+import {useDispatch} from "react-redux";
 
 type inputTodolist = {
-  addTask: (value: string) => void
+  addValue: (value: string) => void
   className?: any
 }
 
-export const InputTodolist: React.FC<inputTodolist> = ({addTask, className}) => {
+export const InputTodolist: React.FC<inputTodolist> = ({addValue, className}) => {
   const [inputValue, setInputValue] = useState('');
   const [error, setError] = useState<string>('');
   const onChangeInput = (element: ChangeEvent<HTMLInputElement>):void => {
@@ -18,16 +20,17 @@ export const InputTodolist: React.FC<inputTodolist> = ({addTask, className}) => 
 
   const onKeyUpInput = (key: KeyboardEvent<HTMLInputElement>):void => {
     if (key.key === "Enter" && key.currentTarget.value !== "") {
-      addTask(inputValue)
+      addValue(inputValue)
       setError('')
       setInputValue('')
     } else if (key.key === "Enter" && key.currentTarget.value === "") {
       setError('Value is required')
     }
   }
+
   const onClinkButton = ():void => {
     if (inputValue.trim() !== "") {
-      addTask(inputValue)
+      addValue(inputValue)
       setError('')
       setInputValue('')
     } else {

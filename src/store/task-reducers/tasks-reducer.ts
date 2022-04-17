@@ -48,11 +48,11 @@ export const tasksReducer = (state: tasksType = stateTasks, action: tasksActionT
         [action.todolistId]: [...state[action.todolistId], newTask]
       }
     case "CHANGE-FILTER-TASKS":
-      switch (action.todolist.filter) {
+      switch (action.filter) {
         case "ACTIVE":
-          return {...state, [action.todolist.id]: state[action.todolist.id].filter(((task: taskType) => task.isDown))}
+          return {...state, [action.todolistId]: state[action.todolistId].filter(((task: taskType) => task.isDown))}
         case "COMPLETED":
-          return {...state, [action.todolist.id]:  state[action.todolist.id].filter(((task: taskType) => !task.isDown))}
+          return {...state, [action.todolistId]:  state[action.todolistId].filter(((task: taskType) => !task.isDown))}
         default:
           return state;
       }
@@ -85,8 +85,8 @@ export const tasksReducer = (state: tasksType = stateTasks, action: tasksActionT
 export const addTaskCreateAction = (todolistId: string, value: string) => {
   return {type: 'ADD-TASK', todolistId, value} as const
 }
-export const changeFilterTasksCreateAction = (todolist: todolistType) => {
-  return {type: 'CHANGE-FILTER-TASKS', todolist} as const
+export const changeFilterTasksCreateAction = (todolistId: string, filter: string) => {
+  return {type: 'CHANGE-FILTER-TASKS', todolistId, filter} as const
 }
 export const removeTaskCreateAction = (todolistId: string, taskId: string) => {
   return {type: 'REMOVE-TASK', todolistId, taskId} as const

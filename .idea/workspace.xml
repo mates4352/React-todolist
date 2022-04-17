@@ -6,16 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="1febea20-0532-4614-9f45-e3af03569712" name="Changes" comment="Add useReducer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/InputTodolist/InputTodolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InputTodolist/InputTodolist.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Todolist/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Todolist/Todolist.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/context.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/store.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/task-reducers/task-reducers.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/task-reducers/task-reducers.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/task-reducers/tasks-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/task-reducers/tasks-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/tasks-todolist-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/tasks-todolist-reducer.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +168,8 @@
       <workItem from="1649952202452" duration="4888000" />
       <workItem from="1650036209411" duration="11639000" />
       <workItem from="1650099734595" duration="4049000" />
-      <workItem from="1650122004582" duration="8992000" />
+      <workItem from="1650122004582" duration="9101000" />
+      <workItem from="1650184047288" duration="6047000" />
     </task>
     <task id="LOCAL-00001" summary="Add two test for task-reducers">
       <created>1648586513073</created>
