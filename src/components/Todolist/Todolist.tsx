@@ -8,36 +8,35 @@ import {Button} from '@material-ui/core';
 import Checkbox from '@material-ui/core/Checkbox';
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 import {
-  addTaskCreateAction, changeFilterTasksCreateAction,
-  changeTaskStatusCreateAction, changeTaskTextCreateAction,
-  removeTaskCreateAction, tasksReducer,
+  FilterValueType,
   tasksType
-} from "../../store/task-reducers/tasks-reducer";
-import {
-  ChangeFilterActionCreate,
-  ChangeTitleTActionCreate,
-  FilterValueType
-} from "../../store/todolist-reducers/todolist-reducer";
+} from "../../bll/task-reducers/tasks-reducer";
 import {useDispatch, useSelector} from "react-redux";
-import {state} from "../../store/store";
+import {state} from "../../bll/redux-store";
+import {ChangeFilterActionCreate, ChangeTitleTActionCreate} from "../../bll/todolist-reducers/todolist-create-actions";
+import {
+  addTaskCreateAction,
+  changeTaskStatusCreateAction, changeTaskTextCreateAction, removeTaskCreateAction
+} from "../../bll/task-reducers/task-create-actions";
+import {changeFilterTasks} from "../../bll/task-reducers/task.thunk";
 
 type todolistType = {
   id: string
   title: string
-  filter: string
+  filter: FilterValueType
   removeTodolist: (todolistId: string) => void
 }
-export const Todolist: React.FC<todolistType> = (
-  {
-    id,
-    title,
-    filter,
-    removeTodolist,
-  }) => {
+export const Todolist: React.FC<todolistType> = (props) => {
+   const {
+      id,
+      title,
+      filter,
+      removeTodolist
+   } = props
 
   const dispatch = useDispatch();
   const tasks = useSelector<state, tasksType>( state => state.tasks)
-  const filterTasks = tasksReducer(tasks, changeFilterTasksCreateAction(id, filter))
+  const filterTasks = changeFilterTasks(tasks, id, filter)
 
   const changeValueTask = (value: string, taskId: string, todolistId: string): void => {
     dispatch(changeTaskTextCreateAction(todolistId, taskId, value))
@@ -55,7 +54,7 @@ export const Todolist: React.FC<todolistType> = (
     dispatch(addTaskCreateAction(id, value))
   }
 
-  return (
+   return (
     <div className={s.todolist}>
 
       <Button className={s.buttonDelete} aria-label="Button delete" onClick={() => removeTodolist(id)}>
@@ -71,7 +70,6 @@ export const Todolist: React.FC<todolistType> = (
             const changeTodolistTaskValue = (value: string) => {
               changeValueTask(value, task.id, id)
             }
-
             return (
               <li className={!task.isDown ? `${s.item_opacity} ${s.item}` : s.item} key={task.id}>
                 <Checkbox
@@ -84,7 +82,7 @@ export const Todolist: React.FC<todolistType> = (
 
                 <EditModeText text={task.text} changeValue={changeTodolistTaskValue}/>
 
-                <IconButton aria-label="Button delete task" onClick={() => dispatch(removeTaskCreateAction(task.id, id))}>
+                <IconButton aria-label="Button delete task" onClick={() => dispatch(removeTaskCreateAction(id, task.id))}>
                   <DeleteIcon/>
                 </IconButton>
               </li>

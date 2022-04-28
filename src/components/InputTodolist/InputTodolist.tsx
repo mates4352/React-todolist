@@ -3,8 +3,6 @@ import  React, {KeyboardEvent} from 'react';
 import {ChangeEvent, useState} from "react";
 import s from './InputTodolist.module.scss';
 import ControlPointIcon from '@material-ui/icons/ControlPoint';
-import {AddTodolistTActionCreate} from "../../store/todolist-reducers/todolist-reducer";
-import {useDispatch} from "react-redux";
 
 type inputTodolist = {
   addValue: (value: string) => void

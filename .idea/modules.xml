@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/React-todoist.iml" filepath="$PROJECT_DIR$/.idea/React-todoist.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/React-todolist.iml" filepath="$PROJECT_DIR$/.idea/React-todolist.iml" />
     </modules>
   </component>
 </project>

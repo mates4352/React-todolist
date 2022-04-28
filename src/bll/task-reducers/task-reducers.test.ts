@@ -1,10 +1,13 @@
 import {
-  changeTaskStatusCreateAction,
-  removeTaskCreateAction,
-  addTaskCreateAction,
-  tasksReducer, changeTaskTextCreateAction, tasksType, changeFilterTasksCreateAction
+  tasksReducer, tasksType,
 } from "./tasks-reducer";
 import {todolistId1} from "../todolist-reducers/todolist-reducer";
+import {
+  addTaskCreateAction,
+  changeTaskStatusCreateAction,
+  changeTaskTextCreateAction, removeTaskCreateAction
+} from "./task-create-actions";
+import {changeFilterTasks} from "./task.thunk";
 
 test('Should change state object-tasks', () => {
   const state: tasksType = {
@@ -168,8 +171,7 @@ test('change filter tasks to test action FILTER-TASKS', () => {
     ]
   }
 
-  const actionActive = changeFilterTasksCreateAction('todolistId1','ACTIVE')
-  const newStateActive = tasksReducer(state, actionActive)
+  const newStateActive = changeFilterTasks(state, 'todolistId1','ACTIVE')
 
   expect(state).toEqual({
     'todolistId1': [
@@ -193,8 +195,7 @@ test('change filter tasks to test action FILTER-TASKS', () => {
   expect(newStateActive['todolistId2'].length).toBe(3)
   expect(newStateActive['todolistId2'][3]).toBeFalsy()
 
-  const actionCompleted = changeFilterTasksCreateAction('todolistId2','COMPLETED')
-  const newStateCompleted = tasksReducer(state, actionCompleted)
+  const newStateCompleted = changeFilterTasks(state,'todolistId2','COMPLETED')
 
   expect(state).toEqual({
     'todolistId1': [

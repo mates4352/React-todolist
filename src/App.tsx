@@ -3,12 +3,11 @@ import {Todolist} from "./components/Todolist/Todolist";
 import {InputTodolist} from "./components/InputTodolist/InputTodolist";
 import s from './App.module.scss';
 import {
-  AddTodolistTActionCreate,
-  RemoveTodolistActionCreate,
   todolistType
-} from "./store/todolist-reducers/todolist-reducer";
+} from "./bll/todolist-reducers/todolist-reducer";
 import {useDispatch, useSelector} from "react-redux";
-import {state} from "./store/store";
+import {state} from "./bll/redux-store";
+import {AddTodolistTActionCreate, RemoveTodolistActionCreate} from "./bll/todolist-reducers/todolist-create-actions";
 
 const App = () => {
   const dispatch = useDispatch()
