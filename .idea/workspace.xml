@@ -5,29 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="73dbb8af-6c8b-4dfc-b67e-6eac559deeaa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/bll/localStorage.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bll/task-reducers/task.thunk.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bll/task-reducers/tasks-reducer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bll/todolist-reducers/todolist-create-actions.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bll/todolist-reducers/todolist-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/React-todoist.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Todolist/TodolistContainer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/InputTodolist/InputTodolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InputTodolist/InputTodolist.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Todolist/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Todolist/Todolist.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/redux-store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/task-reducers/task-reducers.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/task-reducers/task-reducers.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/task-reducers/tasks-reducer.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/tasks-todolist-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/tasks-todolist-reducer.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/todolist-reducers/todolist-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/todolist-reducers/todolist-reducer.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/todolist-reducers/todolist-reducer.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +24,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -94,7 +83,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1651154945576</updated>
-      <workItem from="1651154948235" duration="10058000" />
+      <workItem from="1651154948235" duration="11418000" />
     </task>
     <servers />
   </component>

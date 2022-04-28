@@ -7,15 +7,12 @@ import {
 } from "./bll/todolist-reducers/todolist-reducer";
 import {useDispatch, useSelector} from "react-redux";
 import {state} from "./bll/redux-store";
-import {AddTodolistTActionCreate, RemoveTodolistActionCreate} from "./bll/todolist-reducers/todolist-create-actions";
+import {AddTodolistTActionCreate} from "./bll/todolist-reducers/todolist-create-actions";
+import {TodolistContainer} from "./components/Todolist/TodolistContainer";
 
 const App = () => {
   const dispatch = useDispatch()
   const todolist = useSelector<state, Array<todolistType>>( state => state.todolist)
-
-  const removeTodolist = (todolistId: string): void => {
-    dispatch(RemoveTodolistActionCreate(todolistId))
-  }
 
   const addValue = (value: string) => {
     dispatch(AddTodolistTActionCreate(value))
@@ -28,12 +25,11 @@ const App = () => {
       {todolist.map(todo => {
         const [id, title, filter] = [todo.id, todo.title, todo.filter]
         return (
-          <Todolist
+          <TodolistContainer
             key={id}
             id={id}
             title={title}
-            filter={filter}
-            removeTodolist={removeTodolist}/>
+            filter={filter}/>
         )
       })}
     </div>
