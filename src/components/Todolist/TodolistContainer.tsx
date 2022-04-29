@@ -13,32 +13,34 @@ type TodolistContainerType = {
    filter: FilterValueType
 };
 
-export const TodolistContainer: React.FC<TodolistContainerType> = (props) => {
-   const {
-      id,
-      title,
-      filter,
-   } = props
+export const TodolistContainer: React.FC<TodolistContainerType> = React.memo((props) => {
+       const {
+          id,
+          title,
+          filter,
+       } = props
+       console.log('todolist')
 
-   const dispatch = useDispatch();
-   const tasks = useSelector<state, tasksType>(state => state.tasks)
+       const dispatch = useDispatch();
+       const tasks = useSelector<state, tasksType>(state => state.tasks)
 
-   const filterTasks = changeFilterTasks(tasks, id, filter)
+       const filterTasks = changeFilterTasks(tasks, id, filter)
 
-   const changeTitle = (value: string): void => {
-      dispatch(ChangeTitleTActionCreate(id, value))
-   }
+       const changeTitle = (value: string): void => {
+          dispatch(ChangeTitleTActionCreate(id, value))
+       }
 
-   const addValue = (value: string) => {
-      dispatch(addTaskCreateAction(id, value))
-   }
+       const addValue = (value: string) => {
+          dispatch(addTaskCreateAction(id, value))
+       }
 
-   return <Todolist
-       id={id}
-       title={title}
-       filter={filter}
-       filterTasks={filterTasks}
-       changeTitle={changeTitle}
-       addValue={addValue}
-   />
-};
+       return <Todolist
+           id={id}
+           title={title}
+           filter={filter}
+           filterTasks={filterTasks}
+           changeTitle={changeTitle}
+           addValue={addValue}
+       />
+    }
+)

@@ -5,10 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="73dbb8af-6c8b-4dfc-b67e-6eac559deeaa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Todolist/TodolistContainer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ListButtons/ListButtons.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ListButtons/ListButtons.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ListTasks/ListTasks.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ListTasks/ListTasks.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Task/Task.module.sass" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Task/Task.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/task-reducers/task-reducers.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/task-reducers/task-reducers.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/EditModeText/EditModeText.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EditModeText/EditModeText.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Todolist/Todolist.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Todolist/Todolist.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Todolist/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Todolist/Todolist.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Todolist/TodolistContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Todolist/TodolistContainer.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +27,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript File" />
+        <option value="Sass File" />
+        <option value="TypeScript JSX File" />
+        <option value="SCSS File" />
       </list>
     </option>
   </component>
@@ -45,6 +56,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />

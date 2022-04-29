@@ -41,29 +41,6 @@
       cursor: pointer;
    }
 
-   .list {
-      display: grid;
-      row-gap: 12px;
-      margin-bottom: 24px;
-   }
-
-   .item {
-      display: grid;
-      grid-auto-flow: column;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-      padding: 8px 12px;
-
-      border-radius: 8px;
-      background-color: #d6f1ff;
-      transition: opacity 300ms ease;
-   }
-
-   .item_opacity {
-      opacity: 0.3;
-   }
-
    .close {
       width: 30px;
       height: 30px;
@@ -73,28 +50,6 @@
       border: none;
       border-radius: 50%;
       cursor: pointer;
-   }
-
-   .sublist {
-      display: inline-grid;
-      grid-auto-flow: column;
-      column-gap: 8px;
-   }
-
-   .subitem_button {
-      padding: 6px 12px;
-
-
-      font-size: 12px;
-      color: black;
-
-      background-color: antiquewhite;
-      border: none;
-      cursor: pointer;
-   }
-
-   .subitem_button_active {
-      background-color: #cde3ff;
    }
 }
 

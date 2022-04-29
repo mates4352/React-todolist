@@ -84,7 +84,7 @@ test('Should change state object-tasks', () => {
   expect(newState['todolistId1'][0].isDown).toBeTruthy()
 })
 
-test('status of specified task should be changed', () => {
+test('status of specified Task should be changed', () => {
   const state: tasksType = {
     'todolistId1': [
       {id: '1', isDown: true, text: "Html-Css"},
@@ -120,7 +120,7 @@ test('status of specified task should be changed', () => {
   expect(newState['todolistId2'][0].isDown).toBeTruthy();
 });
 
-test('text of specified task should be changed', () => {
+test('text of specified Task should be changed', () => {
   const state: tasksType = {
     'todolistId1': [
       {id: '1', isDown: true, text: "Html-Css"},
