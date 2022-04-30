@@ -14,6 +14,7 @@ export const ListButtons: React.FC<ListButtonsType> = React.memo((props) => {
    const {id, filter} = props;
    const dispatch = useDispatch();
    const isClassActiveButton = (value: string) => filter === value ? `${s.button_active}` : '';
+   console.log('ListButtons')
 
    return (
        <ul className={s.list}>

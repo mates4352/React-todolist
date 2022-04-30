@@ -4,17 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73dbb8af-6c8b-4dfc-b67e-6eac559deeaa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/ListButtons/ListButtons.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ListButtons/ListButtons.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ListTasks/ListTasks.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ListTasks/ListTasks.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Task/Task.module.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Task/Task.tsx" afterDir="false" />
+    <list default="true" id="73dbb8af-6c8b-4dfc-b67e-6eac559deeaa" name="Changes" comment="Add component ListTasks, ListButtons, task">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bll/task-reducers/task-reducers.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/task-reducers/task-reducers.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/task-reducers/tasks-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/task-reducers/tasks-reducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/EditModeText/EditModeText.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EditModeText/EditModeText.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Todolist/Todolist.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Todolist/Todolist.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/InputTodolist/InputTodolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InputTodolist/InputTodolist.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ListButtons/ListButtons.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ListButtons/ListButtons.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ListTasks/ListTasks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ListTasks/ListTasks.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Task/Task.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/Task.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Todolist/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Todolist/Todolist.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Todolist/TodolistContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Todolist/TodolistContainer.tsx" afterDir="false" />
     </list>
@@ -96,7 +94,16 @@
       <option name="presentableId" value="Default" />
       <updated>1651154945576</updated>
       <workItem from="1651154948235" duration="11418000" />
+      <workItem from="1651317369190" duration="10193000" />
     </task>
+    <task id="LOCAL-00001" summary="Add component ListTasks, ListButtons, task">
+      <created>1651260955080</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1651260955080</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -112,5 +119,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add component ListTasks, ListButtons, task" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add component ListTasks, ListButtons, task" />
   </component>
 </project>

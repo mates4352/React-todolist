@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useCallback, useMemo} from 'react';
 import {Todolist} from "./Todolist";
 import {useDispatch, useSelector} from "react-redux";
 import {state} from "../../bll/redux-store";
-import {FilterValueType, tasksType} from "../../bll/task-reducers/tasks-reducer";
+import {FilterValueType, tasksType, taskType} from "../../bll/task-reducers/tasks-reducer";
 import {changeFilterTasks} from "../../bll/task-reducers/task.thunk";
 import {addTaskCreateAction, changeTaskTextCreateAction} from "../../bll/task-reducers/task-create-actions";
 import {ChangeTitleTActionCreate} from "../../bll/todolist-reducers/todolist-create-actions";
@@ -20,27 +20,22 @@ export const TodolistContainer: React.FC<TodolistContainerType> = React.memo((pr
           filter,
        } = props
        console.log('todolist')
-
        const dispatch = useDispatch();
-       const tasks = useSelector<state, tasksType>(state => state.tasks)
 
-       const filterTasks = changeFilterTasks(tasks, id, filter)
-
-       const changeTitle = (value: string): void => {
+       const changeTitle = useCallback((value: string): void => {
           dispatch(ChangeTitleTActionCreate(id, value))
-       }
+       }, [dispatch, id])
 
-       const addValue = (value: string) => {
+       const addValue = useCallback((value: string) => {
           dispatch(addTaskCreateAction(id, value))
-       }
+       }, [dispatch, id])
 
        return <Todolist
-           id={id}
-           title={title}
-           filter={filter}
-           filterTasks={filterTasks}
-           changeTitle={changeTitle}
-           addValue={addValue}
+              id={id}
+              title={title}
+              filter={filter}
+              changeTitle={changeTitle}
+              addValue={addValue}
        />
     }
 )

@@ -9,18 +9,17 @@ type ListTasksType = {
    id: string
    filterTasks: tasksType
 };
-export const ListTasks: React.FC<ListTasksType> = React.memo(
-    (props) => {
+export const ListTasks: React.FC<ListTasksType> = React.memo((props) => {
        const {id, filterTasks} = props;
        const dispatch = useDispatch();
+       console.log('ListTasks')
 
        return (
            <ul className={s.list}>
               {filterTasks[id].map((task) => {
-                     const changeTodolistTaskValue = (value: string) => dispatch(changeTaskTextCreateAction(id, task.id, value))
                      return (
                          <li className={!task.isDown ? `${s.opacity} ${s.item}` : s.item} key={task.id}>
-                            <Task id={id} task={task} changeTodolistTaskValue={changeTodolistTaskValue}/>
+                            <Task id={id} task={task}/>
                          </li>
                      )
                   }
