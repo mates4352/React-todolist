@@ -2,22 +2,5 @@
    display: grid;
    row-gap: 12px;
    margin-bottom: 24px;
-
-   .item {
-      display: grid;
-      grid-auto-flow: column;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-      padding: 8px 12px;
-
-      border-radius: 8px;
-      background-color: #d6f1ff;
-      transition: opacity 300ms ease;
-   }
-
-   .opacity {
-      opacity: 0.3;
-   }
 }
 

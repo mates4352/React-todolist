@@ -4,6 +4,7 @@ import {changeTaskTextCreateAction} from "../../bll/task-reducers/task-create-ac
 import {Task} from "../Task/Task";
 import {useDispatch} from "react-redux";
 import {tasksType} from "../../bll/task-reducers/tasks-reducer";
+import {TaskContainer} from "../Task/TaskContainer";
 
 type ListTasksType = {
    id: string
@@ -11,15 +12,14 @@ type ListTasksType = {
 };
 export const ListTasks: React.FC<ListTasksType> = React.memo((props) => {
        const {id, filterTasks} = props;
-       const dispatch = useDispatch();
        console.log('ListTasks')
 
        return (
            <ul className={s.list}>
               {filterTasks[id].map((task) => {
                      return (
-                         <li className={!task.isDown ? `${s.opacity} ${s.item}` : s.item} key={task.id}>
-                            <Task id={id} task={task}/>
+                         <li className={s.item} key={task.id}>
+                            <TaskContainer id={id} task={task}/>
                          </li>
                      )
                   }
