@@ -4,17 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73dbb8af-6c8b-4dfc-b67e-6eac559deeaa" name="Changes" comment="Add component ListTasks, ListButtons, task">
+    <list default="true" id="73dbb8af-6c8b-4dfc-b67e-6eac559deeaa" name="Changes" comment="Refactoring test and code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bll/task-reducers/tasks-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/task-reducers/tasks-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/EditModeText/EditModeText.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EditModeText/EditModeText.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/InputTodolist/InputTodolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InputTodolist/InputTodolist.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ListButtons/ListButtons.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ListButtons/ListButtons.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ListTasks/ListTasks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ListTasks/ListTasks.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Task/Task.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/Task.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Todolist/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Todolist/Todolist.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Todolist/TodolistContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Todolist/TodolistContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +58,13 @@
     <property name="ts.external.directory.path" value="C:\frontend-project\React-todolist\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\frontend-project\React-todolist\src\bll\todolist-reducers\todolist-reducers-test" />
+      <recent name="C:\frontend-project\React-todolist\src\bll\task-reducers\task-reducers-test" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Jest.correct todolist should be removed">
     <configuration name="change filter tasks to test action FILTER-TASKS" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -79,8 +78,22 @@
       </test-names>
       <method v="2" />
     </configuration>
+    <configuration name="correct todolist should be removed" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/bll/todolist-reducers/todolist-reducer.test.ts" />
+      <test-names>
+        <test-name value="correct todolist should be removed" />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.correct todolist should be removed" />
         <item itemvalue="Jest.change filter tasks to test action FILTER-TASKS" />
       </list>
     </recent_temporary>
@@ -94,7 +107,8 @@
       <option name="presentableId" value="Default" />
       <updated>1651154945576</updated>
       <workItem from="1651154948235" duration="11418000" />
-      <workItem from="1651317369190" duration="10193000" />
+      <workItem from="1651317369190" duration="11503000" />
+      <workItem from="1652724658967" duration="2799000" />
     </task>
     <task id="LOCAL-00001" summary="Add component ListTasks, ListButtons, task">
       <created>1651260955080</created>
@@ -103,7 +117,21 @@
       <option name="project" value="LOCAL" />
       <updated>1651260955080</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add memonization">
+      <created>1651342546118</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1651342546118</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Refactoring test and code">
+      <created>1652727291282</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1652727291282</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,6 +150,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add component ListTasks, ListButtons, task" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add component ListTasks, ListButtons, task" />
+    <MESSAGE value="Add memonization" />
+    <MESSAGE value="Refactoring test and code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring test and code" />
   </component>
 </project>
