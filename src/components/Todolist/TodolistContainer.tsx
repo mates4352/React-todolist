@@ -1,10 +1,8 @@
-import React, {useCallback, useMemo} from 'react';
+import React, {useCallback} from 'react';
 import {Todolist} from "./Todolist";
-import {useDispatch, useSelector} from "react-redux";
-import {state} from "../../bll/redux-store";
-import {FilterValueType, tasksType, taskType} from "../../bll/task-reducers/tasks-reducer";
-import {changeFilterTasks} from "../../bll/task-reducers/task.thunk";
-import {addTaskCreateAction, changeTaskTextCreateAction} from "../../bll/task-reducers/task-create-actions";
+import {useDispatch} from "react-redux";
+import {FilterValueType} from "../../bll/task-reducers/tasks-reducer";
+import {addTaskCreateAction} from "../../bll/task-reducers/task-create-actions";
 import {ChangeTitleTActionCreate} from "../../bll/todolist-reducers/todolist-create-actions";
 
 type TodolistContainerType = {
