@@ -1,6 +1,6 @@
 import React, {useCallback, useMemo} from 'react';
 import {InputTodolist} from "./components/InputTodolist/InputTodolist";
-import s from './App.module.scss';
+import './App.scss';
 import {todolistType} from "./bll/todolist-reducers/todolist-reducer";
 import {useDispatch, useSelector} from "react-redux";
 import {state} from "./bll/redux-store";
@@ -15,10 +15,10 @@ const App = () => {
    }, [dispatch])
 
    return (
-       <div className={s.app}>
-          <InputTodolist addValue={addValue} className={s.inputTodolist__size}/>
+       <div className='app'>
+          <InputTodolist addValue={addValue} className='inputTodolist__size'/>
 
-          <div className={s.app_todolists}>
+          <div className='app_todolists'>
              {todolist.map(todo => {
                 const [id, title, filter] = [todo.id, todo.title, todo.filter]
                 return (

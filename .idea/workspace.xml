@@ -4,14 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73dbb8af-6c8b-4dfc-b67e-6eac559deeaa" name="Changes" comment="Download library storybook">
-      <change afterPath="$PROJECT_DIR$/src/components/Task/Task.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Task/TaskContainer.tsx" afterDir="false" />
+    <list default="true" id="73dbb8af-6c8b-4dfc-b67e-6eac559deeaa" name="Changes" comment="Add component TaskContainer and Refactoring, add Task.stories">
+      <change afterPath="$PROJECT_DIR$/src/App.stories.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/EditModeText/EditModeText.stories.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/InputTodolist/inputTotolist.stories.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ListButtons/ListButtons.stories.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ListTasks/ListTasks.stories.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Todolist/Todolist.stories.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stories/StoriesDecorator.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/stories/Storyshots.test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ListTasks/ListTasks.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ListTasks/ListTasks.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ListTasks/ListTasks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ListTasks/ListTasks.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Task/Task.module.sass" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/Task.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Task/Task.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/Task.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.storybook/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/.storybook/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Task/Task.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/Task.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,10 +30,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="Sass File" />
         <option value="SCSS File" />
+        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
