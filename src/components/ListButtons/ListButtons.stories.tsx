@@ -3,19 +3,30 @@ import {ComponentStory} from "@storybook/react";
 import {StoriesDecorator} from "../../stories/StoriesDecorator";
 
 export default {
-   title: 'ListButtons',
+   title: 'Todolist/ListButtons',
    component: ListButtons,
    decorators: [StoriesDecorator]
 }
 
-export const ListButtonsStories: ComponentStory<typeof ListButtons> = () => (
-    <>
-       <ListButtons id={'1'} filter={"ALL"}/>
-       <br/>
-       <ListButtons id={'2'} filter={"ACTIVE"}/>
-       <br/>
-       <ListButtons id={'3'} filter={"COMPLETED"}/>
-    </>
-)
+const args = {
+   id: '1',
+   filter: 'ACTIVE'
+}
 
+const Template: ComponentStory<typeof ListButtons> = (args) => <ListButtons {...args}/>
 
+export const ListButtonsFilterAllStories = Template.bind({});
+ListButtonsFilterAllStories.args = {
+   ...args,
+   filter: 'ALL'
+}
+export const ListButtonsFilterActiveStories = Template.bind({});
+ListButtonsFilterActiveStories.args = {
+   ...args,
+   filter: 'ACTIVE'
+}
+export const ListButtonsFilterCompletedStories = Template.bind({});
+ListButtonsFilterCompletedStories.args = {
+   ...args,
+   filter: 'COMPLETED'
+}

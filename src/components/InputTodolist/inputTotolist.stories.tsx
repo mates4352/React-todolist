@@ -2,10 +2,18 @@ import {InputTodolist} from "./InputTodolist";
 import {ComponentMeta, ComponentStory} from "@storybook/react";
 
 export default {
-   title: 'InputTodolist',
+   title: 'Todolist/InputTodolist',
    component: InputTodolist,
 } as ComponentMeta<typeof InputTodolist>;
 
-const addValueAction = (value: string) => alert(value);
+const args = {
+   addValue: (value: string) => alert(value)
+}
 
-export const InputTodolistStories: ComponentStory<typeof InputTodolist> = () => <InputTodolist addValue={addValueAction}/>
+const Tamplate: ComponentStory<typeof InputTodolist> = () => <InputTodolist {...args}/>
+
+export const InputTodolistStories = Tamplate.bind({});
+InputTodolistStories.args = {
+   ...args
+}
+

@@ -3,9 +3,11 @@ import {ComponentStory} from "@storybook/react";
 import {StoriesDecorator} from "./stories/StoriesDecorator";
 
 export default {
-   title: 'App',
+   title: 'Todolist/App',
    component: App,
    decorators: [StoriesDecorator]
 }
 
-export const AppStories: ComponentStory<typeof App> = () => <App/>
+const Template: ComponentStory<typeof App> = () => <App/>
+
+export const AppStories = Template.bind({});

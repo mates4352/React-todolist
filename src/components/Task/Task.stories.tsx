@@ -4,7 +4,7 @@ import {action} from "@storybook/addon-actions";
 import {ComponentMeta, ComponentStory} from "@storybook/react";
 
 export default {
-   title: 'Tasks',
+   title: 'Todolist/Tasks',
    component: Task,
 } as ComponentMeta<typeof Task>;
 
@@ -13,20 +13,23 @@ const changeTaskStatus = action('Изменить статус таски')
 const onKeyChangeTaskStatus = action('При нажатие изменить статус саски')
 const removeTask = action('Удалить таску')
 
-export const TaskStories: ComponentStory<typeof Task> = (args: any) => (
-    <>
-       <Task
-           task={{id: '1', isDown: true, text: 'task-1'}}
-           changeTodolistTaskValue={changeTodolistTaskValue}
-           changeTaskStatus={changeTaskStatus}
-           onKeyChangeTaskStatus={onKeyChangeTaskStatus}
-           removeTask={removeTask}/>
+const args = {
+   changeTodolistTaskValue,
+   changeTaskStatus,
+   onKeyChangeTaskStatus,
+   removeTask,
+}
 
-       <Task
-           task={{id: '2', isDown: false, text: 'task-2'}}
-           changeTodolistTaskValue={changeTodolistTaskValue}
-           changeTaskStatus={changeTaskStatus}
-           onKeyChangeTaskStatus={onKeyChangeTaskStatus}
-           removeTask={removeTask}/>
-    </>
-)
+const Template: ComponentStory<typeof Task> = (args: any) => <Task {...args}/>
+
+export const TaskStoriesIsDone = Template.bind({})
+TaskStoriesIsDone.args = {
+   ...args,
+   task: {id: '1', isDown: true, text: 'task-is-down'},
+}
+
+export const TaskStoriesNotIsDone = Template.bind({})
+TaskStoriesNotIsDone.args = {
+   ...args,
+   task: {id: '1', isDown: false, text: 'task-is-not-down'},
+}
