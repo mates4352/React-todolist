@@ -4,14 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73dbb8af-6c8b-4dfc-b67e-6eac559deeaa" name="Changes" comment="Add component TaskContainer and Refactoring, add Task.stories">
+    <list default="true" id="73dbb8af-6c8b-4dfc-b67e-6eac559deeaa" name="Changes" comment="Refactoring stories for components">
+      <change afterPath="$PROJECT_DIR$/integration/app.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/integration/jest.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/integration/setupTests.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/EditModeText/EditModeText.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EditModeText/EditModeText.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/InputTodolist/inputTotolist.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InputTodolist/inputTotolist.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ListButtons/ListButtons.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ListButtons/ListButtons.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ListTasks/ListTasks.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ListTasks/ListTasks.stories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Task/Task.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/Task.stories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ListTasks/ListTasks.stories.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Todolist/Todolist.stories.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/Storyshots.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,11 +67,26 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\frontend-project\React-todolist" />
+      <recent name="C:\frontend-project\React-todolist\src\stories\integration" />
       <recent name="C:\frontend-project\React-todolist\src\bll\todolist-reducers\todolist-reducers-test" />
       <recent name="C:\frontend-project\React-todolist\src\bll\task-reducers\task-reducers-test" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.correct todolist should be removed">
+  <component name="RunManager" selected="npm.test:integration">
+    <configuration name="addItemForm" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$/integration" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/integration/app.test.js" />
+      <test-names>
+        <test-name value="addItemForm" />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <configuration name="change filter tasks to test action FILTER-TASKS" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -96,8 +113,31 @@
       </test-names>
       <method v="2" />
     </configuration>
+    <configuration name="jest:integration" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="jest:integration" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="test:integration" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="test:integration" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.test:integration" />
+        <item itemvalue="Jest.addItemForm" />
+        <item itemvalue="npm.jest:integration" />
         <item itemvalue="Jest.correct todolist should be removed" />
         <item itemvalue="Jest.change filter tasks to test action FILTER-TASKS" />
       </list>
@@ -150,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652727823924</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Refactoring stories for components">
+      <created>1652875579866</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1652875579866</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,6 +220,7 @@
     <MESSAGE value="Refactoring test and code" />
     <MESSAGE value="Add library storybook" />
     <MESSAGE value="Download library storybook" />
-    <option name="LAST_COMMIT_MESSAGE" value="Download library storybook" />
+    <MESSAGE value="Refactoring stories for components" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring stories for components" />
   </component>
 </project>
