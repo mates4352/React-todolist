@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73dbb8af-6c8b-4dfc-b67e-6eac559deeaa" name="Changes" comment="Refactoring stories for components">
-      <change afterPath="$PROJECT_DIR$/integration/app.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/integration/jest.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/integration/setupTests.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ListTasks/ListTasks.stories.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Todolist/Todolist.stories.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stories/Storyshots.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
-    </list>
+    <list default="true" id="73dbb8af-6c8b-4dfc-b67e-6eac559deeaa" name="Changes" comment="Add build" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
