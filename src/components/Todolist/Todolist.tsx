@@ -30,7 +30,7 @@ export const Todolist: React.FC<todolistType> = React.memo((props) => {
    } = props
    const dispatch = useDispatch();
    const tasks = useSelector<state, tasksType>(state => state.tasks);
-   const filterTasks = useCallback(() => changeFilterTasks(tasks, id, filter),[tasks])
+   const filterTasks = useCallback(() => changeFilterTasks(tasks, id, filter),[tasks, filter, id])
 
    return (
        <div className={s.todolist}>
