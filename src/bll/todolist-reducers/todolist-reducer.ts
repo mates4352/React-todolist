@@ -2,10 +2,9 @@ import {v1} from "uuid";
 import {todolistActionType} from "./todolist-create-actions";
 import {FilterValueType} from "../task-reducers/tasks-reducer";
 import {Actions_Type} from "../actions-type";
+import {todolistAPIType} from "../../api/todolistsAPI";
 
-export type todolistType = {
-  id: string
-  title: string
+export type todolistType = todolistAPIType & {
   filter: FilterValueType
 }
 
@@ -16,11 +15,14 @@ let initialState: Array<todolistType> = []
 
 export const todolistReducer = (state: Array<todolistType> = initialState, action: todolistActionType): Array<todolistType> => {
     switch (action.type) {
+      case Actions_Type.SET_TODOLISTS:
+        return action.payload.map((todolist) => ({...todolist, filter: 'ALL'}))
+
       case Actions_Type.REMOVE_TODOLIST:
         return state.filter(todo => todo.id !== action.payload)
 
       case Actions_Type.ADD_TODOLIST:
-        const newTodolist: todolistType = {id: action.payload.todolistId, title: action.payload.value, filter: "ALL"};
+        const newTodolist: todolistType = {id: action.payload.todolistId, title: action.payload.value, addedDate: '', order: 0, filter: "ALL"};
         return [...state, newTodolist]
 
       case Actions_Type.CHANGE_TODOLIST_FILTER:

@@ -4,23 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73dbb8af-6c8b-4dfc-b67e-6eac559deeaa" name="Changes" comment="Add build">
+    <list default="true" id="73dbb8af-6c8b-4dfc-b67e-6eac559deeaa" name="Changes" comment="Fix function filterTasks and add gh-pages">
+      <change afterPath="$PROJECT_DIR$/src/api/instance.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/todolistsAPI.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/asset-manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/css/main.dfc97438.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/css/main.dfc97438.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/js/111.b03c360e.chunk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/js/111.b03c360e.chunk.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/js/main.8f227bc0.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/js/main.8f227bc0.js.LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/js/main.8f227bc0.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/asset-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/js/main.afa53076.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/js/main.afa53076.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/js/main.afa53076.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/actions-type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/actions-type.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/tasks-todolist-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/tasks-todolist-reducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/todolist-reducers/todolist-create-actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/todolist-reducers/todolist-create-actions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/todolist-reducers/todolist-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/todolist-reducers/todolist-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/todolist-reducers/todolist-reducers-test/todolist-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/todolist-reducers/todolist-reducers-test/todolist-reducer.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,9 +32,9 @@
       <list>
         <option value="Sass File" />
         <option value="SCSS File" />
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
         <option value="JavaScript File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -75,6 +74,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\frontend-project\React-todolist\src" />
       <recent name="C:\frontend-project\React-todolist" />
       <recent name="C:\frontend-project\React-todolist\src\stories\integration" />
       <recent name="C:\frontend-project\React-todolist\src\bll\todolist-reducers\todolist-reducers-test" />
@@ -162,7 +162,12 @@
       <workItem from="1651154948235" duration="11418000" />
       <workItem from="1651317369190" duration="11503000" />
       <workItem from="1652724658967" duration="6682000" />
-      <workItem from="1654001810156" duration="673000" />
+      <workItem from="1654001810156" duration="1192000" />
+      <workItem from="1654175179833" duration="147000" />
+      <workItem from="1654176101003" duration="845000" />
+      <workItem from="1654259365036" duration="634000" />
+      <workItem from="1654523043361" duration="4284000" />
+      <workItem from="1654537577362" duration="3250000" />
     </task>
     <task id="LOCAL-00001" summary="Add component ListTasks, ListButtons, task">
       <created>1651260955080</created>
@@ -206,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652875579866</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Fix function filterTasks and add gh-pages">
+      <created>1654002793835</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1654002793835</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,6 +242,7 @@
     <MESSAGE value="Add library storybook" />
     <MESSAGE value="Download library storybook" />
     <MESSAGE value="Refactoring stories for components" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring stories for components" />
+    <MESSAGE value="Fix function filterTasks and add gh-pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix function filterTasks and add gh-pages" />
   </component>
 </project>

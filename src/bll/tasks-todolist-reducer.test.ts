@@ -20,8 +20,8 @@ test('ids should be equals', () => {
   }
 
   const stateTodolist: Array<todolistType> = [
-    {id: 'todolistId1', title: "What to learn", filter: "ALL"},
-    {id: 'todolistId2', title: "What to buy", filter: "ALL"}
+    {id: 'todolistId1', title: "What to learn", addedDate: '', order: 0, filter: "ALL"},
+    {id: 'todolistId2', title: "What to buy", addedDate: '', order: 0, filter: "ALL"}
   ]
 
   const action = AddTodolistTActionCreate("new todolist");
