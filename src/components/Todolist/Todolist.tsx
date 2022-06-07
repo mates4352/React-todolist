@@ -1,5 +1,5 @@
 import s from './Todolist.module.scss'
-import React, {useCallback, useMemo} from "react";
+import React, {useCallback, useEffect, useMemo} from "react";
 import {InputTodolist} from "../InputTodolist/InputTodolist";
 import {EditModeText} from "../EditModeText/EditModeText";
 import {Button} from '@material-ui/core';
@@ -12,6 +12,8 @@ import {ListTasks} from "../ListTasks/ListTasks";
 import {state} from "../../bll/redux-store";
 import {changeFilterTasks} from "../../bll/task-reducers/task.thunk";
 import {todolistsAPI} from "../../api/todolistsAPI";
+import {taskAPI} from "../../api/taskAPI";
+import {setTaskCreateAction} from "../../bll/task-reducers/task-create-actions";
 
 type todolistType = {
    id: string
@@ -39,6 +41,10 @@ export const Todolist: React.FC<todolistType> = React.memo((props) => {
       todolistsAPI.updateTodolist(id, value)
    }
 
+   useEffect(() => {
+      taskAPI.getTasks(id).then((tasks) => dispatch(setTaskCreateAction(id, tasks)))
+   }, [])
+
    return (
        <div className={s.todolist}>
 
@@ -51,7 +57,7 @@ export const Todolist: React.FC<todolistType> = React.memo((props) => {
 
           <InputTodolist addValue={addValue}/>
 
-          {/*{filterTasks()[id].length !== 0 && <ListTasks id={id} filterTasks={filterTasks()}/>}*/}
+          {filterTasks()[id].length !== 0 && <ListTasks id={id} filterTasks={filterTasks()}/>}
 
           <ListButtons id={id} filter={filter}/>
        </div>

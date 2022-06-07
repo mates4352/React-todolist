@@ -24,15 +24,15 @@ export const Task: React.FC<TaskType> = React.memo((props) => {
    console.log('Task')
 
    return (
-       <article className={!task.isDown ? `${s.opacity} ${s.task}` : s.task}>
+       <article className={!task.completed ? `${s.opacity} ${s.task}` : s.task}>
           <Checkbox
-              checked={task.isDown}
+              checked={task.completed}
               onClick={changeTaskStatus}
               onKeyUp={key => key.key === "Enter" && onKeyChangeTaskStatus}
               color="primary"
           />
 
-          <EditModeText text={task.text} changeValue={changeTodolistTaskValue}/>
+          <EditModeText text={task.title} changeValue={changeTodolistTaskValue}/>
 
           <IconButton aria-label="Button delete task"
                       onClick={removeTask}>

@@ -3,22 +3,99 @@ import {
 } from "./todolist-reducers/todolist-reducer";
 import {tasksType, tasksReducer} from "./task-reducers/tasks-reducer";
 import {AddTodolistTActionCreate, RemoveTodolistActionCreate} from "./todolist-reducers/todolist-create-actions";
+import {TasksPriorities, TasksStatus} from "../api/taskAPI";
 
-test('ids should be equals', () => {
-  const stateTasks: tasksType = {
+let stateTasks: tasksType = {}
+
+beforeEach(() => {
+  stateTasks = {
     'todolistId1': [
-      {id: '1', isDown: true, text: "Html-Css"},
-      {id: '2', isDown: true, text: "Js"},
-      {id: '3', isDown: false, text: "ReactJs"},
+      {
+        description: '',
+        title: "Html-Css",
+        completed: true,
+        status: TasksStatus.Completed,
+        priority: TasksPriorities.Hi,
+        startDate: '',
+        deadline: '',
+        id: '1',
+        todoListId: 'todolistId1',
+        order: 0,
+        addedDate: '',
+      },
+      {
+        description: '',
+        title: "Js",
+        completed: true,
+        status: TasksStatus.Completed,
+        priority: TasksPriorities.Hi,
+        startDate: '',
+        deadline: '',
+        id: '2',
+        todoListId: 'todolistId1',
+        order: 0,
+        addedDate: '',
+      },
+      {
+        description: '',
+        title: "ReactJs",
+        completed: false,
+        status: TasksStatus.Completed,
+        priority: TasksPriorities.Hi,
+        startDate: '',
+        deadline: '',
+        id: '3',
+        todoListId: 'todolistId1',
+        order: 0,
+        addedDate: '',
+      },
     ],
 
     'todolistId2': [
-      {id: '1', isDown: true, text: "Html-Css"},
-      {id: '2', isDown: true, text: "Js"},
-      {id: '3', isDown: false, text: "ReactJs"},
+      {
+        description: '',
+        title: "Html-Css",
+        completed: true,
+        status: TasksStatus.Completed,
+        priority: TasksPriorities.Hi,
+        startDate: '',
+        deadline: '',
+        id: '1',
+        todoListId: 'todolistId2',
+        order: 0,
+        addedDate: '',
+      },
+      {
+        description: '',
+        title: "Js",
+        completed: true,
+        status: TasksStatus.Completed,
+        priority: TasksPriorities.Hi,
+        startDate: '',
+        deadline: '',
+        id: '2',
+        todoListId: 'todolistId2',
+        order: 0,
+        addedDate: '',
+      },
+      {
+        description: '',
+        title: "ReactJs",
+        completed: false,
+        status: TasksStatus.Completed,
+        priority: TasksPriorities.Hi,
+        startDate: '',
+        deadline: '',
+        id: '3',
+        todoListId: 'todolistId2',
+        order: 0,
+        addedDate: '',
+      },
     ]
   }
+})
 
+test('ids should be equals', () => {
   const stateTodolist: Array<todolistType> = [
     {id: 'todolistId1', title: "What to learn", addedDate: '', order: 0, filter: "ALL"},
     {id: 'todolistId2', title: "What to buy", addedDate: '', order: 0, filter: "ALL"}
@@ -42,20 +119,6 @@ test('ids should be equals', () => {
 });
 
 test('property with todolistId should be deleted', () => {
-  const stateTasks: tasksType = {
-    'todolistId1': [
-      {id: '1', isDown: true, text: "Html-Css"},
-      {id: '2', isDown: true, text: "Js"},
-      {id: '3', isDown: false, text: "ReactJs"},
-    ],
-
-    'todolistId2': [
-      {id: '1', isDown: true, text: "Html-Css"},
-      {id: '2', isDown: true, text: "Js"},
-      {id: '3', isDown: false, text: "ReactJs"},
-    ]
-  }
-
   const action = RemoveTodolistActionCreate("todolistId2");
 
   const endState = tasksReducer(stateTasks, action)
