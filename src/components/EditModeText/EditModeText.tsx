@@ -5,16 +5,20 @@ import TextField from '@material-ui/core/TextField';
 
 type EditModeTextType = {
    text: string
+   updateText?: (value: string) => void
    changeValue: (value: string) => void
 }
 
-export const EditModeText: React.FC<EditModeTextType> = React.memo(({text, changeValue}) => {
+export const EditModeText: React.FC<EditModeTextType> = React.memo(({text, updateText, changeValue}) => {
    const [isTextMode, setIsTextMode] = useState<boolean>(true)
 
-   const editText = (): void => setIsTextMode(!isTextMode)
+   const editText = (): void => {
+      setIsTextMode(!isTextMode)
+   }
    const changeText = (e: ChangeEvent<HTMLInputElement>): void => {
       changeValue(e.currentTarget.value);
    }
+
    console.log('EditModeText')
 
    return (
@@ -28,6 +32,7 @@ export const EditModeText: React.FC<EditModeTextType> = React.memo(({text, chang
                 multiline
                 variant="outlined"
                 onBlur={editText}
+                onBlurCapture={() => updateText && updateText(text)}
                 onChange={changeText}
              />
           }

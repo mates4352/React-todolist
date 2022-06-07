@@ -13,7 +13,7 @@ const App = () => {
    const todolist = useSelector<state, Array<todolistType>>(state => state.todolist)
 
    const addValue = useCallback((value: string) => {
-      dispatch(AddTodolistTActionCreate(value))
+      todolistsAPI.addTodolist(value).then(() => dispatch(AddTodolistTActionCreate(value)))
    }, [dispatch])
 
    useEffect(() => {

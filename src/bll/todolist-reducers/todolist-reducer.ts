@@ -2,9 +2,9 @@ import {v1} from "uuid";
 import {todolistActionType} from "./todolist-create-actions";
 import {FilterValueType} from "../task-reducers/tasks-reducer";
 import {Actions_Type} from "../actions-type";
-import {todolistAPIType} from "../../api/todolistsAPI";
+import {todolistApiType} from "../../api/todolistsAPI";
 
-export type todolistType = todolistAPIType & {
+export type todolistType = todolistApiType & {
   filter: FilterValueType
 }
 

@@ -1,7 +1,7 @@
 import {v1} from "uuid";
 import {FilterValueType} from "../task-reducers/tasks-reducer";
 import {Actions_Type} from "../actions-type";
-import {todolistAPIType} from "../../api/todolistsAPI";
+import {todolistApiType} from "../../api/todolistsAPI";
 
 export type SetTodolistTActionType = ReturnType<typeof SetTodolists>
 export type AddTodolistTActionType = ReturnType<typeof AddTodolistTActionCreate>
@@ -15,7 +15,7 @@ export type todolistActionType =
   | AddTodolistTActionType
   | RemoveTodolistTActionType;
 
-export const SetTodolists = (todolists: Array<todolistAPIType>) => {
+export const SetTodolists = (todolists: Array<todolistApiType>) => {
   return {type: Actions_Type.SET_TODOLISTS, payload: todolists} as const
 }
 

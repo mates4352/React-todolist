@@ -5,22 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="73dbb8af-6c8b-4dfc-b67e-6eac559deeaa" name="Changes" comment="Fix function filterTasks and add gh-pages">
-      <change afterPath="$PROJECT_DIR$/src/api/instance.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/api/todolistsAPI.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/asset-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/main.afa53076.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/main.afa53076.js.LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/static/js/main.afa53076.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bll/actions-type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/actions-type.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bll/tasks-todolist-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/tasks-todolist-reducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/todolistsAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/todolistsAPI.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bll/todolist-reducers/todolist-create-actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/todolist-reducers/todolist-create-actions.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bll/todolist-reducers/todolist-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/todolist-reducers/todolist-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bll/todolist-reducers/todolist-reducers-test/todolist-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/todolist-reducers/todolist-reducers-test/todolist-reducer.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/EditModeText/EditModeText.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/EditModeText/EditModeText.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Todolist/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Todolist/Todolist.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Todolist/TodolistContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Todolist/TodolistContainer.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +159,8 @@
       <workItem from="1654176101003" duration="845000" />
       <workItem from="1654259365036" duration="634000" />
       <workItem from="1654523043361" duration="4284000" />
-      <workItem from="1654537577362" duration="3250000" />
+      <workItem from="1654537577362" duration="7028000" />
+      <workItem from="1654586253114" duration="1331000" />
     </task>
     <task id="LOCAL-00001" summary="Add component ListTasks, ListButtons, task">
       <created>1651260955080</created>

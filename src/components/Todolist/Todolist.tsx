@@ -11,6 +11,7 @@ import {ListButtons} from "../ListButtons/ListButtons";
 import {ListTasks} from "../ListTasks/ListTasks";
 import {state} from "../../bll/redux-store";
 import {changeFilterTasks} from "../../bll/task-reducers/task.thunk";
+import {todolistsAPI} from "../../api/todolistsAPI";
 
 type todolistType = {
    id: string
@@ -31,20 +32,26 @@ export const Todolist: React.FC<todolistType> = React.memo((props) => {
    const dispatch = useDispatch();
    const tasks = useSelector<state, tasksType>(state => state.tasks);
    const filterTasks = useCallback(() => changeFilterTasks(tasks, id, filter),[tasks, filter, id])
+   const removeTodolist = () => {
+      todolistsAPI.removeTodolist(id).then(() => dispatch(RemoveTodolistActionCreate(id)))
+   }
+   const updateText = (value: string) => {
+      todolistsAPI.updateTodolist(id, value)
+   }
 
    return (
        <div className={s.todolist}>
 
           <Button className={s.buttonDelete} aria-label="Button delete"
-                  onClick={() => dispatch(RemoveTodolistActionCreate(id))}>
+                  onClick={removeTodolist}>
              <DeleteOutlineIcon fontSize="large"/>
           </Button>
 
-          <h1 className={s.title}><EditModeText text={title} changeValue={changeTitle}/></h1>
+          <h1 className={s.title}><EditModeText text={title} updateText={updateText} changeValue={changeTitle}/></h1>
 
           <InputTodolist addValue={addValue}/>
 
-          {filterTasks()[id].length !== 0 && <ListTasks id={id} filterTasks={filterTasks()}/>}
+          {/*{filterTasks()[id].length !== 0 && <ListTasks id={id} filterTasks={filterTasks()}/>}*/}
 
           <ListButtons id={id} filter={filter}/>
        </div>
