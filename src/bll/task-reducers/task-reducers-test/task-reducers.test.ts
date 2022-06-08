@@ -1,16 +1,28 @@
 import {
-   tasksReducer, tasksType,
+   tasksReducer, tasksType, taskType,
 } from "../tasks-reducer";
 import {todolistId1} from "../../todolist-reducers/todolist-reducer";
 import {
    AddTask,
    ChangeTaskStatus,
-   ChangeTaskText, DeleteTask
+   ChangeTaskText, DeleteTask, SetTasks
 } from "../task-create-actions";
 import {changeFilterTasks} from "../task.thunk";
-import {TasksPriorities, TasksStatus} from "../../../api/taskAPI";
+import {taskApiType, TasksPriorities, TasksStatus} from "../../../api/taskAPI";
 
 let state: tasksType = {}
+let startTask: taskApiType = {
+   description: '',
+   title: "React",
+   status: TasksStatus.Completed,
+   priority: TasksPriorities.Hi,
+   startDate: '',
+   deadline: '',
+   id: '1',
+   todoListId: 'todolistId1',
+   order: 0,
+   addedDate: '',
+}
 
 beforeEach(() => {
    state = {
@@ -92,83 +104,9 @@ beforeEach(() => {
          },
       ]
    }
-})
-
-test('Should change state object-tasks', () => {
-   const action = AddTask(
-       {
-          description: '',
-          title: "React",
-          status: TasksStatus.Completed,
-          priority: TasksPriorities.Hi,
-          startDate: '',
-          deadline: '',
-          id: '1',
-          todoListId: 'todolistId1',
-          order: 0,
-          addedDate: '',
-       },
-   )
-   const newState = tasksReducer(state, action)
-
-   expect(state).toEqual(state);
-   expect(newState['todolistId1'].length).toBe(4)
-   expect(newState['todolistId1'][3].title).toBe('React')
-})
-
-test('Should change state object', () => {
-
-
-   const action = DeleteTask(
-       {
-          description: '',
-          title: "Html-Css",
-          status: TasksStatus.Completed,
-          priority: TasksPriorities.Hi,
-          startDate: '',
-          deadline: '',
-          id: '1',
-          todoListId: 'todolistId1',
-          order: 0,
-          addedDate: '',
-       },
-   )
-   const newState = tasksReducer(state, action)
-
-   expect(state).toEqual(state);
-
-   expect(newState['todolistId1'].length).toBe(2)
-   expect(newState['todolistId2'].length).toBe(3)
-   expect(newState['todolistId1'][0]).toBeDefined()
-   expect(newState['todolistId1'][0].title).toBe('Js')
-})
-
-test('status of specified Task should be changed', () => {
-   const action = ChangeTaskStatus(
-       {
-          description: '',
-          title: "Html-Css",
-          status: TasksStatus.Completed,
-          priority: TasksPriorities.Hi,
-          startDate: '',
-          deadline: '',
-          id: '1',
-          todoListId: 'todolistId1',
-          order: 0,
-          addedDate: '',
-       },
-   )
-   const newState = tasksReducer(state, action)
-
-   expect(state).toEqual(state);
-   expect(newState['todolistId1'][0].status).toBe(TasksStatus.Completed)
-   expect(newState['todolistId2'][0].status).toBe(TasksStatus.Completed)
-});
-
-test('text of specified Task should be changed', () => {
-   const action = ChangeTaskText({
+   startTask = {
       description: '',
-      title: "Html-Css",
+      title: "React",
       status: TasksStatus.Completed,
       priority: TasksPriorities.Hi,
       startDate: '',
@@ -177,15 +115,108 @@ test('text of specified Task should be changed', () => {
       todoListId: 'todolistId1',
       order: 0,
       addedDate: '',
-   }, 'React')
+   }
+})
+
+test('Test taskReducer case SET_TASKS', () => {
+   const action = SetTasks('todolistId1', [startTask])
    const newState = tasksReducer(state, action)
 
    expect(state).toEqual(state);
+   expect(newState['todolistId1'][0].description).toBe('')
    expect(newState['todolistId1'][0].title).toBe('React')
+   expect(newState['todolistId1'][0].status).toBe(TasksStatus.Completed)
+   expect(newState['todolistId1'][0].priority).toBe(TasksPriorities.Hi)
+   expect(newState['todolistId1'][0].startDate).toBe('')
+   expect(newState['todolistId1'][0].deadline).toBe('')
+   expect(newState['todolistId1'][0].id).toBe('1')
+   expect(newState['todolistId1'][0].todoListId).toBe('todolistId1')
+   expect(newState['todolistId1'][0].order).toBe(0)
+   expect(newState['todolistId1'][0].addedDate).toBe('')
+   expect(newState['todolistId1'].length).toBe(1)
+
+})
+
+test('Test taskReducer case ADD_TASK', () => {
+   const action = AddTask(startTask)
+   const newState = tasksReducer(state, action)
+
+   expect(state).toEqual(state);
+   expect(newState['todolistId1'][3].description).toBe('')
+   expect(newState['todolistId1'][3].title).toBe('React')
+   expect(newState['todolistId1'][3].status).toBe(TasksStatus.Completed)
+   expect(newState['todolistId1'][3].priority).toBe(TasksPriorities.Hi)
+   expect(newState['todolistId1'][3].startDate).toBe('')
+   expect(newState['todolistId1'][3].deadline).toBe('')
+   expect(newState['todolistId1'][3].id).toBe('1')
+   expect(newState['todolistId1'][3].todoListId).toBe('todolistId1')
+   expect(newState['todolistId1'][3].order).toBe(0)
+   expect(newState['todolistId1'][3].addedDate).toBe('')
+   expect(newState['todolistId1'].length).toBe(4)
+
+})
+
+test('Test taskReducer case DELETE_TASK', () => {
+   const action = DeleteTask(startTask)
+   const newState = tasksReducer(state, action)
+
+   expect(state).toEqual(state);
+   expect(newState['todolistId1'][0]).toBeDefined()
+   expect(newState['todolistId1'][0].description).toBe('')
+   expect(newState['todolistId1'][0].title).toBe('Js')
+   expect(newState['todolistId1'][0].status).toBe(TasksStatus.Completed)
+   expect(newState['todolistId1'][0].priority).toBe(TasksPriorities.Hi)
+   expect(newState['todolistId1'][0].startDate).toBe('')
+   expect(newState['todolistId1'][0].deadline).toBe('')
+   expect(newState['todolistId1'][0].id).toBe('2')
+   expect(newState['todolistId1'][0].todoListId).toBe('todolistId1')
+   expect(newState['todolistId1'][0].order).toBe(0)
+   expect(newState['todolistId1'][0].addedDate).toBe('')
+   expect(newState['todolistId1'].length).toBe(2)
+   expect(newState['todolistId2'].length).toBe(3)
+})
+
+test('Test taskReducer case CHANGE_TASK_STATUS', () => {
+   const action = ChangeTaskStatus(startTask)
+   const newState = tasksReducer(state, action)
+
+   expect(state).toEqual(state);
+   expect(newState['todolistId1'][0].description).toBe('')
+   expect(newState['todolistId1'][0].title).toBe('Html-Css')
+   expect(newState['todolistId1'][0].status).toBe(TasksStatus.Completed)
+   expect(newState['todolistId1'][0].priority).toBe(TasksPriorities.Hi)
+   expect(newState['todolistId1'][0].startDate).toBe('')
+   expect(newState['todolistId1'][0].deadline).toBe('')
+   expect(newState['todolistId1'][0].id).toBe('1')
+   expect(newState['todolistId1'][0].todoListId).toBe('todolistId1')
+   expect(newState['todolistId1'][0].order).toBe(0)
+   expect(newState['todolistId1'][0].addedDate).toBe('')
+   expect(newState['todolistId1'].length).toBe(3)
+   expect(newState['todolistId2'].length).toBe(3)
+   expect(newState['todolistId2'][0].status).toBe(TasksStatus.Completed)
+});
+
+test('Test taskReducer case CHANGE_TASK_TEXT', () => {
+   const action = ChangeTaskText(startTask, 'React')
+   const newState = tasksReducer(state, action)
+
+   expect(state).toEqual(state);
+   expect(newState['todolistId1'][0].description).toBe('')
+   expect(newState['todolistId1'][0].title).toBe('React')
+   expect(newState['todolistId1'][0].status).toBe(TasksStatus.Completed)
+   expect(newState['todolistId1'][0].priority).toBe(TasksPriorities.Hi)
+   expect(newState['todolistId1'][0].startDate).toBe('')
+   expect(newState['todolistId1'][0].deadline).toBe('')
+   expect(newState['todolistId1'][0].id).toBe('1')
+   expect(newState['todolistId1'][0].todoListId).toBe('todolistId1')
+   expect(newState['todolistId1'][0].order).toBe(0)
+   expect(newState['todolistId1'][0].addedDate).toBe('')
+   expect(newState['todolistId1'].length).toBe(3)
+   expect(newState['todolistId2'].length).toBe(3)
    expect(newState['todolistId2'][0].title).toBe('Html-Css')
 });
 
-test('change filter tasks to test action FILTER-TASKS', () => {
+test('Test taskReducer case CHANGE_FILTER_TASKS', () => {
    const newStateActive = changeFilterTasks(state, 'todolistId1', 'ACTIVE')
 
    expect(state).toEqual(state);
