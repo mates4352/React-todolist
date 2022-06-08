@@ -5,6 +5,7 @@ import {FilterValueType} from "../../bll/task-reducers/tasks-reducer";
 import {addTaskCreateAction} from "../../bll/task-reducers/task-create-actions";
 import {ChangeTitleTActionCreate} from "../../bll/todolist-reducers/todolist-create-actions";
 import {todolistsAPI} from "../../api/todolistsAPI";
+import {taskAPI} from "../../api/taskAPI";
 
 type TodolistContainerType = {
    id: string
@@ -26,7 +27,7 @@ export const TodolistContainer: React.FC<TodolistContainerType> = React.memo((pr
        }, [dispatch, id])
 
        const addValue = useCallback((value: string) => {
-          dispatch(addTaskCreateAction(id, value))
+          taskAPI.addTask(id, value).then(() => dispatch(addTaskCreateAction(id, value)))
        }, [dispatch, id])
 
        return <Todolist

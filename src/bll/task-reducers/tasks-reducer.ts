@@ -25,7 +25,6 @@ export const tasksReducer = (state: tasksType = stateTasks, action: tasksActionT
          const newTask: taskType = {
             description: '',
             title: action.payload.value,
-            completed: true,
             status: TasksStatus.Completed,
             priority: TasksPriorities.Hi,
             startDate: '',
@@ -51,7 +50,7 @@ export const tasksReducer = (state: tasksType = stateTasks, action: tasksActionT
             ...state,
             [action.payload.todolistId]: state[action.payload.todolistId].map(task => task.id === action.payload.taskId ? {
                ...task,
-               completed: !task.completed
+               status: action.payload.status
             } : task)
          }
 

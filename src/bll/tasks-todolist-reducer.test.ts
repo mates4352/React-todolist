@@ -13,7 +13,6 @@ beforeEach(() => {
       {
         description: '',
         title: "Html-Css",
-        completed: true,
         status: TasksStatus.Completed,
         priority: TasksPriorities.Hi,
         startDate: '',
@@ -26,7 +25,6 @@ beforeEach(() => {
       {
         description: '',
         title: "Js",
-        completed: true,
         status: TasksStatus.Completed,
         priority: TasksPriorities.Hi,
         startDate: '',
@@ -39,7 +37,6 @@ beforeEach(() => {
       {
         description: '',
         title: "ReactJs",
-        completed: false,
         status: TasksStatus.Completed,
         priority: TasksPriorities.Hi,
         startDate: '',
@@ -55,7 +52,6 @@ beforeEach(() => {
       {
         description: '',
         title: "Html-Css",
-        completed: true,
         status: TasksStatus.Completed,
         priority: TasksPriorities.Hi,
         startDate: '',
@@ -68,7 +64,6 @@ beforeEach(() => {
       {
         description: '',
         title: "Js",
-        completed: true,
         status: TasksStatus.Completed,
         priority: TasksPriorities.Hi,
         startDate: '',
@@ -81,7 +76,6 @@ beforeEach(() => {
       {
         description: '',
         title: "ReactJs",
-        completed: false,
         status: TasksStatus.Completed,
         priority: TasksPriorities.Hi,
         startDate: '',

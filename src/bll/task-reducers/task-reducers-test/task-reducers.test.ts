@@ -18,7 +18,6 @@ beforeEach(() => {
       {
         description: '',
         title: "Html-Css",
-        completed: true,
         status: TasksStatus.Completed,
         priority: TasksPriorities.Hi,
         startDate: '',
@@ -31,7 +30,6 @@ beforeEach(() => {
       {
         description: '',
         title: "Js",
-        completed: true,
         status: TasksStatus.Completed,
         priority: TasksPriorities.Hi,
         startDate: '',
@@ -44,8 +42,7 @@ beforeEach(() => {
       {
         description: '',
         title: "ReactJs",
-        completed: false,
-        status: TasksStatus.Completed,
+        status: TasksStatus.New,
         priority: TasksPriorities.Hi,
         startDate: '',
         deadline: '',
@@ -60,7 +57,6 @@ beforeEach(() => {
       {
         description: '',
         title: "Html-Css",
-        completed: true,
         status: TasksStatus.Completed,
         priority: TasksPriorities.Hi,
         startDate: '',
@@ -73,8 +69,7 @@ beforeEach(() => {
       {
         description: '',
         title: "Js",
-        completed: true,
-        status: TasksStatus.Completed,
+        status: TasksStatus.New,
         priority: TasksPriorities.Hi,
         startDate: '',
         deadline: '',
@@ -86,7 +81,6 @@ beforeEach(() => {
       {
         description: '',
         title: "ReactJs",
-        completed: false,
         status: TasksStatus.Completed,
         priority: TasksPriorities.Hi,
         startDate: '',
@@ -121,16 +115,28 @@ test('Should change state object', () => {
   expect(newState['todolistId2'].length).toBe(3)
   expect(newState['todolistId1'][0]).toBeDefined()
   expect(newState['todolistId1'][0].title).toBe('Js')
-  expect(newState['todolistId1'][0].completed).toBeTruthy()
 })
 
 test('status of specified Task should be changed', () => {
-  const action = changeTaskStatusCreateAction('todolistId1', '1')
+  const action = changeTaskStatusCreateAction('todolistId1',
+      {
+        description: '',
+        title: "Html-Css",
+        status: TasksStatus.Completed,
+        priority: TasksPriorities.Hi,
+        startDate: '',
+        deadline: '',
+        id: '1',
+        todoListId: 'todolistId1',
+        order: 0,
+        addedDate: '',
+      },
+  )
   const newState = tasksReducer(state, action)
 
   expect(state).toEqual(state);
-  expect(newState['todolistId1'][0].completed).toBeFalsy();
-  expect(newState['todolistId2'][0].completed).toBeTruthy();
+  expect(newState['todolistId1'][0].status).toBe(TasksStatus.Completed)
+  expect(newState['todolistId2'][0].status).toBe(TasksStatus.Completed)
 });
 
 test('text of specified Task should be changed', () => {
@@ -146,9 +152,8 @@ test('change filter tasks to test action FILTER-TASKS', () => {
   const newStateActive = changeFilterTasks(state, 'todolistId1','ACTIVE')
 
   expect(state).toEqual(state);
-  expect(newStateActive['todolistId1'].length).toBe(2)
-  expect(newStateActive['todolistId1'][0].completed).toBeTruthy()
-  expect(newStateActive['todolistId1'][1].completed).toBeTruthy()
+  expect(newStateActive['todolistId1'].length).toBe(1)
+  expect(newStateActive['todolistId1'][0].status).toBe(TasksStatus.New)
   expect(newStateActive['todolistId1'][2]).toBeUndefined()
   expect(state['todolistId1']).not.toBe(newStateActive['todolistId1'])
   expect(state['todolistId2']).toBe(newStateActive['todolistId2'])
@@ -158,9 +163,8 @@ test('change filter tasks to test action FILTER-TASKS', () => {
   const newStateCompleted = changeFilterTasks(state,'todolistId2','COMPLETED')
 
   expect(state).toEqual(state);
-  expect(newStateCompleted['todolistId2'].length).toBe(1)
-  expect(newStateCompleted['todolistId2'][0].completed).toBeFalsy()
-  expect(newStateCompleted['todolistId2'][1]).toBeUndefined()
+  expect(newStateCompleted['todolistId2'].length).toBe(2)
+  expect(newStateCompleted['todolistId2'][0].status).toBe(TasksStatus.Completed)
   expect(newStateCompleted['todolistId2'][2]).toBeUndefined()
   expect(state['todolistId2']).not.toBe(newStateCompleted['todolistId2'])
   expect(state['todolistId1']).toBe(newStateCompleted['todolistId1'])

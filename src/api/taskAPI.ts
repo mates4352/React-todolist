@@ -15,16 +15,15 @@ export enum TasksPriorities {
    Later = 4,
 }
 
-type tasksApiType = {
+type tasksApiType<T> = {
    error: string
-   items: Array<taskApiType>
+   items: T
    totalCount: number
 }
 
 export type taskApiType = {
    description: string
    title: string
-   completed: boolean
    status: TasksStatus
    priority: TasksPriorities
    startDate: string
@@ -35,8 +34,38 @@ export type taskApiType = {
    addedDate: string
 }
 
+type tasksPutApiType = {
+   data: {
+      item: taskApiType
+   }
+   fieldsErrors: []
+   messages: []
+   resultCode: number
+}
+
 export const taskAPI = {
    getTasks(todolistId: string) {
-      return instance.get<tasksApiType>(`todo-lists/${todolistId}/tasks`).then(result => result.data.items)
+      return instance.get<tasksApiType<Array<taskApiType>>>(`todo-lists/${todolistId}/tasks`).then(result => result.data.items)
+   },
+
+   addTask(todolistId: string, title: string) {
+      return instance.post<tasksApiType<[]>>(`todo-lists/${todolistId}/tasks`, {title}).then(result => result.data)
+   },
+
+   updateTask(todolistId: string, task: taskApiType) {
+      const status = () => {
+         switch (task.status) {
+            case TasksStatus.Completed:
+               return TasksStatus.New;
+
+            case TasksStatus.New:
+               return TasksStatus.Completed;
+
+            default:
+               return task.status
+         }
+      }
+      return instance.put<tasksPutApiType>(`todo-lists/${todolistId}/tasks/${task.id}`, {...task, status: status()})
+          .then((result) => result.data.data.item)
    }
 }

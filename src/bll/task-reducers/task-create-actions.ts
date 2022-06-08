@@ -25,8 +25,10 @@ export const addTaskCreateAction = (todolistId: string, value: string) => {
 export const removeTaskCreateAction = (todolistId: string, taskId: string) => {
    return {type: Actions_Type.REMOVE_TASK, payload: {todolistId, taskId}} as const
 }
-export const changeTaskStatusCreateAction = (todolistId: string, taskId: string) => {
-   return {type: Actions_Type.CHANGE_TASK_STATUS, payload: {todolistId, taskId}} as const
+export const changeTaskStatusCreateAction = (todolistId: string, task: taskType) => {
+   const taskId = task.id;
+   const status = task.status;
+   return {type: Actions_Type.CHANGE_TASK_STATUS, payload: {todolistId, taskId, status: status}} as const
 }
 export const changeTaskTextCreateAction = (todolistId: string, taskId: string, title: string) => {
    return {type: Actions_Type.CHANGE_TASK_TEXT, payload: {todolistId, taskId, title}} as const

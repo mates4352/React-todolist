@@ -5,6 +5,7 @@ import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 import {taskType} from "../../bll/task-reducers/tasks-reducer";
 import s from './Task.module.scss';
+import {TasksStatus} from "../../api/taskAPI";
 
 export type TaskType = {
    task: taskType
@@ -24,9 +25,9 @@ export const Task: React.FC<TaskType> = React.memo((props) => {
    console.log('Task')
 
    return (
-       <article className={!task.completed ? `${s.opacity} ${s.task}` : s.task}>
+       <article className={task.status === TasksStatus.Completed ? `${s.opacity} ${s.task}` : s.task}>
           <Checkbox
-              checked={task.completed}
+              checked={task.status === TasksStatus.New}
               onClick={changeTaskStatus}
               onKeyUp={key => key.key === "Enter" && onKeyChangeTaskStatus}
               color="primary"
