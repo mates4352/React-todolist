@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73dbb8af-6c8b-4dfc-b67e-6eac559deeaa" name="Changes" comment="Add new api for tasks fix code" />
+    <list default="true" id="73dbb8af-6c8b-4dfc-b67e-6eac559deeaa" name="Changes" comment="Add api delete task">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/taskAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/taskAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/task-reducers/task-reducers-test/task-reducers.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/task-reducers/task-reducers-test/task-reducers.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/task-reducers/task.thunk.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/task-reducers/task.thunk.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/task-reducers/tasks-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/task-reducers/tasks-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Task/Task.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/Task.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Task/TaskContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/TaskContainer.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -154,7 +162,7 @@
       <workItem from="1654586253114" duration="3220000" />
       <workItem from="1654619785239" duration="9409000" />
       <workItem from="1654669028495" duration="2281000" />
-      <workItem from="1654686256002" duration="5221000" />
+      <workItem from="1654686256002" duration="7511000" />
     </task>
     <task id="LOCAL-00001" summary="Add component ListTasks, ListButtons, task">
       <created>1651260955080</created>
@@ -226,7 +234,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654691871313</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Add api delete task">
+      <created>1654692200185</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1654692200185</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,6 +270,7 @@
     <MESSAGE value="Delete storybook and add new api tasks" />
     <MESSAGE value="Add new api fro tasks fix code" />
     <MESSAGE value="Add new api for tasks fix code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add new api for tasks fix code" />
+    <MESSAGE value="Add api delete task" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add api delete task" />
   </component>
 </project>

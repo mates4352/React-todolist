@@ -25,7 +25,7 @@ export const tasksReducer = (state: tasksType = stateTasks, action: tasksActionT
          const newTask: taskType = {
             description: '',
             title: action.payload.value,
-            status: TasksStatus.Completed,
+            status: TasksStatus.New,
             priority: TasksPriorities.Hi,
             startDate: '',
             deadline: '',

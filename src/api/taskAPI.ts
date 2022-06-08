@@ -69,6 +69,11 @@ export const taskAPI = {
           .then((result) => result.data.data.item)
    },
 
+   updateText(todolistId: string, task: taskApiType, title: string) {
+       return instance.put<tasksPutApiType>(`todo-lists/${todolistId}/tasks/${task.id}`, {...task, title: title})
+           .then((result) => result.data.data.item)
+   },
+
    deleteTask(todolistId: string, taskId: string) {
       return instance.delete<tasksPutApiType>(`todo-lists/${todolistId}/tasks/${taskId}`)
    }

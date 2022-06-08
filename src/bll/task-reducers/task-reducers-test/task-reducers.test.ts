@@ -152,8 +152,8 @@ test('change filter tasks to test action FILTER-TASKS', () => {
   const newStateActive = changeFilterTasks(state, 'todolistId1','ACTIVE')
 
   expect(state).toEqual(state);
-  expect(newStateActive['todolistId1'].length).toBe(1)
-  expect(newStateActive['todolistId1'][0].status).toBe(TasksStatus.New)
+  expect(newStateActive['todolistId1'].length).toBe(2)
+  expect(newStateActive['todolistId1'][0].status).toBe(TasksStatus.Completed)
   expect(newStateActive['todolistId1'][2]).toBeUndefined()
   expect(state['todolistId1']).not.toBe(newStateActive['todolistId1'])
   expect(state['todolistId2']).toBe(newStateActive['todolistId2'])
@@ -163,8 +163,8 @@ test('change filter tasks to test action FILTER-TASKS', () => {
   const newStateCompleted = changeFilterTasks(state,'todolistId2','COMPLETED')
 
   expect(state).toEqual(state);
-  expect(newStateCompleted['todolistId2'].length).toBe(2)
-  expect(newStateCompleted['todolistId2'][0].status).toBe(TasksStatus.Completed)
+  expect(newStateCompleted['todolistId2'].length).toBe(1)
+  expect(newStateCompleted['todolistId2'][0].status).toBe(TasksStatus.New)
   expect(newStateCompleted['todolistId2'][2]).toBeUndefined()
   expect(state['todolistId2']).not.toBe(newStateCompleted['todolistId2'])
   expect(state['todolistId1']).toBe(newStateCompleted['todolistId1'])
