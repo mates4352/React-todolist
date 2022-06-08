@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './ListButtons.module.scss';
 import {Button} from "@material-ui/core";
-import {ChangeFilterActionCreate} from "../../bll/todolist-reducers/todolist-create-actions";
+import {ChangeFilter} from "../../bll/todolist-reducers/todolist-create-actions";
 import {useDispatch} from "react-redux";
 import {FilterValueType} from "../../bll/task-reducers/tasks-reducer";
 
@@ -20,7 +20,7 @@ export const ListButtons: React.FC<ListButtonsType> = React.memo((props) => {
        <ul className={s.list}>
           <li className={s.item}>
              <Button className={isClassActiveButton("ALL")}
-                     onClick={() => dispatch(ChangeFilterActionCreate(id, "ALL"))}
+                     onClick={() => dispatch(ChangeFilter(id, "ALL"))}
                      color="primary">
                 All
              </Button>
@@ -28,7 +28,7 @@ export const ListButtons: React.FC<ListButtonsType> = React.memo((props) => {
 
           <li>
              <Button className={isClassActiveButton("ACTIVE")}
-                     onClick={() => dispatch(ChangeFilterActionCreate(id, "ACTIVE"))}
+                     onClick={() => dispatch(ChangeFilter(id, "ACTIVE"))}
                      color="secondary">
                 Active
              </Button>
@@ -36,7 +36,7 @@ export const ListButtons: React.FC<ListButtonsType> = React.memo((props) => {
 
           <li>
              <Button className={isClassActiveButton("COMPLETED")}
-                     onClick={() => dispatch(ChangeFilterActionCreate(id, "COMPLETED"))}>
+                     onClick={() => dispatch(ChangeFilter(id, "COMPLETED"))}>
                 Completed
              </Button>
           </li>

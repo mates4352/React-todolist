@@ -4,14 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73dbb8af-6c8b-4dfc-b67e-6eac559deeaa" name="Changes" comment="Add api delete task">
+    <list default="true" id="73dbb8af-6c8b-4dfc-b67e-6eac559deeaa" name="Changes" comment="Add api updateText for task">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/taskAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/taskAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/todolistsAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/todolistsAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/task-reducers/task-create-actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/task-reducers/task-create-actions.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bll/task-reducers/task-reducers-test/task-reducers.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/task-reducers/task-reducers-test/task-reducers.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bll/task-reducers/task.thunk.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/task-reducers/task.thunk.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bll/task-reducers/tasks-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/task-reducers/tasks-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/tasks-todolist-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/tasks-todolist-reducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/todolist-reducers/todolist-create-actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/todolist-reducers/todolist-create-actions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/todolist-reducers/todolist-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/todolist-reducers/todolist-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/todolist-reducers/todolist-reducers-test/todolist-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/todolist-reducers/todolist-reducers-test/todolist-reducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ListButtons/ListButtons.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ListButtons/ListButtons.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ListTasks/ListTasks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ListTasks/ListTasks.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Task/Task.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/Task.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Task/TaskContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/TaskContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Todolist/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Todolist/Todolist.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Todolist/TodolistContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Todolist/TodolistContainer.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +172,7 @@
       <workItem from="1654586253114" duration="3220000" />
       <workItem from="1654619785239" duration="9409000" />
       <workItem from="1654669028495" duration="2281000" />
-      <workItem from="1654686256002" duration="7511000" />
+      <workItem from="1654686256002" duration="20994000" />
     </task>
     <task id="LOCAL-00001" summary="Add component ListTasks, ListButtons, task">
       <created>1651260955080</created>
@@ -241,7 +251,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654692200185</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Add api updateText for task">
+      <created>1654694208392</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1654694208392</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -271,6 +288,7 @@
     <MESSAGE value="Add new api fro tasks fix code" />
     <MESSAGE value="Add new api for tasks fix code" />
     <MESSAGE value="Add api delete task" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add api delete task" />
+    <MESSAGE value="Add api updateText for task" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add api updateText for task" />
   </component>
 </project>

@@ -17,58 +17,46 @@ export const tasksReducer = (state: tasksType = stateTasks, action: tasksActionT
       case Actions_Type.SET_TASKS: {
          return {
             ...state,
-            [action.payload.todolistId]: [...action.payload.tasks]
+            [action.todolistId]: [...action.tasks]
          }
       }
 
       case Actions_Type.ADD_TASK:
-         const newTask: taskType = {
-            description: '',
-            title: action.payload.value,
-            status: TasksStatus.New,
-            priority: TasksPriorities.Hi,
-            startDate: '',
-            deadline: '',
-            id: v1(),
-            todoListId: action.payload.todolistId,
-            order: 0,
-            addedDate: '',
-         }
          return {
             ...state,
-            [action.payload.todolistId]: [...state[action.payload.todolistId], newTask]
+            [action.task.todoListId]: [...state[action.task.todoListId], action.task]
          }
 
       case Actions_Type.REMOVE_TASK:
          return {
             ...state,
-            [action.payload.todolistId]: state[action.payload.todolistId].filter(task => task.id !== action.payload.taskId)
+            [action.todolistId]: state[action.todolistId].filter(task => task.id !== action.taskId)
          }
 
       case Actions_Type.CHANGE_TASK_STATUS:
          return {
             ...state,
-            [action.payload.todolistId]: state[action.payload.todolistId].map(task => task.id === action.payload.taskId ? {
+            [action.todolistId]: state[action.todolistId].map(task => task.id === action.taskId ? {
                ...task,
-               status: action.payload.status
+               status: action.status
             } : task)
          }
 
       case Actions_Type.CHANGE_TASK_TEXT:
          return {
             ...state,
-            [action.payload.todolistId]: state[action.payload.todolistId].map(task => task.id === action.payload.taskId ? {
+            [action.todolistId]: state[action.todolistId].map(task => task.id === action.taskId ? {
                ...task,
-               title: action.payload.title
+               title: action.title
             } : task)
          }
 
       case Actions_Type.ADD_TODOLIST:
-         return {...state, [action.payload.todolistId]: []}
+         return {...state, [action.todolistId]: []}
 
       case Actions_Type.REMOVE_TODOLIST:
          const tasks = {...state}
-         delete tasks[action.payload]
+         delete tasks[action.taskId]
          return tasks
 
       default:

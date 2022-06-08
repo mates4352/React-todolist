@@ -1,35 +1,40 @@
-import {AddTodolistTActionType, RemoveTodolistTActionType} from "../todolist-reducers/todolist-create-actions";
+import {AddTodolistType, RemoveTodolistType} from "../todolist-reducers/todolist-create-actions";
 import {Actions_Type} from "../actions-type";
 import {taskType} from "./tasks-reducer";
 
-type setTaskType = ReturnType<typeof setTaskCreateAction>
-type AddTaskActionType = ReturnType<typeof addTaskCreateAction>
-type removeTaskActionType = ReturnType<typeof removeTaskCreateAction>
-type changeTaskStatusActionType = ReturnType<typeof changeTaskStatusCreateAction>
-type changeTaskTextCreateAction = ReturnType<typeof changeTaskTextCreateAction>
+type SetTasksType = ReturnType<typeof SetTasks>
+type AddTaskType = ReturnType<typeof AddTask>
+type DeleteTaskType = ReturnType<typeof DeleteTask>
+type ChangeTaskStatusType = ReturnType<typeof ChangeTaskStatus>
+type ChangeTaskTextType = ReturnType<typeof ChangeTaskText>
 export type tasksActionType =
-    setTaskType
-    | AddTaskActionType
-    | removeTaskActionType
-    | changeTaskStatusActionType
-    | changeTaskTextCreateAction
-    | AddTodolistTActionType
-    | RemoveTodolistTActionType
+    SetTasksType
+    | AddTaskType
+    | DeleteTaskType
+    | ChangeTaskStatusType
+    | ChangeTaskTextType
+    | AddTodolistType
+    | RemoveTodolistType
 
-export const setTaskCreateAction = (todolistId: string, tasks: Array<taskType>) => {
-   return {type: Actions_Type.SET_TASKS, payload: {todolistId, tasks}} as const
+export const SetTasks = (todolistId: string, tasks: Array<taskType>) => {
+   return {type: Actions_Type.SET_TASKS, todolistId, tasks} as const
 }
-export const addTaskCreateAction = (todolistId: string, value: string) => {
-   return {type: Actions_Type.ADD_TASK, payload: {todolistId, value}} as const
+export const AddTask = (task: taskType) => {
+   return {type: Actions_Type.ADD_TASK, task} as const
 }
-export const removeTaskCreateAction = (todolistId: string, taskId: string) => {
-   return {type: Actions_Type.REMOVE_TASK, payload: {todolistId, taskId}} as const
+export const DeleteTask = (task: taskType) => {
+   const todolistId: string = task.todoListId;
+   const taskId: string = task.id;
+   return {type: Actions_Type.REMOVE_TASK, todolistId, taskId} as const
 }
-export const changeTaskStatusCreateAction = (todolistId: string, task: taskType) => {
-   const taskId = task.id;
-   const status = task.status;
-   return {type: Actions_Type.CHANGE_TASK_STATUS, payload: {todolistId, taskId, status: status}} as const
+export const ChangeTaskStatus = (task: taskType) => {
+   const todolistId: string = task.todoListId;
+   const taskId: string = task.id;
+   const status: number = task.status;
+   return {type: Actions_Type.CHANGE_TASK_STATUS, todolistId, taskId, status} as const
 }
-export const changeTaskTextCreateAction = (todolistId: string, taskId: string, title: string) => {
-   return {type: Actions_Type.CHANGE_TASK_TEXT, payload: {todolistId, taskId, title}} as const
+export const ChangeTaskText = (task: taskType, title: string) => {
+   const todolistId: string = task.todoListId;
+   const taskId: string = task.id;
+   return {type: Actions_Type.CHANGE_TASK_TEXT, todolistId, taskId, title} as const
 }

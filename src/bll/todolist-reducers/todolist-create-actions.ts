@@ -1,36 +1,37 @@
-import {v1} from "uuid";
 import {FilterValueType} from "../task-reducers/tasks-reducer";
 import {Actions_Type} from "../actions-type";
 import {todolistApiType} from "../../api/todolistsAPI";
 
-export type SetTodolistTActionType = ReturnType<typeof SetTodolists>
-export type AddTodolistTActionType = ReturnType<typeof AddTodolistTActionCreate>
-export type RemoveTodolistTActionType = ReturnType<typeof RemoveTodolistActionCreate>
-type ChangeFilterTypeActionType = ReturnType<typeof ChangeFilterActionCreate>
-type ChangeTitleActionType = ReturnType<typeof ChangeTitleTActionCreate>
+export type SetTodolistsType = ReturnType<typeof SetTodolists>
+export type AddTodolistType = ReturnType<typeof AddTodolist>
+export type RemoveTodolistType = ReturnType<typeof RemoveTodolist>
+type ChangeFilterType = ReturnType<typeof ChangeFilter>
+type ChangeTitleType = ReturnType<typeof ChangeTitle>
 export type todolistActionType =
-    SetTodolistTActionType
-  | ChangeTitleActionType
-  | ChangeFilterTypeActionType
-  | AddTodolistTActionType
-  | RemoveTodolistTActionType;
+    SetTodolistsType
+  | AddTodolistType
+  | RemoveTodolistType
+  | ChangeFilterType
+  | ChangeTitleType;
 
 export const SetTodolists = (todolists: Array<todolistApiType>) => {
-  return {type: Actions_Type.SET_TODOLISTS, payload: todolists} as const
+  return {type: Actions_Type.SET_TODOLISTS, todolists} as const
 }
 
-export const AddTodolistTActionCreate = (value: string) => {
-  return {type: Actions_Type.ADD_TODOLIST, payload: {todolistId: v1(), value}} as const
+export const AddTodolist = (todolist: todolistApiType) => {
+  const todolistId = todolist.id;
+  const title = todolist.title;
+  return {type: Actions_Type.ADD_TODOLIST, todolistId, title} as const
 }
 
-export const RemoveTodolistActionCreate = (id: string) => {
-  return {type: Actions_Type.REMOVE_TODOLIST, payload: id} as const
+export const RemoveTodolist = (taskId: string) => {
+  return {type: Actions_Type.REMOVE_TODOLIST, taskId} as const
 }
 
-export const ChangeFilterActionCreate = (id: string, filter: FilterValueType) => {
-  return {type: Actions_Type.CHANGE_TODOLIST_FILTER, payload: {id, filter}} as const
+export const ChangeFilter = (todolistId: string, filter: FilterValueType) => {
+  return {type: Actions_Type.CHANGE_TODOLIST_FILTER, todolistId, filter} as const
 }
 
-export const ChangeTitleTActionCreate = (id: string, title: string) => {
-  return {type: Actions_Type.CHANGE_TODOLIST_TITLE, payload: {id, title}} as const
+export const ChangeTitle = (todolistId: string, title: string) => {
+  return {type: Actions_Type.CHANGE_TODOLIST_TITLE, todolistId, title} as const
 }

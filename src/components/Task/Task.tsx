@@ -9,17 +9,17 @@ import {TasksStatus} from "../../api/taskAPI";
 
 export type TaskType = {
    task: taskType
-   changeTodolistTaskValue: (value: string) => void
-   updateText: (value: string) => void
-   changeTaskStatus: () => void
+   changeTaskTitle: (value: string) => void
+   updateTaskStatus: () => void
+   updateTaskText: (value: string) => void
    removeTask: () => void
 };
 export const Task: React.FC<TaskType> = React.memo((props) => {
    const {
       task,
-      changeTodolistTaskValue,
-      updateText,
-      changeTaskStatus,
+      changeTaskTitle,
+      updateTaskStatus,
+      updateTaskText,
       removeTask
    } = props;
    console.log('Task')
@@ -28,12 +28,12 @@ export const Task: React.FC<TaskType> = React.memo((props) => {
        <article className={task.status === TasksStatus.New ? `${s.opacity} ${s.task}` : s.task}>
           <Checkbox
               checked={task.status === TasksStatus.Completed}
-              onClick={changeTaskStatus}
-              onKeyUp={key => key.key === "Enter" && changeTaskStatus}
+              onClick={updateTaskStatus}
+              onKeyUp={key => key.key === "Enter" && updateTaskStatus}
               color="primary"
           />
 
-          <EditModeText text={task.title} updateText={updateText} changeValue={changeTodolistTaskValue}/>
+          <EditModeText text={task.title} updateText={updateTaskText} changeValue={changeTaskTitle}/>
 
           <IconButton aria-label="Button delete task"
                       onClick={removeTask}>

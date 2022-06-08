@@ -2,7 +2,7 @@ import {
   todolistReducer, todolistType
 } from "./todolist-reducers/todolist-reducer";
 import {tasksType, tasksReducer} from "./task-reducers/tasks-reducer";
-import {AddTodolistTActionCreate, RemoveTodolistActionCreate} from "./todolist-reducers/todolist-create-actions";
+import {AddTodolist, RemoveTodolist} from "./todolist-reducers/todolist-create-actions";
 import {TasksPriorities, TasksStatus} from "../api/taskAPI";
 
 let stateTasks: tasksType = {}
@@ -95,7 +95,7 @@ test('ids should be equals', () => {
     {id: 'todolistId2', title: "What to buy", addedDate: '', order: 0, filter: "ALL"}
   ]
 
-  const action = AddTodolistTActionCreate("new todolist");
+  const action = AddTodolist({id: 'todolistId3', title: "What to learn", addedDate: '', order: 0})
 
   const endTasksState = tasksReducer(stateTasks, action)
   const endTodolistsState = todolistReducer(stateTodolist, action)
@@ -104,16 +104,16 @@ test('ids should be equals', () => {
   const idFromTasks = keys[2];
   const idFromTodolists = endTodolistsState[2].id;
 
-  expect(idFromTasks).toBe(action.payload.todolistId);
-  expect(idFromTodolists).toBe(action.payload.todolistId);
+  expect(idFromTasks).toBe(action.todolistId);
+  expect(idFromTodolists).toBe(action.todolistId);
   expect(stateTodolist.length).toBe(2)
   expect(keys.length).toBe(3)
-  expect(endTasksState[action.payload.todolistId]).toBeDefined()
+  expect(endTasksState[action.todolistId]).toBeDefined()
   expect(endTodolistsState.length).toBe(3)
 });
 
 test('property with todolistId should be deleted', () => {
-  const action = RemoveTodolistActionCreate("todolistId2");
+  const action = RemoveTodolist("todolistId2");
 
   const endState = tasksReducer(stateTasks, action)
 

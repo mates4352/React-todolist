@@ -49,10 +49,13 @@ export const taskAPI = {
    },
 
    addTask(todolistId: string, title: string) {
-      return instance.post<tasksApiType<[]>>(`todo-lists/${todolistId}/tasks`, {title}).then(result => result.data)
+      return instance.post<tasksPutApiType>(`todo-lists/${todolistId}/tasks`, {title}).then(result => result.data.data.item)
    },
 
-   updateTask(todolistId: string, task: taskApiType) {
+   updateTaskStatus(task: taskApiType) {
+      const todolistId: string = task.todoListId;
+      const taskId: string = task.id;
+
       const status = () => {
          switch (task.status) {
             case TasksStatus.Completed:
@@ -65,16 +68,22 @@ export const taskAPI = {
                return task.status
          }
       }
-      return instance.put<tasksPutApiType>(`todo-lists/${todolistId}/tasks/${task.id}`, {...task, status: status()})
+
+      return instance.put<tasksPutApiType>(`todo-lists/${todolistId}/tasks/${taskId}`, {...task, status: status()})
           .then((result) => result.data.data.item)
    },
 
-   updateText(todolistId: string, task: taskApiType, title: string) {
-       return instance.put<tasksPutApiType>(`todo-lists/${todolistId}/tasks/${task.id}`, {...task, title: title})
-           .then((result) => result.data.data.item)
+   updateText(task: taskApiType, title: string) {
+      const todolistId: string = task.todoListId;
+      const taskId: string = task.id;
+
+      return instance.put<tasksPutApiType>(`todo-lists/${todolistId}/tasks/${taskId}`, {...task, title: title})
+          .then((result) => result.data.data.item)
    },
 
-   deleteTask(todolistId: string, taskId: string) {
+   deleteTask(task: taskApiType) {
+      const todolistId: string = task.todoListId;
+      const taskId: string = task.id;
       return instance.delete<tasksPutApiType>(`todo-lists/${todolistId}/tasks/${taskId}`)
    }
 }

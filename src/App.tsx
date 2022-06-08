@@ -4,7 +4,7 @@ import './App.scss';
 import {todolistType} from "./bll/todolist-reducers/todolist-reducer";
 import {useDispatch, useSelector} from "react-redux";
 import {state} from "./bll/redux-store";
-import {AddTodolistTActionCreate, SetTodolists} from "./bll/todolist-reducers/todolist-create-actions";
+import {AddTodolist, SetTodolists} from "./bll/todolist-reducers/todolist-create-actions";
 import {TodolistContainer} from "./components/Todolist/TodolistContainer";
 import {todolistsAPI} from "./api/todolistsAPI";
 
@@ -13,7 +13,7 @@ const App = () => {
    const todolist = useSelector<state, Array<todolistType>>(state => state.todolist)
 
    const addValue = useCallback((value: string) => {
-      todolistsAPI.addTodolist(value).then(() => dispatch(AddTodolistTActionCreate(value)))
+      todolistsAPI.addTodolist(value).then((todolist) => dispatch(AddTodolist(todolist)))
    }, [dispatch])
 
    useEffect(() => {
