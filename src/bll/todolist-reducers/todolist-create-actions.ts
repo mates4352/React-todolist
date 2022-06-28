@@ -2,18 +2,6 @@ import {FilterValueType} from "../task-reducers/tasks-reducer";
 import {Actions_Type} from "../actions-type";
 import {todolistApiType} from "../../api/todolistsAPI";
 
-export type SetTodolistsType = ReturnType<typeof SetTodolists>
-export type AddTodolistType = ReturnType<typeof AddTodolist>
-export type RemoveTodolistType = ReturnType<typeof RemoveTodolist>
-type ChangeFilterType = ReturnType<typeof ChangeFilter>
-type ChangeTitleType = ReturnType<typeof ChangeTitle>
-export type todolistActionType =
-    SetTodolistsType
-  | AddTodolistType
-  | RemoveTodolistType
-  | ChangeFilterType
-  | ChangeTitleType;
-
 export const SetTodolists = (todolists: Array<todolistApiType>) => {
   return {type: Actions_Type.SET_TODOLISTS, todolists} as const
 }
@@ -35,3 +23,16 @@ export const ChangeFilter = (todolistId: string, filter: FilterValueType) => {
 export const ChangeTitle = (todolistId: string, title: string) => {
   return {type: Actions_Type.CHANGE_TODOLIST_TITLE, todolistId, title} as const
 }
+
+export type SetTodolistsType = ReturnType<typeof SetTodolists>
+export type AddTodolistType = ReturnType<typeof AddTodolist>
+export type RemoveTodolistType = ReturnType<typeof RemoveTodolist>
+type ChangeFilterType = ReturnType<typeof ChangeFilter>
+type ChangeTitleType = ReturnType<typeof ChangeTitle>
+export type todolistActionType =
+    SetTodolistsType
+    | AddTodolistType
+    | RemoveTodolistType
+    | ChangeFilterType
+    | ChangeTitleType;
+

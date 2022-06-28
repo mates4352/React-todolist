@@ -4,10 +4,6 @@ import {FilterValueType} from "../task-reducers/tasks-reducer";
 import {Actions_Type} from "../actions-type";
 import {todolistApiType} from "../../api/todolistsAPI";
 
-export type todolistType = todolistApiType & {
-  filter: FilterValueType
-}
-
 export const todolistId1 = v1();
 export const todolistId2 = v1();
 
@@ -32,4 +28,8 @@ export const todolistReducer = (state: Array<todolistType> = initialState, actio
         return state.map(item => item.id === action.todolistId ? {...item, title: action.title}: item)
       default: return state
     }
+}
+
+export type todolistType = todolistApiType & {
+  filter: FilterValueType
 }

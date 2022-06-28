@@ -6,12 +6,12 @@ import {useDispatch} from "react-redux";
 import {FilterValueType} from "../../bll/task-reducers/tasks-reducer";
 
 type ListButtonsType = {
-   id: string
+   todolistId: string
    filter: FilterValueType
 };
 
 export const ListButtons: React.FC<ListButtonsType> = React.memo((props) => {
-   const {id, filter} = props;
+   const {todolistId, filter} = props;
    const dispatch = useDispatch();
    const isClassActiveButton = (value: string) => filter === value ? `${s.button_active}` : '';
    console.log('ListButtons')
@@ -20,7 +20,7 @@ export const ListButtons: React.FC<ListButtonsType> = React.memo((props) => {
        <ul className={s.list}>
           <li className={s.item}>
              <Button className={isClassActiveButton("ALL")}
-                     onClick={() => dispatch(ChangeFilter(id, "ALL"))}
+                     onClick={() => dispatch(ChangeFilter(todolistId, "ALL"))}
                      color="primary">
                 All
              </Button>
@@ -28,7 +28,7 @@ export const ListButtons: React.FC<ListButtonsType> = React.memo((props) => {
 
           <li>
              <Button className={isClassActiveButton("ACTIVE")}
-                     onClick={() => dispatch(ChangeFilter(id, "ACTIVE"))}
+                     onClick={() => dispatch(ChangeFilter(todolistId, "ACTIVE"))}
                      color="secondary">
                 Active
              </Button>
@@ -36,7 +36,7 @@ export const ListButtons: React.FC<ListButtonsType> = React.memo((props) => {
 
           <li>
              <Button className={isClassActiveButton("COMPLETED")}
-                     onClick={() => dispatch(ChangeFilter(id, "COMPLETED"))}>
+                     onClick={() => dispatch(ChangeFilter(todolistId, "COMPLETED"))}>
                 Completed
              </Button>
           </li>

@@ -29,11 +29,11 @@ const App = () => {
 
           <div className='app_todolists'>
              {todolist.map(todo => {
-                const [id, title, filter] = [todo.id, todo.title, todo.filter]
+                const [todolistId, title, filter] = [todo.id, todo.title, todo.filter]
                 return (
                     <TodolistContainer
-                        key={id}
-                        id={id}
+                        key={todolistId}
+                        todolistId={todolistId}
                         title={title}
                         filter={filter}/>
                 )

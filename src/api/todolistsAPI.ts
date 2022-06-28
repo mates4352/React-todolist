@@ -1,18 +1,5 @@
 import {instance} from "./instance";
 
-type todolistDataApiType<D> = {
-   resultCode: 0
-   messages: [],
-   data: D
-}
-
-export type todolistApiType = {
-   id: string,
-   title: string,
-   addedDate: string,
-   order: number
-}
-
 export const todolistsAPI = {
    getTodolists() {
       return instance.get<Array<todolistApiType>>('todo-lists').then((result) => result.data);
@@ -30,3 +17,17 @@ export const todolistsAPI = {
       return instance.put<todolistDataApiType<{}>>(`todo-lists/${todolistId}`, {title}).then((result) => result.data)
    }
 }
+
+type todolistDataApiType<D> = {
+   resultCode: 0
+   messages: [],
+   data: D
+}
+
+export type todolistApiType = {
+   id: string,
+   title: string,
+   addedDate: string,
+   order: number
+}
+

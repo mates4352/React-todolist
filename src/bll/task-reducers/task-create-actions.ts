@@ -2,20 +2,6 @@ import {AddTodolistType, RemoveTodolistType} from "../todolist-reducers/todolist
 import {Actions_Type} from "../actions-type";
 import {taskType} from "./tasks-reducer";
 
-type SetTasksType = ReturnType<typeof SetTasks>
-type AddTaskType = ReturnType<typeof AddTask>
-type DeleteTaskType = ReturnType<typeof DeleteTask>
-type ChangeTaskStatusType = ReturnType<typeof ChangeTaskStatus>
-type ChangeTaskTextType = ReturnType<typeof ChangeTaskText>
-export type tasksActionType =
-    SetTasksType
-    | AddTaskType
-    | DeleteTaskType
-    | ChangeTaskStatusType
-    | ChangeTaskTextType
-    | AddTodolistType
-    | RemoveTodolistType
-
 export const SetTasks = (todolistId: string, tasks: Array<taskType>) => {
    return {type: Actions_Type.SET_TASKS, todolistId, tasks} as const
 }
@@ -38,3 +24,17 @@ export const ChangeTaskText = (task: taskType, title: string) => {
    const taskId: string = task.id;
    return {type: Actions_Type.CHANGE_TASK_TEXT, todolistId, taskId, title} as const
 }
+
+type SetTasksType = ReturnType<typeof SetTasks>
+type AddTaskType = ReturnType<typeof AddTask>
+type DeleteTaskType = ReturnType<typeof DeleteTask>
+type ChangeTaskStatusType = ReturnType<typeof ChangeTaskStatus>
+type ChangeTaskTextType = ReturnType<typeof ChangeTaskText>
+export type tasksActionType =
+    SetTasksType
+    | AddTaskType
+    | DeleteTaskType
+    | ChangeTaskStatusType
+    | ChangeTaskTextType
+    | AddTodolistType
+    | RemoveTodolistType

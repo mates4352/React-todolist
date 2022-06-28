@@ -15,34 +15,6 @@ export enum TasksPriorities {
    Later = 4,
 }
 
-type tasksApiType<T> = {
-   error: string
-   items: T
-   totalCount: number
-}
-
-export type taskApiType = {
-   description: string
-   title: string
-   status: TasksStatus
-   priority: TasksPriorities
-   startDate: string
-   deadline: string
-   id: string
-   todoListId: string
-   order: number
-   addedDate: string
-}
-
-type tasksPutApiType = {
-   data: {
-      item: taskApiType
-   }
-   fieldsErrors: []
-   messages: []
-   resultCode: number
-}
-
 export const taskAPI = {
    getTasks(todolistId: string) {
       return instance.get<tasksApiType<Array<taskApiType>>>(`todo-lists/${todolistId}/tasks`).then(result => result.data.items)
@@ -86,4 +58,32 @@ export const taskAPI = {
       const taskId: string = task.id;
       return instance.delete<tasksPutApiType>(`todo-lists/${todolistId}/tasks/${taskId}`)
    }
+}
+
+type tasksApiType<T> = {
+   error: string
+   items: T
+   totalCount: number
+}
+
+export type taskApiType = {
+   description: string
+   title: string
+   status: TasksStatus
+   priority: TasksPriorities
+   startDate: string
+   deadline: string
+   id: string
+   todoListId: string
+   order: number
+   addedDate: string
+}
+
+type tasksPutApiType = {
+   data: {
+      item: taskApiType
+   }
+   fieldsErrors: []
+   messages: []
+   resultCode: number
 }

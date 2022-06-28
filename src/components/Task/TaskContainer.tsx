@@ -8,6 +8,7 @@ import {ChangeTaskText, DeleteTask, ChangeTaskStatus} from "../../bll/task-reduc
 type TaskContainerType = {
    task: taskType
 };
+
 export const TaskContainer: React.FC<TaskContainerType> = React.memo((props) => {
    const {task} = props;
    const dispatch = useDispatch();

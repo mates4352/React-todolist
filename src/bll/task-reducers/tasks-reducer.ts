@@ -1,14 +1,6 @@
-import {v1} from "uuid";
 import {tasksActionType} from "./task-create-actions";
 import {Actions_Type} from "../actions-type";
-import {taskApiType, TasksPriorities, TasksStatus} from "../../api/taskAPI";
-
-export type FilterValueType = "ALL" | "ACTIVE" | "COMPLETED";
-export type tasksType = {
-   [todolistId: string]: Array<taskType>
-}
-
-export type taskType = taskApiType;
+import {taskApiType} from "../../api/taskAPI";
 
 let stateTasks: tasksType = {}
 
@@ -63,3 +55,9 @@ export const tasksReducer = (state: tasksType = stateTasks, action: tasksActionT
          return state
    }
 }
+
+export type FilterValueType = "ALL" | "ACTIVE" | "COMPLETED";
+export type tasksType = {
+   [todolistId: string]: Array<taskType>
+}
+export type taskType = taskApiType;

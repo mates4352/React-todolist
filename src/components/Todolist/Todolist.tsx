@@ -9,7 +9,7 @@ import {ListButtons} from "../ListButtons/ListButtons";
 import {ListTasks} from "../ListTasks/ListTasks";
 
 type todolistType = {
-   id: string
+   todolistId: string
    title: string
    filter: FilterValueType
    changeTitle: (value: string) => void
@@ -21,7 +21,7 @@ type todolistType = {
 
 export const Todolist: React.FC<todolistType> = React.memo((props) => {
    const {
-      id,
+      todolistId,
       title,
       filter,
       changeTitle,
@@ -43,9 +43,9 @@ export const Todolist: React.FC<todolistType> = React.memo((props) => {
 
           <InputTodolist addValue={addTask}/>
 
-          {filterTasks()[id].length !== 0 && <ListTasks id={id} filterTasks={filterTasks()}/>}
+          {filterTasks()[todolistId].length !== 0 && <ListTasks id={todolistId} filterTasks={filterTasks()}/>}
 
-          <ListButtons id={id} filter={filter}/>
+          <ListButtons todolistId={todolistId} filter={filter}/>
        </div>
    )
 })

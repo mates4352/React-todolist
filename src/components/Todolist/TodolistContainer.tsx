@@ -13,14 +13,14 @@ import {state} from "../../bll/redux-store";
 import {changeFilterTasks} from "../../bll/task-reducers/task.thunk";
 
 type TodolistContainerType = {
-   id: string
+   todolistId: string
    title: string
    filter: FilterValueType
 };
 
 export const TodolistContainer: React.FC<TodolistContainerType> = React.memo((props) => {
        const {
-          id,
+          todolistId,
           title,
           filter,
        } = props
@@ -29,27 +29,27 @@ export const TodolistContainer: React.FC<TodolistContainerType> = React.memo((pr
        const tasks = useSelector<state, tasksType>(state => state.tasks);
 
        const changeTitle = useCallback((value: string): void => {
-          dispatch(ChangeTitle(id, value))
-       }, [dispatch, id])
+          dispatch(ChangeTitle(todolistId, value))
+       }, [dispatch, todolistId])
 
        const addTask = useCallback((value: string) => {
-          taskAPI.addTask(id, value).then((task) => dispatch(AddTask(task)))
-       }, [dispatch, id])
+          taskAPI.addTask(todolistId, value).then((task) => dispatch(AddTask(task)))
+       }, [dispatch, todolistId])
 
-       const filterTasks = useCallback(() => changeFilterTasks(tasks, id, filter), [tasks, filter, id])
+       const filterTasks = useCallback(() => changeFilterTasks(tasks, todolistId, filter), [tasks, filter, todolistId])
        const removeTodolist = () => {
-          todolistsAPI.removeTodolist(id).then(() => dispatch(RemoveTodolist(id)))
+          todolistsAPI.removeTodolist(todolistId).then(() => dispatch(RemoveTodolist(todolistId)))
        }
        const updateTodolistText = useCallback((value: string) => {
-          todolistsAPI.updateTodolist(id, value)
-       }, [id])
+          todolistsAPI.updateTodolist(todolistId, value)
+       }, [todolistId])
 
        useEffect(() => {
-          taskAPI.getTasks(id).then((tasks) => dispatch(SetTasks(id, tasks)))
+          taskAPI.getTasks(todolistId).then((tasks) => dispatch(SetTasks(todolistId, tasks)))
        }, [])
 
        return <Todolist
-           id={id}
+           todolistId={todolistId}
            title={title}
            filter={filter}
            changeTitle={changeTitle}

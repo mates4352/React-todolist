@@ -1,5 +1,5 @@
 import {
-   tasksReducer, tasksType, taskType,
+   tasksReducer, tasksType,
 } from "../tasks-reducer";
 import {todolistId1} from "../../todolist-reducers/todolist-reducer";
 import {
