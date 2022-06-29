@@ -4,16 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73dbb8af-6c8b-4dfc-b67e-6eac559deeaa" name="Changes" comment="Refactoring test for todolists and tasks">
+    <list default="true" id="73dbb8af-6c8b-4dfc-b67e-6eac559deeaa" name="Changes" comment="Refactoring type task, todolist">
+      <change afterPath="$PROJECT_DIR$/src/bll/task-reducers/task-thunk.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bll/todolist-reducers/todolist-thunk.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/instance.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/instance.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/taskAPI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/taskAPI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/localStorage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/localStorage.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/redux-store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/redux-store.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bll/task-reducers/task-create-actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/task-reducers/task-create-actions.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bll/task-reducers/task-reducers-test/task-reducers.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/task-reducers/task-reducers-test/task-reducers.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ListButtons/ListButtons.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ListButtons/ListButtons.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/task-reducers/task.thunk.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Task/TaskContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/TaskContainer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Todolist/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Todolist/Todolist.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Todolist/TodolistContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Todolist/TodolistContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +170,8 @@
       <workItem from="1654619785239" duration="9409000" />
       <workItem from="1654669028495" duration="2281000" />
       <workItem from="1654686256002" duration="24618000" />
-      <workItem from="1656441203129" duration="2356000" />
+      <workItem from="1656441203129" duration="6121000" />
+      <workItem from="1656487559399" duration="10528000" />
     </task>
     <task id="LOCAL-00001" summary="Add component ListTasks, ListButtons, task">
       <created>1651260955080</created>
@@ -265,7 +271,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654716659150</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Refactoring type task, todolist">
+      <created>1656444030519</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1656444030519</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,6 +311,7 @@
     <MESSAGE value="Add api updateText for task" />
     <MESSAGE value="Refactoring todolist" />
     <MESSAGE value="Refactoring test for todolists and tasks" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring test for todolists and tasks" />
+    <MESSAGE value="Refactoring type task, todolist" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring type task, todolist" />
   </component>
 </project>

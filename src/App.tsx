@@ -1,27 +1,24 @@
-import React, {useCallback, useEffect, useMemo} from 'react';
+import React, {useCallback, useEffect} from 'react';
 import {InputTodolist} from "./components/InputTodolist/InputTodolist";
 import './App.scss';
 import {todolistType} from "./bll/todolist-reducers/todolist-reducer";
-import {useDispatch, useSelector} from "react-redux";
-import {state} from "./bll/redux-store";
+import {useAppDispatch, useAppSelector} from "./bll/redux-store";
 import {AddTodolist, SetTodolists} from "./bll/todolist-reducers/todolist-create-actions";
 import {TodolistContainer} from "./components/Todolist/TodolistContainer";
 import {todolistsAPI} from "./api/todolistsAPI";
+import {addTodolist, getTodolits} from "./bll/todolist-reducers/todolist-thunk";
 
 const App = () => {
-   const dispatch = useDispatch()
-   const todolist = useSelector<state, Array<todolistType>>(state => state.todolist)
+   const dispatch = useAppDispatch()
+   const todolist = useAppSelector<Array<todolistType>>(state => state.todolist)
 
    const addValue = useCallback((value: string) => {
-      todolistsAPI.addTodolist(value).then((todolist) => dispatch(AddTodolist(todolist)))
+      dispatch(addTodolist(value))
    }, [dispatch])
 
    useEffect(() => {
-      todolistsAPI.getTodolists().then((data) => {
-         dispatch(SetTodolists(data))
-      })
+      dispatch(getTodolits())
    }, [])
-
 
    return (
        <div className='app'>

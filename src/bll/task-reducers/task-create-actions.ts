@@ -25,11 +25,6 @@ export const ChangeTaskText = (task: taskType, title: string) => {
    return {type: Actions_Type.CHANGE_TASK_TEXT, todolistId, taskId, title} as const
 }
 
-type SetTasksType = ReturnType<typeof SetTasks>
-type AddTaskType = ReturnType<typeof AddTask>
-type DeleteTaskType = ReturnType<typeof DeleteTask>
-type ChangeTaskStatusType = ReturnType<typeof ChangeTaskStatus>
-type ChangeTaskTextType = ReturnType<typeof ChangeTaskText>
 export type tasksActionType =
     SetTasksType
     | AddTaskType
@@ -38,3 +33,9 @@ export type tasksActionType =
     | ChangeTaskTextType
     | AddTodolistType
     | RemoveTodolistType
+type SetTasksType = ReturnType<typeof SetTasks>
+type AddTaskType = ReturnType<typeof AddTask>
+type DeleteTaskType = ReturnType<typeof DeleteTask>
+type ChangeTaskStatusType = ReturnType<typeof ChangeTaskStatus>
+type ChangeTaskTextType = ReturnType<typeof ChangeTaskText>
+

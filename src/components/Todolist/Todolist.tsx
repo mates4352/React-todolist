@@ -43,7 +43,7 @@ export const Todolist: React.FC<todolistType> = React.memo((props) => {
 
           <InputTodolist addValue={addTask}/>
 
-          {filterTasks()[todolistId].length !== 0 && <ListTasks id={todolistId} filterTasks={filterTasks()}/>}
+          {filterTasks()[todolistId] && <ListTasks id={todolistId} filterTasks={filterTasks()}/>}
 
           <ListButtons todolistId={todolistId} filter={filter}/>
        </div>
