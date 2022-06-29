@@ -12,6 +12,7 @@ type inputTodolist = {
 export const InputTodolist: React.FC<inputTodolist> = React.memo(({addValue, className}) => {
    const [inputValue, setInputValue] = useState('');
    const [error, setError] = useState<string>('');
+
    const onChangeInput = useCallback((element: ChangeEvent<HTMLInputElement>): void => {
       setInputValue(element.currentTarget.value)
    }, [])

@@ -4,21 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73dbb8af-6c8b-4dfc-b67e-6eac559deeaa" name="Changes" comment="Refactoring type task, todolist">
-      <change afterPath="$PROJECT_DIR$/src/bll/task-reducers/task-thunk.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bll/todolist-reducers/todolist-thunk.ts" afterDir="false" />
+    <list default="true" id="73dbb8af-6c8b-4dfc-b67e-6eac559deeaa" name="Changes" comment="Add thunk and add type thunk, refactoring code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.storybook/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.storybook/preview.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bll/localStorage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/localStorage.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bll/redux-store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/redux-store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bll/task-reducers/task-create-actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/task-reducers/task-create-actions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bll/task-reducers/task-reducers-test/task-reducers.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/task-reducers/task-reducers-test/task-reducers.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bll/task-reducers/task.thunk.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Task/TaskContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Task/TaskContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bll/task-reducers/task-thunk.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/bll/task-reducers/task-thunk.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/InputTodolist/InputTodolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InputTodolist/InputTodolist.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ListTasks/ListTasks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ListTasks/ListTasks.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Todolist/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Todolist/Todolist.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Todolist/TodolistContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Todolist/TodolistContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +166,7 @@
       <workItem from="1654669028495" duration="2281000" />
       <workItem from="1654686256002" duration="24618000" />
       <workItem from="1656441203129" duration="6121000" />
-      <workItem from="1656487559399" duration="10528000" />
+      <workItem from="1656487559399" duration="17423000" />
     </task>
     <task id="LOCAL-00001" summary="Add component ListTasks, ListButtons, task">
       <created>1651260955080</created>
@@ -278,7 +273,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656444030519</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Add thunk and add type thunk, refactoring code">
+      <created>1656506040633</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1656506040633</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -312,6 +314,7 @@
     <MESSAGE value="Refactoring todolist" />
     <MESSAGE value="Refactoring test for todolists and tasks" />
     <MESSAGE value="Refactoring type task, todolist" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring type task, todolist" />
+    <MESSAGE value="Add thunk and add type thunk, refactoring code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add thunk and add type thunk, refactoring code" />
   </component>
 </project>

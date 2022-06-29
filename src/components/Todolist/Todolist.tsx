@@ -4,7 +4,7 @@ import {InputTodolist} from "../InputTodolist/InputTodolist";
 import {EditModeText} from "../EditModeText/EditModeText";
 import {Button} from '@material-ui/core';
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
-import {FilterValueType, tasksType} from "../../bll/task-reducers/tasks-reducer";
+import {FilterValueType, tasksType, taskType} from "../../bll/task-reducers/tasks-reducer";
 import {ListButtons} from "../ListButtons/ListButtons";
 import {ListTasks} from "../ListTasks/ListTasks";
 
@@ -12,9 +12,9 @@ type todolistType = {
    todolistId: string
    title: string
    filter: FilterValueType
+   tasks: Array<taskType>
    changeTitle: (value: string) => void
    addTask: (value: string) => void
-   filterTasks: () => tasksType
    removeTodolist: () => void
    updateTodolistText: (value: string) => void
 }
@@ -24,9 +24,9 @@ export const Todolist: React.FC<todolistType> = React.memo((props) => {
       todolistId,
       title,
       filter,
+      tasks,
       changeTitle,
       addTask,
-      filterTasks,
       removeTodolist,
       updateTodolistText,
    } = props
@@ -43,7 +43,7 @@ export const Todolist: React.FC<todolistType> = React.memo((props) => {
 
           <InputTodolist addValue={addTask}/>
 
-          {filterTasks()[todolistId] && <ListTasks id={todolistId} filterTasks={filterTasks()}/>}
+          {tasks && <ListTasks tasks={tasks}/>}
 
           <ListButtons todolistId={todolistId} filter={filter}/>
        </div>

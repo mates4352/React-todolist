@@ -3,9 +3,7 @@ import {InputTodolist} from "./components/InputTodolist/InputTodolist";
 import './App.scss';
 import {todolistType} from "./bll/todolist-reducers/todolist-reducer";
 import {useAppDispatch, useAppSelector} from "./bll/redux-store";
-import {AddTodolist, SetTodolists} from "./bll/todolist-reducers/todolist-create-actions";
 import {TodolistContainer} from "./components/Todolist/TodolistContainer";
-import {todolistsAPI} from "./api/todolistsAPI";
 import {addTodolist, getTodolits} from "./bll/todolist-reducers/todolist-thunk";
 
 const App = () => {

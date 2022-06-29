@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect} from 'react';
+import React, {useCallback, useEffect, useMemo} from 'react';
 import {Todolist} from "./Todolist";
 import {FilterValueType, tasksType, taskType} from "../../bll/task-reducers/tasks-reducer";
 import {
@@ -23,7 +23,7 @@ export const TodolistContainer: React.FC<TodolistContainerType> = React.memo((pr
        } = props
        console.log('todolist', title)
        const dispatch = useAppDispatch()
-       const tasks = useAppSelector<tasksType>(state => state.tasks)
+       const tasks = useAppSelector<Array<taskType>>(state => state.tasks[todolistId])
 
        const changeTitle = useCallback((value: string): void => {
           dispatch(ChangeTitle(todolistId, value))
@@ -39,32 +39,20 @@ export const TodolistContainer: React.FC<TodolistContainerType> = React.memo((pr
 
        const updateTodolistText = useCallback((value: string) => {
           dispatch(updateTodolistTitle(todolistId, value))
-       }, [todolistId])
+       }, [dispatch, todolistId])
 
        useEffect(() => {
-          dispatch(getTasks(todolistId))
+          dispatch(getTasks(todolistId, filter))
        }, [])
 
-      const filterTasks = useCallback(() => {
-         switch (filter) {
-            case "ACTIVE":
-               return {...tasks, [todolistId]: tasks[todolistId].filter((task: taskType) => task.status === TasksStatus.Completed)}
-            case "COMPLETED":
-               return {...tasks, [todolistId]: tasks[todolistId].filter((task: taskType) => task.status === TasksStatus.New)}
-            default:
-               return tasks;
-         }
-      }, [tasks, filter, todolistId])
-
-       return <Todolist
+   return <Todolist
            todolistId={todolistId}
            title={title}
            filter={filter}
            changeTitle={changeTitle}
            addTask={addTask}
-           filterTasks={filterTasks}
+           tasks={tasks}
            removeTodolist={removeTodolist}
-           updateTodolistText={updateTodolistText}
-       />
+           updateTodolistText={updateTodolistText}/>
     }
 )

@@ -1,10 +1,24 @@
 import {taskAPI, taskApiType, TasksStatus} from "../../api/taskAPI";
 import {AddTask, ChangeTaskStatus, ChangeTaskText, DeleteTask, SetTasks} from "./task-create-actions";
 import {AppThunk} from "../redux-store";
+import {FilterValueType, taskType} from "./tasks-reducer";
+import {useCallback} from "react";
 
-export const getTasks = (todolistId: string): AppThunk => async dispatch => {
+export const getTasks = (todolistId: string, filter: FilterValueType): AppThunk => async dispatch => {
   const tasks = await taskAPI.getTasks(todolistId)
-  dispatch(SetTasks(todolistId, tasks))
+  const filterTasks = () => {
+    switch (filter) {
+      case "ACTIVE":
+        return tasks.filter((task: taskType) => task.status === TasksStatus.Completed)
+
+      case "COMPLETED":
+        return tasks.filter((task: taskType) => task.status === TasksStatus.New)
+
+      default:
+        return tasks;
+    }
+  }
+  dispatch(SetTasks(todolistId, filterTasks()))
 }
 
 export const setTask = (todolistId: string, value: string): AppThunk => async dispatch => {
