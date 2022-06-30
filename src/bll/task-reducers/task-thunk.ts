@@ -1,11 +1,11 @@
 import {taskAPI, taskApiType, TasksStatus} from "../../api/taskAPI";
-import {AddTask, ChangeTaskStatus, ChangeTaskText, DeleteTask, SetTasks} from "./task-create-actions";
+import {AddTask, ChangeTaskStatus, ChangeTaskText, DeleteTask, SetTasks} from "./task-create-actions/task-create-actions";
 import {AppThunk} from "../redux-store";
 import {FilterValueType, taskType} from "./tasks-reducer";
-import {useCallback} from "react";
 
 export const getTasks = (todolistId: string, filter: FilterValueType): AppThunk => async dispatch => {
   const tasks = await taskAPI.getTasks(todolistId)
+
   const filterTasks = () => {
     switch (filter) {
       case "ACTIVE":
@@ -18,6 +18,7 @@ export const getTasks = (todolistId: string, filter: FilterValueType): AppThunk 
         return tasks;
     }
   }
+
   dispatch(SetTasks(todolistId, filterTasks()))
 }
 

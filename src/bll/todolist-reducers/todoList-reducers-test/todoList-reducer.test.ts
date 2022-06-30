@@ -1,12 +1,12 @@
 import {
-  todolistReducer, todolistType
-} from "../todolist-reducer";
+  todoListReducer, todolistType
+} from "../todoList-reducer";
 import {
   AddTodolist,
   ChangeFilter,
   ChangeTitle,
   RemoveTodolist, SetTodolists
-} from "../todolist-create-actions";
+} from "../todoList-create-actions/todoList-create-actions";
 import {FilterValueType} from "../../task-reducers/tasks-reducer";
 
 let startState: Array<todolistType> = []
@@ -18,18 +18,18 @@ beforeEach(() => {
   ]
 })
 
-test('Test todolistReducer case SET_TODOLISTS', () => {
+test('Test todoListReducer case SET_TODOLISTS', () => {
   const action =  SetTodolists(startState);
-  const endState = todolistReducer(startState, action)
+  const endState = todoListReducer(startState, action)
 
   expect(startState).toEqual(startState)
   expect(endState.length).toBe(2);
 });
 
-test('Test todolistReducer case ADD_TODOLIST', () => {
+test('Test todoListReducer case ADD_TODOLIST', () => {
   let newTodolistTitle = {id: 'todolistId3', title: "What to learn", addedDate: '', order: 0};
   const action =  AddTodolist(newTodolistTitle);
-  const endState = todolistReducer(startState, action)
+  const endState = todoListReducer(startState, action)
 
   expect(startState).toEqual(startState)
   expect(endState[2].id).toBe('todolistId3');
@@ -40,9 +40,9 @@ test('Test todolistReducer case ADD_TODOLIST', () => {
   expect(endState.length).toBe(3);
 });
 
-test('Test todolistReducer case REMOVE_TODOLIST', () => {
+test('Test todoListReducer case REMOVE_TODOLIST', () => {
   const action = RemoveTodolist('todolistId1');
-  const endState = todolistReducer(startState, action)
+  const endState = todoListReducer(startState, action)
 
   expect(startState).toEqual(startState)
   expect(endState.length).toBe(1);
@@ -50,10 +50,10 @@ test('Test todolistReducer case REMOVE_TODOLIST', () => {
   expect(endState[1]).toBeUndefined()
 });
 
-test('Test todolistReducer case CHANGE_FILTER', () => {
+test('Test todoListReducer case CHANGE_FILTER', () => {
   let newFilter: FilterValueType = "COMPLETED";
   const action =  ChangeFilter('todolistId2', newFilter);
-  const endState = todolistReducer(startState, action);
+  const endState = todoListReducer(startState, action);
 
   expect(startState).toEqual(startState)
   expect(endState[0].filter).toBe("ALL");
@@ -64,10 +64,10 @@ test('Test todolistReducer case CHANGE_FILTER', () => {
   expect(endState[1].filter).toBe(newFilter);
 });
 
-test('Test todolistReducer case CHANGE_TITLE', () => {
+test('Test todoListReducer case CHANGE_TITLE', () => {
   let newTodolistTitle = "New Todolist";
   const action = ChangeTitle('todolistId2', newTodolistTitle);
-  const endState = todolistReducer(startState, action);
+  const endState = todoListReducer(startState, action);
 
   expect(startState).toEqual(startState)
   expect(endState[0].title).toBe("What to learn");

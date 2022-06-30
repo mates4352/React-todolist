@@ -1,6 +1,6 @@
 import {AppThunk} from "../redux-store";
 import {todolistsAPI} from "../../api/todolistsAPI";
-import {AddTodolist, RemoveTodolist, SetTodolists} from "./todolist-create-actions";
+import {AddTodolist, RemoveTodolist, SetTodolists} from "./todoList-create-actions/todoList-create-actions";
 
 export const addTodolist = (value: string): AppThunk => async dispatch => {
    const todolist = await todolistsAPI.addTodolist(value)

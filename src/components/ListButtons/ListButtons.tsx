@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './ListButtons.module.scss';
 import {Button} from "@material-ui/core";
-import {ChangeFilter} from "../../bll/todolist-reducers/todolist-create-actions";
+import {ChangeFilter} from "../../bll/todolist-reducers/todoList-create-actions/todoList-create-actions";
 import {useDispatch} from "react-redux";
 import {FilterValueType} from "../../bll/task-reducers/tasks-reducer";
 

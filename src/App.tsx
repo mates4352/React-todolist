@@ -1,10 +1,10 @@
 import React, {useCallback, useEffect} from 'react';
 import {InputTodolist} from "./components/InputTodolist/InputTodolist";
 import './App.scss';
-import {todolistType} from "./bll/todolist-reducers/todolist-reducer";
+import {todolistType} from "./bll/todolist-reducers/todoList-reducer";
 import {useAppDispatch, useAppSelector} from "./bll/redux-store";
 import {TodolistContainer} from "./components/Todolist/TodolistContainer";
-import {addTodolist, getTodolits} from "./bll/todolist-reducers/todolist-thunk";
+import {addTodolist, getTodolits} from "./bll/todolist-reducers/todoList-thunk";
 
 const App = () => {
    const dispatch = useAppDispatch()
@@ -16,7 +16,7 @@ const App = () => {
 
    useEffect(() => {
       dispatch(getTodolits())
-   }, [])
+   }, [dispatch])
 
    return (
        <div className='app'>

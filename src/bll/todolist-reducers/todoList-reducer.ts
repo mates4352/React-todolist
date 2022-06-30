@@ -1,21 +1,21 @@
 import {v1} from "uuid";
-import {todolistActionType} from "./todolist-create-actions";
 import {FilterValueType} from "../task-reducers/tasks-reducer";
 import {Actions_Type} from "../actions-type";
 import {todolistApiType} from "../../api/todolistsAPI";
+import {todolistActionType} from "./todoList-create-actions/todoList-create-actions-type";
 
 export const todolistId1 = v1();
 export const todolistId2 = v1();
 
 let initialState: Array<todolistType> = []
 
-export const todolistReducer = (state: Array<todolistType> = initialState, action: todolistActionType): Array<todolistType> => {
+export const todoListReducer = (state: Array<todolistType> = initialState, action: todolistActionType): Array<todolistType> => {
     switch (action.type) {
       case Actions_Type.SET_TODOLISTS:
         return action.todolists.map((todolist) => ({...todolist, filter: 'ALL'}))
 
       case Actions_Type.ADD_TODOLIST:
-        const newTodolist: todolistType = {id: action.todolistId, title: action.title, addedDate: '', order: 0, filter: "ALL"};
+        const newTodolist: todolistType = {id: action.todoListId, title: action.title, addedDate: '', order: 0, filter: "ALL"};
         return [...state, newTodolist]
 
       case Actions_Type.REMOVE_TODOLIST:

@@ -3,11 +3,10 @@ import {Todolist} from "./Todolist";
 import {FilterValueType, tasksType, taskType} from "../../bll/task-reducers/tasks-reducer";
 import {
    ChangeTitle,
-} from "../../bll/todolist-reducers/todolist-create-actions";
+} from "../../bll/todolist-reducers/todoList-create-actions/todoList-create-actions";
 import {useAppDispatch, useAppSelector} from "../../bll/redux-store";
 import {getTasks, setTask} from "../../bll/task-reducers/task-thunk";
-import {TasksStatus} from "../../api/taskAPI";
-import {deleteTodolist, updateTodolistTitle} from "../../bll/todolist-reducers/todolist-thunk";
+import {deleteTodolist, updateTodolistTitle} from "../../bll/todolist-reducers/todoList-thunk";
 
 type TodolistContainerType = {
    todolistId: string
@@ -43,7 +42,7 @@ export const TodolistContainer: React.FC<TodolistContainerType> = React.memo((pr
 
        useEffect(() => {
           dispatch(getTasks(todolistId, filter))
-       }, [])
+       }, [dispatch, filter, todolistId])
 
    return <Todolist
            todolistId={todolistId}

@@ -1,12 +1,12 @@
 import {
    tasksReducer, tasksType,
 } from "../tasks-reducer";
-import {todolistId1} from "../../todolist-reducers/todolist-reducer";
+import {todolistId1} from "../../todolist-reducers/todoList-reducer";
 import {
    AddTask,
    ChangeTaskStatus,
    ChangeTaskText, DeleteTask, SetTasks
-} from "../task-create-actions";
+} from "../task-create-actions/task-create-actions";
 import {taskApiType, TasksPriorities, TasksStatus} from "../../../api/taskAPI";
 
 let state: tasksType = {}
