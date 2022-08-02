@@ -91,8 +91,8 @@ beforeEach(() => {
 
 test('ids should be equals', () => {
   const stateTodolist: Array<todolistType> = [
-    {id: 'todolistId1', title: "What to learn", addedDate: '', order: 0, filter: "ALL"},
-    {id: 'todolistId2', title: "What to buy", addedDate: '', order: 0, filter: "ALL"}
+    {id: 'todolistId1', title: "What to learn", addedDate: '', order: 0, filter: "ALL", entityStatus: 'succeeded'},
+    {id: 'todolistId2', title: "What to buy", addedDate: '', order: 0, filter: "ALL", entityStatus: 'succeeded'}
   ]
 
   const action = AddTodolist({id: 'todolistId3', title: "What to learn", addedDate: '', order: 0})

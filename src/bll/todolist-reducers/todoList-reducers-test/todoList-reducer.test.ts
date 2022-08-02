@@ -13,8 +13,8 @@ let startState: Array<todolistType> = []
 
 beforeEach(() => {
   startState = [
-    {id: 'todolistId1', title: "What to learn", addedDate: '', order: 0, filter: "ALL"},
-    {id: 'todolistId2', title: "What to buy", addedDate: '', order: 0, filter: "ALL"}
+    {id: 'todolistId1', title: "What to learn", addedDate: '', order: 0, filter: "ALL", entityStatus: "idle"},
+    {id: 'todolistId2', title: "What to buy", addedDate: '', order: 0, filter: "ALL", entityStatus: "idle"}
   ]
 })
 

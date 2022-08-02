@@ -7,11 +7,13 @@ import {
 import {useAppDispatch, useAppSelector} from "../../bll/redux-store";
 import {getTasks, setTask} from "../../bll/task-reducers/task-thunk";
 import {deleteTodolist, updateTodolistTitle} from "../../bll/todolist-reducers/todoList-thunk";
+import {appStatusType} from "../../bll/app-reducers/app-reduer";
 
 type TodolistContainerType = {
    todolistId: string
    title: string
    filter: FilterValueType
+   entityStatus: appStatusType
 };
 
 export const TodolistContainer: React.FC<TodolistContainerType> = React.memo((props) => {
@@ -19,6 +21,7 @@ export const TodolistContainer: React.FC<TodolistContainerType> = React.memo((pr
           todolistId,
           title,
           filter,
+          entityStatus,
        } = props
        console.log('todolist', title)
        const dispatch = useAppDispatch()
@@ -48,6 +51,7 @@ export const TodolistContainer: React.FC<TodolistContainerType> = React.memo((pr
            todolistId={todolistId}
            title={title}
            filter={filter}
+           entityStatus={entityStatus}
            changeTitle={changeTitle}
            addTask={addTask}
            tasks={tasks}

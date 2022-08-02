@@ -3,13 +3,15 @@ import React, {KeyboardEvent, useCallback} from 'react';
 import {ChangeEvent, useState} from "react";
 import s from './InputTodolist.module.scss';
 import ControlPointIcon from '@material-ui/icons/ControlPoint';
+import {appStatusType} from "../../bll/app-reducers/app-reduer";
 
 type inputTodolist = {
    addValue: (value: string) => void
+   entityStatus?: appStatusType
    className?: any
 }
 
-export const InputTodolist: React.FC<inputTodolist> = React.memo(({addValue, className}) => {
+export const InputTodolist: React.FC<inputTodolist> = React.memo(({addValue, className, entityStatus}) => {
    const [inputValue, setInputValue] = useState('');
    const [error, setError] = useState<string>('');
 
@@ -45,12 +47,13 @@ export const InputTodolist: React.FC<inputTodolist> = React.memo(({addValue, cla
                  id="outlined-basic"
                  label="Set task"
                  variant="outlined"
+                 disabled={entityStatus === 'loading'}
                  value={inputValue}
                  onChange={onChangeInput}
                  onKeyUp={onKeyUpInput}/>
 
              <Button className={s.button} variant="contained" color="secondary"
-                     onClick={onClinkButton}><ControlPointIcon/></Button>
+                     onClick={onClinkButton} disabled={entityStatus === 'loading'}><ControlPointIcon/></Button>
           </div>
           <small className={s.error}>{error}</small>
        </div>

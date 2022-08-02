@@ -21,7 +21,7 @@ export const taskAPI = {
    },
 
    addTask(todolistId: string, title: string) {
-      return instance.post<tasksPutApiType>(`todo-lists/${todolistId}/tasks`, {title}).then(result => result.data.data.item)
+      return instance.post<tasksPutApiType>(`todo-lists/${todolistId}/tasks`, {title}).then(result => result.data)
    },
 
    updateTaskStatus(task: taskApiType) {
@@ -42,7 +42,7 @@ export const taskAPI = {
       }
 
       return instance.put<tasksPutApiType>(`todo-lists/${todolistId}/tasks/${taskId}`, {...task, status: status()})
-          .then((result) => result.data.data.item)
+          .then((result) => result.data)
    },
 
    updateText(task: taskApiType, title: string) {
@@ -50,7 +50,7 @@ export const taskAPI = {
       const taskId: string = task.id;
 
       return instance.put<tasksPutApiType>(`todo-lists/${todolistId}/tasks/${taskId}`, {...task, title: title})
-          .then((result) => result.data.data.item)
+          .then((result) => result.data)
    },
 
    deleteTask(task: taskApiType) {
@@ -60,7 +60,7 @@ export const taskAPI = {
    }
 }
 
-type tasksApiType<T> = {
+export type tasksApiType<T> = {
    error: string
    items: T
    totalCount: number
@@ -79,11 +79,11 @@ export type taskApiType = {
    addedDate: string
 }
 
-type tasksPutApiType = {
+export type tasksPutApiType = {
    data: {
       item: taskApiType
    }
    fieldsErrors: []
-   messages: []
+   messages: Array<string>
    resultCode: number
 }

@@ -1,6 +1,7 @@
 import {FilterValueType} from "../../task-reducers/tasks-reducer";
 import {Actions_Type} from "../../actions-type";
 import {todolistApiType} from "../../../api/todolistsAPI";
+import {appStatusType} from "../../app-reducers/app-reduer";
 
 export const SetTodolists = (todolists: Array<todolistApiType>) => {
   return {type: Actions_Type.SET_TODOLISTS, todolists} as const
@@ -22,4 +23,9 @@ export const ChangeFilter = (todolistId: string, filter: FilterValueType) => {
 export const ChangeTitle = (todolistId: string, title: string) => {
   return {type: Actions_Type.CHANGE_TODOLIST_TITLE, todolistId, title} as const
 }
+
+export const ChangeEntityStatus = (todolistId: string, status: appStatusType) => {
+  return {type: Actions_Type.CHANGE_ENTITY_STATUS, todolistId, status} as const
+}
+
 

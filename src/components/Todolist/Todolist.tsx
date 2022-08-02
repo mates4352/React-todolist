@@ -7,11 +7,13 @@ import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 import {FilterValueType, tasksType, taskType} from "../../bll/task-reducers/tasks-reducer";
 import {ListButtons} from "../ListButtons/ListButtons";
 import {ListTasks} from "../ListTasks/ListTasks";
+import {appStatusType} from "../../bll/app-reducers/app-reduer";
 
 type todolistType = {
    todolistId: string
    title: string
    filter: FilterValueType
+   entityStatus: appStatusType
    tasks: Array<taskType>
    changeTitle: (value: string) => void
    addTask: (value: string) => void
@@ -24,6 +26,7 @@ export const Todolist: React.FC<todolistType> = React.memo((props) => {
       todolistId,
       title,
       filter,
+      entityStatus,
       tasks,
       changeTitle,
       addTask,
@@ -34,14 +37,19 @@ export const Todolist: React.FC<todolistType> = React.memo((props) => {
    return (
        <div className={s.todolist}>
 
-          <Button className={s.buttonDelete} aria-label="Button delete"
-                  onClick={removeTodolist}>
+          <Button
+              className={s.buttonDelete}
+              disabled={entityStatus === 'loading'}
+              aria-label="Button delete"
+              onClick={removeTodolist}
+          >
              <DeleteOutlineIcon fontSize="large"/>
           </Button>
 
-          <h1 className={s.title}><EditModeText text={title} updateText={updateTodolistText} changeValue={changeTitle}/></h1>
+          <h1 className={s.title}><EditModeText text={title} updateText={updateTodolistText} changeValue={changeTitle}/>
+          </h1>
 
-          <InputTodolist addValue={addTask}/>
+          <InputTodolist addValue={addTask} entityStatus={entityStatus}/>
 
           {tasks && <ListTasks tasks={tasks}/>}
 
