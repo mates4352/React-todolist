@@ -1,0 +1,36 @@
+.login {
+   display: flex;
+   min-height: calc(100vh - 53px);
+   max-width: 1200px;
+   margin: 0 auto;
+}
+
+.form {
+   display: grid;
+   grid-auto-rows: minmax(min-content, max-content);
+   justify-items: center;
+   row-gap: 10px;
+   margin: auto;
+   max-width: 360px;
+   width: 100%;
+}
+
+.title {
+   margin-bottom: 10px;
+   font-size: 30px;
+   font-weight: 700;
+   text-transform: uppercase;
+   color: #000065;
+}
+
+.formControl {
+   width: 100%;
+   align-self: start;
+}
+
+.button {
+   margin-top: 20px;
+   width: 100%;
+}
+
+

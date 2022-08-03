@@ -41,3 +41,19 @@ ul {
    max-width: 310px;
    margin: 0 auto;
 }
+
+.link {
+   display: flex;
+   justify-content: center;
+   padding-top: 20px;
+
+   font-size: 25px;
+   font-weight: 500;
+   text-decoration: none;
+   text-transform: uppercase;
+   transition: color 500ms ease;
+
+   &:hover {
+      color: tomato;
+   }
+}

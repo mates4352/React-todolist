@@ -6,6 +6,8 @@ import {TodolistContainer} from "./components/Todolist/TodolistContainer";
 import {addTodolist, getTodolits} from "./bll/todolist-reducers/todoList-thunk";
 import {LinearProgress} from '@material-ui/core';
 import {ErrorSnackbar} from "./components/ErrorSnackbar/ErrorSnackbar";
+import {Routes, Route, Navigate, NavLink} from 'react-router-dom';
+import {Login} from "./components/Login/Login";
 
 const App = () => {
    const dispatch = useAppDispatch()
@@ -23,24 +25,35 @@ const App = () => {
        <>
           {app.status === 'loading' && <LinearProgress/>}
 
-          <div className='app'>
-             <ErrorSnackbar/>
-             <InputTodolist addValue={addValue} className='inputTodolist__size'/>
 
-             <div className='app_todolists'>
-                {todolist.map(todo => {
-                   const [todolistId, title, filter] = [todo.id, todo.title, todo.filter]
-                   return (
-                       <TodolistContainer
-                           key={todolistId}
-                           todolistId={todolistId}
-                           entityStatus={todo.entityStatus}
-                           title={title}
-                           filter={filter}/>
-                   )
-                })}
-             </div>
-          </div>
+          <NavLink className={({isActive}) => isActive ? 'link link-active' : 'link'} to={'login'}>login</NavLink>
+
+          <Routes>
+             <Route path={'/'} element={<Navigate to={'/main'}/>}/>
+             <Route path={'/*'} element={<Navigate to={'/main'}/>}/>
+             <Route path={'/main'} element={
+                <div className='app'>
+                   <ErrorSnackbar/>
+                   <InputTodolist addValue={addValue} className='inputTodolist__size'/>
+
+                   <div className='app_todolists'>
+                      {todolist.map(todo => {
+                         const [todolistId, title, filter] = [todo.id, todo.title, todo.filter]
+                         return (
+                             <TodolistContainer
+                                 key={todolistId}
+                                 todolistId={todolistId}
+                                 entityStatus={todo.entityStatus}
+                                 title={title}
+                                 filter={filter}/>
+                         )
+                      })}
+                   </div>
+                </div>
+             }/>
+             <Route path={'/login'} element={<Login/>}/>
+             <Route path={'/login/*'} element={<Navigate to={'/login'}/>}/>
+          </Routes>
        </>
 
    )
