@@ -1,4 +1,5 @@
 import {appStoreType} from "./redux-store";
+import {authReducerType} from "./auth/auth-reducer";
 
 export const loadState = () => {
    try {
@@ -10,7 +11,7 @@ export const loadState = () => {
    }
 };
 
-export const saveState = (state: appStoreType) => {
+export const saveState = (state: appStoreType |  authReducerType) => {
    try {
       const serializedState = JSON.stringify(state);
       localStorage.setItem('state', serializedState);

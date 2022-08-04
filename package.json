@@ -19,6 +19,7 @@
     "@types/react-router-dom": "^5.3.3",
     "@types/uuid": "^8.3.4",
     "axios": "^0.27.2",
+    "formik": "^2.2.9",
     "gh-pages": "^4.0.0",
     "node-sass": "^7.0.1",
     "react": "^17.0.2",

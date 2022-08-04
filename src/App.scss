@@ -42,16 +42,20 @@ ul {
    margin: 0 auto;
 }
 
-.link {
-   display: flex;
-   justify-content: center;
-   padding-top: 20px;
+.button {
+   display: block;
+   margin: 0 auto;
+   padding: 20px;
 
    font-size: 25px;
    font-weight: 500;
    text-decoration: none;
    text-transform: uppercase;
+
+   border: none;
+   background-color: transparent;
    transition: color 500ms ease;
+   cursor: pointer;
 
    &:hover {
       color: tomato;

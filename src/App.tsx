@@ -8,32 +8,40 @@ import {LinearProgress} from '@material-ui/core';
 import {ErrorSnackbar} from "./components/ErrorSnackbar/ErrorSnackbar";
 import {Routes, Route, Navigate, NavLink} from 'react-router-dom';
 import {Login} from "./components/Login/Login";
+import {deleteLogin, isMe} from "./bll/auth/auth-thunk";
 
 const App = () => {
    const dispatch = useAppDispatch()
-   const {todolist, app} = useAppSelector<appStoreType>(state => state)
+   const {todolist, app, auth} = useAppSelector<appStoreType>(state => state)
 
    const addValue = useCallback((value: string) => {
       dispatch(addTodolist(value))
    }, [dispatch])
 
+   const endPage = () => {
+      dispatch(deleteLogin())
+   }
+
    useEffect(() => {
-      dispatch(getTodolits())
-   }, [dispatch])
+      dispatch(isMe())
+   }, [auth.isLoggedIn, dispatch])
 
    return (
        <>
           {app.status === 'loading' && <LinearProgress/>}
-
-
-          <NavLink className={({isActive}) => isActive ? 'link link-active' : 'link'} to={'login'}>login</NavLink>
+          <ErrorSnackbar/>
 
           <Routes>
              <Route path={'/'} element={<Navigate to={'/main'}/>}/>
              <Route path={'/*'} element={<Navigate to={'/main'}/>}/>
-             <Route path={'/main'} element={
+             <Route path={'/main'} element={!auth.isLoggedIn ? <Navigate to={'/login'}/> :
                 <div className='app'>
-                   <ErrorSnackbar/>
+                   <button
+                       className={'button'}
+                       onClick={endPage}>
+                      END
+                   </button>
+
                    <InputTodolist addValue={addValue} className='inputTodolist__size'/>
 
                    <div className='app_todolists'>
@@ -51,7 +59,7 @@ const App = () => {
                    </div>
                 </div>
              }/>
-             <Route path={'/login'} element={<Login/>}/>
+             <Route path={'/login'} element={auth.isLoggedIn ? <Navigate to={'/main'}/> : <Login/>}/>
              <Route path={'/login/*'} element={<Navigate to={'/login'}/>}/>
           </Routes>
        </>

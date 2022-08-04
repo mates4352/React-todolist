@@ -1,8 +1,8 @@
 import {setAppError, setAppStatus} from "../bll/app-reducers/app-create-actions/app-create-actions";
 import {AppDispatch} from "../bll/redux-store";
-import {tasksPutApiType} from "../api/taskAPI";
+import {responseApiType} from "../api/authAPI";
 
-export const handleServerAppError = (data: tasksPutApiType, dispatch: AppDispatch) => {
+export const handleServerAppError = <T>(data: responseApiType<T>, dispatch: AppDispatch) => {
    if (data.messages.length) {
       dispatch(setAppError(data.messages[0]))
    } else {
@@ -10,7 +10,7 @@ export const handleServerAppError = (data: tasksPutApiType, dispatch: AppDispatc
    }
    dispatch(setAppStatus('succeeded'))
 }
-export const handleServerNetworkError = (data: tasksPutApiType, dispatch: AppDispatch) => {
+export const handleServerNetworkError = <T>(data: responseApiType<T>, dispatch: AppDispatch) => {
    dispatch(setAppStatus('failed'))
    dispatch(setAppError(data.messages[0]))
 }

@@ -1,4 +1,5 @@
 import {instance} from "./instance";
+import {responseApiType} from "./authAPI";
 
 export enum TasksStatus {
    New = 0,
@@ -21,7 +22,7 @@ export const taskAPI = {
    },
 
    addTask(todolistId: string, title: string) {
-      return instance.post<tasksPutApiType>(`todo-lists/${todolistId}/tasks`, {title}).then(result => result.data)
+      return instance.post<responseApiType<{item: taskApiType}>>(`todo-lists/${todolistId}/tasks`, {title}).then(result => result.data)
    },
 
    updateTaskStatus(task: taskApiType) {
@@ -41,7 +42,7 @@ export const taskAPI = {
          }
       }
 
-      return instance.put<tasksPutApiType>(`todo-lists/${todolistId}/tasks/${taskId}`, {...task, status: status()})
+      return instance.put<responseApiType<{item: taskApiType}>>(`todo-lists/${todolistId}/tasks/${taskId}`, {...task, status: status()})
           .then((result) => result.data)
    },
 
@@ -49,14 +50,14 @@ export const taskAPI = {
       const todolistId: string = task.todoListId;
       const taskId: string = task.id;
 
-      return instance.put<tasksPutApiType>(`todo-lists/${todolistId}/tasks/${taskId}`, {...task, title: title})
+      return instance.put<responseApiType<{item: taskApiType}>>(`todo-lists/${todolistId}/tasks/${taskId}`, {...task, title: title})
           .then((result) => result.data)
    },
 
    deleteTask(task: taskApiType) {
       const todolistId: string = task.todoListId;
       const taskId: string = task.id;
-      return instance.delete<tasksPutApiType>(`todo-lists/${todolistId}/tasks/${taskId}`)
+      return instance.delete<responseApiType<{item: taskApiType}>>(`todo-lists/${todolistId}/tasks/${taskId}`)
    }
 }
 
@@ -77,13 +78,4 @@ export type taskApiType = {
    todoListId: string
    order: number
    addedDate: string
-}
-
-export type tasksPutApiType = {
-   data: {
-      item: taskApiType
-   }
-   fieldsErrors: []
-   messages: Array<string>
-   resultCode: number
 }

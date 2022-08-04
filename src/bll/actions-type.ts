@@ -15,4 +15,6 @@ export enum Actions_Type {
    SET_APP = 'SET-APP',
    SET_ERROR = 'SET-ERROR',
    CLEAR_ERROR = 'CLEAR-ERROR',
+
+   CHANGE_LOGGED = 'CHANGE-LOGGED'
 }
